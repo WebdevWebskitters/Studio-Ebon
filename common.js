@@ -329,7 +329,7 @@
                             start: "top bottom",
                             end: "bottom bottom",
                             scrub: false,
-                            scroller: pageContainer,
+                             scroller: isDekstop ? pageContainer : window,
                         },
                     })
                     t1
@@ -402,7 +402,7 @@
                 animation: tl,
                 scrub: 1.1,
                 //   invalidateOnRefresh: true,
-                scroller: pageContainer,
+                 scroller: isDekstop ? pageContainer : window,
                 // markers: true,
             });
 
@@ -413,7 +413,7 @@
                 pin: true,
                 scrub: 1.1,
                 //   invalidateOnRefresh: true,
-                scroller: pageContainer,
+                 scroller: isDekstop ? pageContainer : window,
                 // markers: true,
             });
 
@@ -433,7 +433,7 @@
                                 end: "bottom 50%",
                                 scrub: 1.2,
                                 transformOrigin: "top top",
-                                scroller: pageContainer,
+                                 scroller: isDekstop ? pageContainer : window,
                             },
                             yPercent: 0,
                         })
@@ -455,7 +455,7 @@
                             end: `+=${window.innerHeight}`,
                             scrub: 0.5,
                             //transformOrigin: "top top",
-                            scroller: pageContainer,
+                             scroller: isDekstop ? pageContainer : window,
                         },
                     })
                 })
