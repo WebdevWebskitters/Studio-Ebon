@@ -474,7 +474,7 @@
 
             let brandBox = document.querySelectorAll('.brnd_lnk_box');
 
-            let cursorXx = document.querySelector('.custom_cursor');
+            let cursorXx = document.querySelector('.custom_cursor_alt');
             let cursorBttnAlt = document.querySelector('.custom_arrw_bttn_alt');
             brandBox.forEach((el, i) => {
                 function mouseFunction(e) {
