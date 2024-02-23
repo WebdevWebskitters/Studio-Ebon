@@ -431,7 +431,7 @@
                                 trigger: ele,
                                 start: "top top",
                                 end: "bottom 50%",
-                                scrub: 2,
+                                scrub: 1.2,
                                 transformOrigin: "top top",
                                 scroller: pageContainer,
                             },
