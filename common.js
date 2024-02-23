@@ -404,7 +404,6 @@
                 scrub: 1.1,
                 //   invalidateOnRefresh: true,
                  scroller: isDekstop ? pageContainer : window,
-                // markers: true,
             });
 
             ScrollTrigger.create({
@@ -415,7 +414,6 @@
                 scrub: 1.1,
                 //   invalidateOnRefresh: true,
                  scroller: isDekstop ? pageContainer : window,
-                // markers: true,
             });
 
             //Footer Animation
