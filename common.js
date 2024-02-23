@@ -153,7 +153,7 @@
 
                             enableScroll();
                             locoScroll.start();
-                        }, 150);
+                        }, 500);
                     },
                 });
                 ///end
