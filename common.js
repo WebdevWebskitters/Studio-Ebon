@@ -622,8 +622,8 @@
                 function mouseFunction(e) {
                     let mousePosX = e.pageX;
                     let mousePosY = e.pageY;
-                    let pageX = mousePosX - (cursorBttn.clientWidth / 2);
-                    let pageY = mousePosY - (cursorBttn.clientHeight / 2);
+                    let pageX = mousePosX - el.offsetLeft;
+                    let pageY = mousePosY - el.offsetTop;
                     let percX = Math.ceil(((pageX / totlWidth) * 100) - 50);
                     if (percX > 0) {
                         cursorX.classList.add('next_active');
