@@ -464,7 +464,7 @@
             document.querySelectorAll(".sldr_cursor_wrppr").forEach((sec) => {
                 let poz= ScrollTrigger.positionInViewport(sec, "center").toFixed(2);
                 console.log(poz);
-                poz>-0.25 && poz<0.25?document.querySelector('.custom_cursor').classList.add("active"):document.querySelector('.custom_cursor').classList.remove("active");
+                poz>0 && poz<=1?document.querySelector('.custom_cursor').classList.add("active"):document.querySelector('.custom_cursor').classList.remove("active");
             });
             }
             if (isDekstop) {
