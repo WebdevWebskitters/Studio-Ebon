@@ -335,7 +335,7 @@
                     t1
                         .to($('.hdng_anim'), {
                             translateY: 0,
-                        },"+=0.5")
+                        },"+=0.3")
                         .to($('.hdng_info_txt'), {
                             translateY: 0,
                         })
