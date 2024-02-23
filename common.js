@@ -119,13 +119,13 @@
         }
 
 
-        try {
-            ScrollTrigger.refresh();
-            locoScroll.update();
-        }
-        catch (err) {
-            console.log(err, ", loading failed");
-        }
+        // try {
+        //     ScrollTrigger.refresh();
+        //     locoScroll.update();
+        // }
+        // catch (err) {
+        //     console.log(err, ", loading failed");
+        // }
 
         $(document).ready(function () {
             ///////// init function //////////////////
@@ -140,8 +140,6 @@
                 }
 
                 //pause loader
-                enableScroll();
-                locoScroll.start();
                 gsap.set(pageContainer, { opacity: 1, pointerEvents: "all" });
                 gsap.to(".preloader", {
                     // delay: 0.5,
@@ -152,6 +150,9 @@
                         setTimeout(() => {
                             ScrollTrigger.refresh();
                             isLoaded = true;
+
+                            enableScroll();
+                            locoScroll.start();
                         }, 150);
                     },
                 });
