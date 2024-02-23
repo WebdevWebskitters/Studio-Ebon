@@ -149,7 +149,7 @@
                 });
 
                 setTimeout(() => {
-                    ScrollTrigger.refresh();
+                    //ScrollTrigger.refresh();
                     isLoaded = true;
 
                     enableScroll();
