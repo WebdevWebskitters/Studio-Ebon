@@ -421,7 +421,7 @@
                 $(".innr_footr").each(function () {
                     let ele = $(this);
                     gsap.set(ele, {
-                        yPercent: -50,
+                        yPercent: -35,
                         // transformStyle: "preserve-3d",
                     });
                     gsap
@@ -431,7 +431,6 @@
                                 start: "top top",
                                 end: "bottom 50%",
                                 scrub: 1.2,
-                                markers:true,
                                 // transformOrigin: "top top",
                                  scroller: isDekstop ? pageContainer : window,
                             },
@@ -441,7 +440,6 @@
 
             }
             let topPos2 = document.querySelector('.vid_hdng_box').getBoundingClientRect().top;
-            console.log(topPos2);
             // let endPoint = 
             if ($(".strd_anim_bttn").length) {
                 $(".strd_anim_bttn").each(function () {
