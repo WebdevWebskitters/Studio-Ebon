@@ -142,7 +142,7 @@
                 //pause loader
                 gsap.set(pageContainer, { opacity: 1, pointerEvents: "all" });
                 gsap.to(".preloader", {
-                   delay: 1.5,
+                   delay: 0.3,
                     opacity: 0,
                     pointerEvents: "none",
                     duration: 1,
@@ -154,7 +154,7 @@
 
                     enableScroll();
                     locoScroll.start();
-                }, 1500);
+                }, 300);
                 ///end
             }
             /////////////////////////////////////////
