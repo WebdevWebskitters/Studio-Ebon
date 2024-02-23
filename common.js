@@ -462,12 +462,8 @@
             // /add class in viewport
             function scrollUpdate() {
             document.querySelectorAll(".sldr_cursor_wrppr").forEach((sec) => {
-                console.log(ScrollTrigger.positionInViewport(sec, "center").toFixed(2));
-                isLoaded
-                ? ScrollTrigger.isInViewport(sec, 0.5)
-                    ? document.querySelector('.custom_cursor').classList.add("active")
-                    : document.querySelector('.custom_cursor').classList.remove("active")
-                : null;
+                let poz= ScrollTrigger.positionInViewport(sec, "center").toFixed(2)
+                poz>-0.25 && poz<0.25?document.querySelector('.custom_cursor').classList.add("active"):document.querySelector('.custom_cursor').classList.remove("active");
             });
             }
             if (isDekstop) {
