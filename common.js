@@ -140,6 +140,8 @@
                 }
 
                 //pause loader
+                enableScroll();
+                locoScroll.start();
                 gsap.set(pageContainer, { opacity: 1, pointerEvents: "all" });
                 gsap.to(".preloader", {
                     // delay: 0.5,
@@ -147,8 +149,6 @@
                     pointerEvents: "none",
                     duration: 1,
                     onComplete: () => {
-                        enableScroll();
-                            locoScroll.start();
                         setTimeout(() => {
                             ScrollTrigger.refresh();
                             isLoaded = true;
