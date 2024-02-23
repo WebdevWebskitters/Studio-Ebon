@@ -423,7 +423,7 @@
                     let ele = $(this);
                     gsap.set(ele, {
                         yPercent: -50,
-                        transformStyle: "preserve-3d",
+                        // transformStyle: "preserve-3d",
                     });
                     gsap
                         .to(ele, {
@@ -432,7 +432,8 @@
                                 start: "top top",
                                 end: "bottom 50%",
                                 scrub: 1.2,
-                                transformOrigin: "top top",
+                                markers:true,
+                                // transformOrigin: "top top",
                                  scroller: isDekstop ? pageContainer : window,
                             },
                             yPercent: 0,
