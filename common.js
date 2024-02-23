@@ -471,7 +471,7 @@
             });
             }
             if (isDekstop) {
-                loco_scroll.on("scroll", scrollUpdate)
+                locoScroll.on("scroll", scrollUpdate)
             }
             else{
                 window.addEventListener("scroll", scrollUpdate);
