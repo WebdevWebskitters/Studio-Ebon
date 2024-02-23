@@ -52,6 +52,7 @@
 
         //enable scroll
         function enableScroll() {
+            document.body.classList.remove("disable");
             document.removeEventListener("wheel", pvs, { passive: false });
             document.removeEventListener("touchstart", pvs, { passive: false });
             document.removeEventListener("touchend", pvs, { passive: false });
@@ -146,10 +147,10 @@
                     pointerEvents: "none",
                     duration: 1,
                     onComplete: () => {
+                        enableScroll();
+                            locoScroll.start();
                         setTimeout(() => {
                             ScrollTrigger.refresh();
-                            enableScroll();
-                            locoScroll.start();
                             isLoaded = true;
                         }, 300);
                     },
