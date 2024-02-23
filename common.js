@@ -152,7 +152,7 @@
                         setTimeout(() => {
                             ScrollTrigger.refresh();
                             isLoaded = true;
-                        }, 300);
+                        }, 150);
                     },
                 });
                 ///end
@@ -460,19 +460,19 @@
 
             }
             // /add class in viewport
-            function scrollUpdate() {
-            document.querySelectorAll(".sldr_cursor_wrppr").forEach((sec) => {
-                let poz= ScrollTrigger.positionInViewport(sec, "center").toFixed(2);
-                console.log(poz);
-                poz>0 && poz<=1?document.querySelector('.custom_cursor').classList.add("active_cursor"):document.querySelector('.custom_cursor').classList.remove("active_cursor");
-            });
-            }
-            if (isDekstop) {
-                locoScroll.on("scroll", scrollUpdate)
-            }
-            else{
-                window.addEventListener("scroll", scrollUpdate);
-            }
+            // function scrollUpdate() {
+            // document.querySelectorAll(".sldr_cursor_wrppr").forEach((sec) => {
+            //     let poz= ScrollTrigger.positionInViewport(sec, "center").toFixed(2);
+            //     console.log(poz);
+            //     poz>0 && poz<=1?document.querySelector('.custom_cursor').classList.add("active_cursor"):document.querySelector('.custom_cursor').classList.remove("active_cursor");
+            // });
+            // }
+            // if (isDekstop) {
+            //     locoScroll.on("scroll", scrollUpdate)
+            // }
+            // else{
+            //     window.addEventListener("scroll", scrollUpdate);
+            // }
 
             //end ready
 
