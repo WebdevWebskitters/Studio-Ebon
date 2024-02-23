@@ -142,7 +142,7 @@
                 //pause loader
                 gsap.set(pageContainer, { opacity: 1, pointerEvents: "all" });
                 gsap.to(".preloader", {
-                    delay: 0.5,
+                    // delay: 0.5,
                     opacity: 0,
                     pointerEvents: "none",
                     duration: 1,
@@ -459,6 +459,24 @@
                 })
 
             }
+            // /add class in viewport
+            function scrollUpdate() {
+            document.querySelectorAll(".sldr_cursor_wrppr").forEach((sec) => {
+                console.log(ScrollTrigger.positionInViewport(sec, "center").toFixed(2));
+                isLoaded
+                ? ScrollTrigger.isInViewport(sec, 0.5)
+                    ? document.querySelector('.custom_cursor').classList.add("active")
+                    : document.querySelector('.custom_cursor').classList.remove("active")
+                : null;
+            });
+            }
+            if (isDekstop) {
+                loco_scroll.on("scroll", scrollUpdate)
+            }
+            else{
+                window.addEventListener("scroll", scrollUpdate);
+            }
+
             //end ready
 
             //// page loader
@@ -469,5 +487,6 @@
                 // .progress(function (instance, image) {})
                 .always(loadInit);
         });
+        
 
     }
