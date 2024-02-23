@@ -428,7 +428,7 @@
                         .to(ele, {
                             scrollTrigger: {
                                 trigger: ele,
-                                start: "top top",
+                                start: "top 85%",
                                 end: "bottom 50%",
                                 scrub: 1.2,
                                 // transformOrigin: "top top",
