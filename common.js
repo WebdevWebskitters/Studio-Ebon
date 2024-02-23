@@ -142,20 +142,19 @@
                 //pause loader
                 gsap.set(pageContainer, { opacity: 1, pointerEvents: "all" });
                 gsap.to(".preloader", {
-                    // delay: 0.5,
+                   delay: 1.5,
                     opacity: 0,
                     pointerEvents: "none",
                     duration: 1,
-                    onComplete: () => {
-                        setTimeout(() => {
-                            ScrollTrigger.refresh();
-                            isLoaded = true;
-
-                            enableScroll();
-                            locoScroll.start();
-                        }, 700);
-                    },
                 });
+
+                setTimeout(() => {
+                    ScrollTrigger.refresh();
+                    isLoaded = true;
+
+                    enableScroll();
+                    locoScroll.start();
+                }, 1500);
                 ///end
             }
             /////////////////////////////////////////
