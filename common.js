@@ -480,8 +480,8 @@
                 function mouseFunction(e) {
                     let mousePosX = e.pageX;
                     let mousePosY = e.pageY;
-                    let pageX = mousePosX - cursorBttnAlt.clientWidth;
-                    let pageY = mousePosY - cursorBttnAlt.clientHeight;
+                    let pageX = mousePosX - (cursorBttnAlt.clientWidth / 2);
+                    let pageY = mousePosY - (cursorBttnAlt.clientHeight / 2);
                     cursorXx.style.transform = `translate3d(${pageX}px, ${pageY}px, 0)`;
                 }
                 el.addEventListener('mousemove', mouseFunction, false);
