@@ -142,7 +142,7 @@
                 //pause loader
                 gsap.set(pageContainer, { opacity: 1, pointerEvents: "all" });
                 gsap.to(".preloader", {
-                   delay: 0.3,
+                   delay: 1.5,
                     opacity: 0,
                     pointerEvents: "none",
                     duration: 1,
@@ -154,7 +154,7 @@
 
                     enableScroll();
                     locoScroll.start();
-                }, 300);
+                }, 1500);
                 ///end
             }
             /////////////////////////////////////////
@@ -323,6 +323,7 @@
                     });
                     var t1 = gsap.timeline({
                         repeat: 0,
+                        delay:1.5,
                         scrollTrigger: {
                             trigger: ele,
                             start: "top bottom",
@@ -334,7 +335,7 @@
                     t1
                         .to($('.hdng_anim'), {
                             translateY: 0,
-                        })
+                        },"+=1.8")
                         .to($('.hdng_info_txt'), {
                             translateY: 0,
                         })
