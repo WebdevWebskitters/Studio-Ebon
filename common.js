@@ -480,12 +480,11 @@
                 function mouseFunction(e) {
                     let mousePosX = e.pageX;
                     let mousePosY = e.pageY;
-                    let pageX = mousePosX - (cursorBttnAlt.clientWidth / 2);
-                    let pageY = mousePosY - (cursorBttnAlt.clientHeight / 2);
+                    let pageX = mousePosX - el.offsetLeft;
+                    let pageY = mousePosY - el.offsetTop;
                     cursorXx.style.transform = `translate3d(${pageX}px, ${pageY}px, 0)`;
                 }
                 el.addEventListener('mousemove', mouseFunction, false);
-                el.addEventListener('click', mouseFunction, false);
                 el.addEventListener('mouseenter', function () {
                     cursorXx.classList.add("active");
                     el.classList.add('active_box')
