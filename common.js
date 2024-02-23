@@ -223,8 +223,6 @@
                 })
             });
 
-            gsap.registerPlugin(Observer);
-
             const dataScrolling = document.querySelectorAll("[data-scrolling]");
 
             dataScrolling.forEach((el) => {
@@ -473,6 +471,31 @@
             // else{
             //     window.addEventListener("scroll", scrollUpdate);
             // }
+
+            let brandBox = document.querySelectorAll('.brnd_lnk_box');
+
+            let cursorXx = document.querySelector('.custom_cursor');
+            let cursorBttnAlt = document.querySelector('.custom_arrw_bttn_alt');
+            brandBox.forEach((el, i) => {
+                function mouseFunction(e) {
+                    let mousePosX = e.pageX;
+                    let mousePosY = e.pageY;
+                    let pageX = mousePosX - (cursorBttnAlt.clientWidth / 2);
+                    let pageY = mousePosY - (cursorBttnAlt.clientHeight / 2);
+                    cursorXx.style.transform = `translate3d(${pageX}px, ${pageY}px, 0)`;
+                }
+                el.addEventListener('mousemove', mouseFunction, false);
+                el.addEventListener('click', mouseFunction, false);
+                el.addEventListener('mouseenter', function () {
+                    cursorXx.classList.add("active");
+                    el.classList.add('active_box')
+                });
+                el.addEventListener('mouseleave', function () {
+                    cursorXx.classList.remove("active");
+                    el.classList.remove('active_box')
+                })
+            });
+
 
             //end ready
 
