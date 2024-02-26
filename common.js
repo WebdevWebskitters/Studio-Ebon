@@ -476,13 +476,14 @@ function pageScript() {
 
         let cursorXx = document.querySelector('.custom_cursor_alt');
         let cursorBttnAlt = document.querySelector('.custom_arrw_bttn_alt');
-        brandBox.forEach((el, i) => {
+        brandBox.forEach((el) => {
             function mouseFunction(e) {
                 let mousePosX = e.clientX;
                 let mousePosY = e.clientY;
-                cursorXx.style.transform = `translate3d(${mousePosX}px, ${mousePosY}px, 0)`;
+                cursorXx.style.transform = `translate3d(${mousePosX - (cursorBttnAlt.clientWidth / 2)}px, ${mousePosY - (cursorBttnAlt.clientHeight / 2)}px, 0)`;
             }
             el.addEventListener('mousemove', mouseFunction, false);
+            el.addEventListener('click', mouseFunction, false);
             el.addEventListener('mouseenter', function () {
                 cursorXx.classList.add("active");
                 el.classList.add('active_box')
