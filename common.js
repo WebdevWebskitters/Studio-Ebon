@@ -508,7 +508,7 @@ function pageScript() {
                 opacity: 1,
                 ease: "power3.inOut",
                 stagger: 0.2,
-                duration: 1,
+                duration: 0.3,
               })
             },
             onLeave: function () {
@@ -518,7 +518,7 @@ function pageScript() {
                 opacity: 0,
                 ease: "power3.inOut",
                 stagger: 0.2,
-                duration: 1,
+                duration: 0.3,
               })
             },
             onLeaveBack: function () {
@@ -528,7 +528,7 @@ function pageScript() {
                 opacity: 1,
                 ease: "power3.inOut",
                 stagger: 0.2,
-                duration: 1,
+                duration: 0.3,
               })
             },
           })
