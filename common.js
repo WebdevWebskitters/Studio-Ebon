@@ -498,7 +498,7 @@ function pageScript() {
             gsap
                 .to(el, {
                     scrollTrigger: {
-                        trigger: ele,
+                        trigger: el,
                         start: "top 85%",
                         end: "bottom 50%",
                         scrub: true,
