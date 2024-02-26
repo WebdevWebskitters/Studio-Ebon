@@ -203,7 +203,7 @@ function pageScript() {
                     cursorX.classList.add('prev_active');
                     cursorX.classList.remove('next_active');
                 }
-                cursorX.style.transform = `translate3d(${mousePosX}px, ${mousePosY}px, 0)`;
+                cursorX.style.transform = `translate3d(${mousePosX - (cursorBttn.clientWidth / 2)}px, ${mousePosY - (cursorBttn.clientHeight / 2)}px, 0)`;
                 // console.log(mousePosX);
                 // console.log(mousePosY);
 
@@ -498,13 +498,14 @@ function pageScript() {
             gsap
                 .to(el, {
                     scrollTrigger: {
-                        trigger: el,
-                        start: "top 85%",
+                        trigger: '.main_header',
+                        start: "top bottom",
                         end: "bottom 50%",
                         scrub: true,
                         scroller: isDekstop ? pageContainer : window,
                     },
                     yPercent: -100,
+                    opacity:0,
                 })
         })
 
