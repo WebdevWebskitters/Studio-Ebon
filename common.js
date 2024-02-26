@@ -507,7 +507,8 @@ function pageScript() {
               .to(el, {
                 yPercent: 0,
                 opacity: 1,
-                stagger: 0.1,
+                ease: "power1.inOut",
+                stagger: 0.2,
               })
             },
             onLeave: function () {
@@ -515,7 +516,8 @@ function pageScript() {
               .to(el, {
                 yPercent: -100,
                 opacity: 0,
-                stagger: 0.1,
+                ease: "power1.inOut",
+                stagger: 0.2,
               })
             },
             onLeaveBack: function () {
@@ -523,7 +525,8 @@ function pageScript() {
               .to(el, {
                 yPercent: 0,
                 opacity: 1,
-                stagger: 0.1,
+                ease: "power1.inOut",
+                stagger: 0.2,
               })
             },
           })
