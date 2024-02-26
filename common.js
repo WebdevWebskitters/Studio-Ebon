@@ -343,9 +343,9 @@ function pageScript() {
         }
 
         //Video Animation
-        let video_sec = document.querySelector(".video_sec");
-        let videoBox = video_sec.querySelector(".video_box"),
-            videoPara = video_sec.querySelector(".para");
+        let video_sec = document?.querySelector(".video_sec");
+        let videoBox = video_sec?.querySelector(".video_box"),
+            videoPara = video_sec?.querySelector(".para");
 
         let topPos = videoBox.getBoundingClientRect().top;
         let tl = gsap.timeline({
