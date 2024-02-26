@@ -492,22 +492,40 @@ function pageScript() {
                 el.classList.remove('active_box')
             })
         });
-
+        //Menu Link Animation
         let linkAnim = document.querySelectorAll('.nav_menu > .nav_lnk');
+        let botHedrTop = document.querySelector('.main_header').getBoundingClientRect().top;
         linkAnim.forEach((el) => {
-            gsap
-                .to(el, {
-                    scrollTrigger: {
-                        trigger: '.main_header',
-                        start: "top 50%",
-                        end: "+=120%",
-                        scrub: true,
-                        scroller: isDekstop ? pageContainer : window,
-                        markers:true,
-                    },
-                    yPercent: -100,
-                    opacity:0,
-                })
+          ScrollTrigger.create({
+            trigger: '.main_header',
+            start: `top ${botHedrTop}`,
+            end: `+=${window.innerHeight / 5}`,
+            markers: true,
+            onEnterBack: function () {
+              gsap
+              .to(el, {
+                yPercent: 0,
+                opacity: 1,
+                stagger: 0.1,
+              })
+            },
+            onLeave: function () {
+              gsap
+              .to(el, {
+                yPercent: -100,
+                opacity: 0,
+                stagger: 0.1,
+              })
+            },
+            onLeaveBack: function () {
+              gsap
+              .to(el, {
+                yPercent: 0,
+                opacity: 1,
+                stagger: 0.1,
+              })
+            },
+          })
         })
 
         //end ready
