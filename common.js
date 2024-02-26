@@ -501,6 +501,7 @@ function pageScript() {
             start: `top ${botHedrTop}`,
             end: `+=${window.innerHeight / 5}`,
             markers: true,
+            scroller: isDekstop ? pageContainer : window,
             onEnterBack: function () {
               gsap
               .to(el, {
