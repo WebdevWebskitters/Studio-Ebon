@@ -496,54 +496,79 @@ function pageScript() {
         let linkAnim = document?.querySelectorAll('.nav_menu > .nav_lnk');
         let botHedrTop = document?.querySelector('.main_header')?.getBoundingClientRect().top;
         linkAnim.forEach((el) => {
-          ScrollTrigger.create({
-            trigger: '.main_header',
-            start: `top ${botHedrTop}`,
-            end: `+=${window.innerHeight / 5}`,
-            scroller: isDekstop ? pageContainer : window,
-            onEnterBack: function () {
-              gsap
-              .to(el, {
-                yPercent: 0,
-                opacity: 1,
-                ease: "power3.inOut",
-                stagger: 0.2,
-                duration: 0.3,
-              })
-            },
-            onLeave: function () {
-              gsap
-              .to(el, {
-                yPercent: -100,
-                opacity: 0,
-                ease: "power3.inOut",
-                stagger: 0.2,
-                duration: 0.3,
-              })
-            },
-            onLeaveBack: function () {
-              gsap
-              .to(el, {
-                yPercent: 0,
-                opacity: 1,
-                ease: "power3.inOut",
-                stagger: 0.2,
-                duration: 0.3,
-              })
-            },
-          })
-        })
-
-        //end ready
-
-        //// page loader
-        jQuery("body")
-            .imagesLoaded({
-                background: true,
+            ScrollTrigger.create({
+                trigger: '.main_header',
+                start: `top ${botHedrTop}`,
+                end: `+=${window.innerHeight / 5}`,
+                scroller: isDekstop ? pageContainer : window,
+                onEnterBack: function () {
+                    gsap
+                        .to(el, {
+                            yPercent: 0,
+                            opacity: 1,
+                            ease: "power3.inOut",
+                            stagger: 0.2,
+                            duration: 0.3,
+                        })
+                },
+                onLeave: function () {
+                    gsap
+                        .to(el, {
+                            yPercent: -100,
+                            opacity: 0,
+                            ease: "power3.inOut",
+                            stagger: 0.2,
+                            duration: 0.3,
+                        })
+                },
+                onLeaveBack: function () {
+                    gsap
+                        .to(el, {
+                            yPercent: 0,
+                            opacity: 1,
+                            ease: "power3.inOut",
+                            stagger: 0.2,
+                            duration: 0.3,
+                        })
+                },
             })
-            // .progress(function (instance, image) {})
-            .always(loadInit);
-    });
+        })
+        //parallax Background
+        if ($("[data-parallax]").length) {
+            $("[data-parallax]").each(function () {
+                let pr_this = $(this);
+                let pr_val = Number(pr_this.attr("data-parallax"));
+                if (pr_this.find(".parallax_bg").length) {
+                    gsap.set(pr_this.find(".parallax_bg"), {
+                        yPercent: -pr_val,
+                        height: 100 + pr_val + "%",
+                    });
+
+                    gsap.to(pr_this.find(".parallax_bg"), {
+                        yPercent: pr_val,
+                        duration: 1,
+                        ease: "none",
+                        scrollTrigger: {
+                            trigger: pr_this,
+                            start: "top bottom",
+                            end: "bottom top",
+                            scrub: 1.3,
+                            invalidateOnRefresh: true,
+                            scroller: isDekstop ? pageContainer : window,
+                            // markers: true,
+                        },
+                    });
+                }
+                //end ready
+
+                //// page loader
+                jQuery("body")
+                    .imagesLoaded({
+                        background: true,
+                    })
+                    // .progress(function (instance, image) {})
+                    .always(loadInit);
+            });
 
 
-}
+        }
