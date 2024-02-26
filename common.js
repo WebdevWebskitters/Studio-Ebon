@@ -192,10 +192,9 @@
             wrapperHolder.forEach((el, i) => {
                 let totlWidth = el.offsetWidth;
                 function mouseFunction(e) {
-                    let mousePosX = e.pageX;
-                    let mousePosY = e.pageY;
-                    let pageX = mousePosX - (cursorBttn.clientWidth / 2);
-                    let pageY = mousePosY - (cursorBttn.clientHeight / 2);
+                    let mousePosX = e.clientX;
+                    let mousePosY = e.clientY;
+                    let pageX = mousePosX - el.offsetLeft;
                     let percX = Math.ceil(((pageX / totlWidth) * 100) - 50);
                     if (percX > 0) {
                         cursorX.classList.add('next_active');
@@ -204,7 +203,7 @@
                         cursorX.classList.add('prev_active');
                         cursorX.classList.remove('next_active');
                     }
-                    cursorX.style.transform = `translate3d(${pageX}px, ${pageY}px, 0)`;
+                    cursorX.style.transform = `translate3d(${mousePosX}px, ${mousePosY}px, 0)`;
                     // console.log(mousePosX);
                     // console.log(mousePosY);
 
@@ -479,11 +478,9 @@
             let cursorBttnAlt = document.querySelector('.custom_arrw_bttn_alt');
             brandBox.forEach((el, i) => {
                 function mouseFunction(e) {
-                    let mousePosX = e.pageX;
-                    let mousePosY = e.pageY;
-                    let pageX = mousePosX - (cursorBttnAlt.clientWidth / 2);
-                    let pageY = mousePosY - (cursorBttnAlt.clientHeight / 2);
-                    cursorXx.style.transform = `translate3d(${pageX}px, ${pageY}px, 0)`;
+                    let mousePosX = e.clientX;
+                    let mousePosY = e.clientY;;
+                    cursorXx.style.transform = `translate3d(${mousePosX}px, ${mousePosY}px, 0)`;
                 }
                 el.addEventListener('mousemove', mouseFunction, false);
                 el.addEventListener('mouseenter', function () {
