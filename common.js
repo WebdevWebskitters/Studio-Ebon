@@ -499,8 +499,8 @@ function pageScript() {
                 .to(el, {
                     scrollTrigger: {
                         trigger: '.main_header',
-                        start: "top bottom",
-                        end: "bottom 50%",
+                        start: "top top",
+                        end: "bottom +=50%",
                         scrub: true,
                         scroller: isDekstop ? pageContainer : window,
                     },
