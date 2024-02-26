@@ -559,6 +559,8 @@ function pageScript() {
                         },
                     });
                 }
+            })
+            }
                 //end ready
 
                 //// page loader
