@@ -347,7 +347,7 @@ function pageScript() {
         let videoBox = video_sec?.querySelector(".video_box"),
             videoPara = video_sec?.querySelector(".para");
 
-        let topPos = videoBox.getBoundingClientRect().top;
+        let topPos = videoBox?.getBoundingClientRect().top;
         let tl = gsap.timeline({
             defaults: {
                 duration: 0.5,
