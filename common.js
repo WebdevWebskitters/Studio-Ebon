@@ -437,7 +437,7 @@ function pageScript() {
             })
 
         }
-        let topPos2 = document.querySelector('.vid_hdng_box').getBoundingClientRect().top;
+        let topPos2 = document?.querySelector('.vid_hdng_box').getBoundingClientRect().top;
         // let endPoint = 
         if ($(".strd_anim_bttn").length) {
             $(".strd_anim_bttn").each(function () {
@@ -493,8 +493,8 @@ function pageScript() {
             })
         });
         //Menu Link Animation
-        let linkAnim = document.querySelectorAll('.nav_menu > .nav_lnk');
-        let botHedrTop = document.querySelector('.main_header').getBoundingClientRect().top;
+        let linkAnim = document?.querySelectorAll('.nav_menu > .nav_lnk');
+        let botHedrTop = document?.querySelector('.main_header').getBoundingClientRect().top;
         linkAnim.forEach((el) => {
           ScrollTrigger.create({
             trigger: '.main_header',
