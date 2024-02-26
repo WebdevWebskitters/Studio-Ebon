@@ -500,14 +500,13 @@ function pageScript() {
             trigger: '.main_header',
             start: `top ${botHedrTop}`,
             end: `+=${window.innerHeight / 5}`,
-            markers: true,
             scroller: isDekstop ? pageContainer : window,
             onEnterBack: function () {
               gsap
               .to(el, {
                 yPercent: 0,
                 opacity: 1,
-                ease: "power1.inOut",
+                ease: "power3.inOut",
                 stagger: 0.2,
               })
             },
@@ -516,7 +515,7 @@ function pageScript() {
               .to(el, {
                 yPercent: -100,
                 opacity: 0,
-                ease: "power1.inOut",
+                ease: "power3.inOut",
                 stagger: 0.2,
               })
             },
@@ -525,7 +524,7 @@ function pageScript() {
               .to(el, {
                 yPercent: 0,
                 opacity: 1,
-                ease: "power1.inOut",
+                ease: "power3.inOut",
                 stagger: 0.2,
               })
             },
