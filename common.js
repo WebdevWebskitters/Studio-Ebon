@@ -671,7 +671,7 @@ function pageScript() {
                 })
                 .pause();
 
-            btn.addEventListener("click", function () {
+            el.addEventListener("click", function () {
                 if (!tl_main.isActive()) {
                     audio.play();
                     tl_main.restart();
