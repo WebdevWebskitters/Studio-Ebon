@@ -694,6 +694,15 @@ function pageScript() {
                 //btn.innerHTML = "play";
             });
         }
+        let goToLinks = gsap.utils.toArray('.hw_lnk');
+        goToLinks.forEach((btn, index) => {
+            btn.addEventListener("click", () => {
+                gsap.to(window, {
+                    duration: 1,
+                    scrollTo: { y: "#about-studio-" + (index + 1), offsetY: 0 }
+                });
+            });
+        });
         //end ready
 
         //// page loader
