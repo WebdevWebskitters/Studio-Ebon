@@ -564,22 +564,18 @@ function pageScript() {
         }
         //Swiper Slider With Custom Arrow 2
         var swiper = new Swiper(".cultre_sldr", {
-            slidesPerView: 2,
+            slidesPerView: "auto",
             grabCursor: true,
             spaceBetween: '2%',
-            // centeredSlides: true,
+            centeredSlides: true,
             loop: true,
             pagination: {
                 el: '.swiper-pagination',
                 type: 'custom',
                 renderCustom: function (swiper, current, total) {
-                    return current + '-' + total;
+                    return current + '<span>-</span>' + total;
                 }
             }
-            // navigation: {
-            //     nextEl: ".custom_arrw_lft",
-            //     prevEl: ".custom_arrw_rght",
-            // },
         });
         //end ready
 
