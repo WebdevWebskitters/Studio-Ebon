@@ -561,17 +561,33 @@ function pageScript() {
                     });
                 }
             })
-            }
-                //end ready
-
-                //// page loader
-                jQuery("body")
-                    .imagesLoaded({
-                        background: true,
-                    })
-                    // .progress(function (instance, image) {})
-                    .always(loadInit);
-            });
-
-
         }
+         //Swiper Slider With Custom Arrow 2
+         var swiper = new Swiper(".cultre_sldr", {
+            slidesPerView:"auto",
+            grabCursor: true,
+            spaceBetween: '7%',
+            // centeredSlides: true,
+            loop: true,
+            type: 'custom',
+            renderCustom: function (swiper, current, total) {
+                return current + '-' + total; 
+            }
+            // navigation: {
+            //     nextEl: ".custom_arrw_lft",
+            //     prevEl: ".custom_arrw_rght",
+            // },
+        });
+        //end ready
+
+        //// page loader
+        jQuery("body")
+            .imagesLoaded({
+                background: true,
+            })
+            // .progress(function (instance, image) {})
+            .always(loadInit);
+    });
+
+
+}
