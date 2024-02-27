@@ -178,7 +178,7 @@ function pageScript() {
             slidesPerView: 4,
             grabCursor: true,
             spaceBetween: '7%',
-            centeredSlides: true,
+            // centeredSlides: true,
             loop: true,
             navigation: {
                 nextEl: ".custom_arrw_lft",
