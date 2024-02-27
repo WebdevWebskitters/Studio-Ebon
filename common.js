@@ -605,28 +605,28 @@ function pageScript() {
             })
         });
 
-         // Play Audio Cursor
-         let audioBox = document.querySelectorAll('.aud_txt_box');
+        // Play Audio Cursor
+        let audioBox = document.querySelectorAll('.aud_txt_box');
 
-         let cursorXYZ = document.querySelector('.play_cursor');
-         let playBttn = document.querySelector('.ply_bttn');
-         audioBox.forEach((el) => {
-             function mouseFunction(e) {
-                 let mousePosX = e.clientX;
-                 let mousePosY = e.clientY;
-                 cursorXYZ.style.transform = `translate3d(${mousePosX - (playBttn.clientWidth / 2)}px, ${mousePosY - (playBttn.clientHeight / 2)}px, 0)`;
-             }
-             el.addEventListener('mousemove', mouseFunction, false);
-             el.addEventListener('click', mouseFunction, false);
-             el.addEventListener('mouseenter', function () {
+        let cursorXYZ = document.querySelector('.play_cursor');
+        let playBttn = document.querySelector('.ply_bttn');
+        audioBox.forEach((el) => {
+            function mouseFunction(e) {
+                let mousePosX = e.clientX;
+                let mousePosY = e.clientY;
+                cursorXYZ.style.transform = `translate3d(${mousePosX - (playBttn.clientWidth / 2)}px, ${mousePosY - (playBttn.clientHeight / 2)}px, 0)`;
+            }
+            el.addEventListener('mousemove', mouseFunction, false);
+            el.addEventListener('click', mouseFunction, false);
+            el.addEventListener('mouseenter', function () {
                 cursorXYZ.classList.add("active");
-                 el.classList.add('active_audio')
-             });
-             el.addEventListener('mouseleave', function () {
+                el.classList.add('active_audio')
+            });
+            el.addEventListener('mouseleave', function () {
                 cursorXYZ.classList.remove("active");
-                 el.classList.remove('active_audio')
-             })
-         });
+                el.classList.remove('active_audio')
+            })
+        });
 
         // Audio Text Sync
         const target = document.querySelectorAll(".play_text>.audio_line"),
@@ -671,7 +671,7 @@ function pageScript() {
                 })
                 .pause();
 
-            el.addEventListener("click", function () {
+            target.addEventListener("click", function () {
                 if (!tl_main.isActive()) {
                     audio.play();
                     tl_main.restart();
