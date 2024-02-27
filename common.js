@@ -204,8 +204,6 @@ function pageScript() {
                     cursorX.classList.remove('next_active');
                 }
                 cursorX.style.transform = `translate3d(${mousePosX - (cursorBttn.clientWidth / 2)}px, ${mousePosY - (cursorBttn.clientHeight / 2)}px, 0)`;
-                // console.log(mousePosX);
-                // console.log(mousePosY);
 
             }
             el.addEventListener('mousemove', mouseFunction, false);
@@ -583,6 +581,28 @@ function pageScript() {
             grabCursor: true,
             spaceBetween: '1.5%',
             loop: false,
+        });
+        // Custom Cursor 3
+        let mrqueeBox = document.querySelectorAll('.mrquee_cursor_hldr');
+
+        let cursorXY = document.querySelector('.custom_arrw_cursor');
+        let cusrorArrwBttn = document.querySelector('.custom_arrw_bttn');
+        mrqueeBox.forEach((el) => {
+            function mouseFunction(e) {
+                let mousePosX = e.clientX;
+                let mousePosY = e.clientY;
+                cursorXY.style.transform = `translate3d(${mousePosX - (cusrorArrwBttn.clientWidth / 2)}px, ${mousePosY - (cusrorArrwBttn.clientHeight / 2)}px, 0)`;
+            }
+            el.addEventListener('mousemove', mouseFunction, false);
+            el.addEventListener('click', mouseFunction, false);
+            el.addEventListener('mouseenter', function () {
+                cursorXY.classList.add("active");
+                el.classList.add('active_box')
+            });
+            el.addEventListener('mouseleave', function () {
+                cursorXY.classList.remove("active");
+                el.classList.remove('active_box')
+            })
         });
         //end ready
 
