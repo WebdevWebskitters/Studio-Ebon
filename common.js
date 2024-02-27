@@ -578,11 +578,10 @@ function pageScript() {
             }
         });
            //Swiper Slider With Custom Arrow 3
-           var swiper = new Swiper(".cultre_sldr", {
+           var swiper = new Swiper(".tem_sldr", {
             slidesPerView: 3.5,
             grabCursor: true,
             spaceBetween: '1.5%',
-            // centeredSlides: true,
             loop: false,
         });
         //end ready
