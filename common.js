@@ -650,11 +650,11 @@ function pageScript() {
                     overflow: "hidden",
                     position: "relative"
                 });
-                gsap.set(el.querySelector(".audio_line"), { xPercent: 100, opacity: 1 });
+                gsap.set(el.querySelector("div"), { xPercent: 100, opacity: 1 });
                 tl.to(el, {
                     xPercent: 0
                 }).to(
-                    el.querySelector(".audio_line"),
+                    el.querySelector("div"),
                     {
                         xPercent: 0
                     },
@@ -681,7 +681,7 @@ function pageScript() {
                     audio.currentTime = 0;
                     audio.pause();
                     tl_main.pause();
-                    btn.innerHTML = "play";
+                    // btn.innerHTML = "play";
                     //btn.classList.remove('playing');
                 }
             });
