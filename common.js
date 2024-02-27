@@ -631,7 +631,7 @@ function pageScript() {
         // Audio Text Sync
         const target = document.querySelectorAll(".play_text>.audio_line"),
             audio = document.querySelector("audio"),
-            btn = document.querySelector(".play_cursor");
+            btn = document.querySelector(".play_cursor"), audioPlayBox = document.querySelector('.aud_txt_box');
 
         let time = audio.dataset.time;
         if (time != undefined || time != null) {
@@ -671,7 +671,7 @@ function pageScript() {
                 })
                 .pause();
 
-            target.addEventListener("click", function () {
+            audioPlayBox.addEventListener("click", function () {
                 if (!tl_main.isActive()) {
                     audio.play();
                     tl_main.restart();
