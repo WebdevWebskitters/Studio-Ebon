@@ -682,7 +682,7 @@ function pageScript() {
                     audio.pause();
                     tl_main.pause();
                     // btn.innerHTML = "play";
-                    //btn.classList.remove('playing');
+                    btn.classList.remove('playing');
                 }
             });
 
