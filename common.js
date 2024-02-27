@@ -175,7 +175,7 @@ function pageScript() {
 
         //Swiper Slider With Custom Arrow
         var swiper = new Swiper(".clnt_sldr", {
-            slidesPerView: 4,
+            slidesPerView: 3.5,
             grabCursor: true,
             spaceBetween: '7%',
             // centeredSlides: true,
