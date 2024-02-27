@@ -562,16 +562,18 @@ function pageScript() {
                 }
             })
         }
-         //Swiper Slider With Custom Arrow 2
-         var swiper = new Swiper(".cultre_sldr", {
-            slidesPerView:2.5,
+        //Swiper Slider With Custom Arrow 2
+        var swiper = new Swiper(".cultre_sldr", {
+            slidesPerView: 2,
             grabCursor: true,
-            spaceBetween: '7%',
+            spaceBetween: '2%',
             // centeredSlides: true,
             loop: true,
-            type: 'custom',
-            renderCustom: function (swiper, current, total) {
-                return current + '-' + total; 
+            pagination: {
+                type: 'custom',
+                renderCustom: function (swiper, current, total) {
+                    return current + '-' + total;
+                }
             }
             // navigation: {
             //     nextEl: ".custom_arrw_lft",
