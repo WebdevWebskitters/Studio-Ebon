@@ -566,9 +566,9 @@ function pageScript() {
         var swiper = new Swiper(".cultre_sldr", {
             slidesPerView: 2,
             grabCursor: true,
-            spaceBetween: '2%',
+            spaceBetween: '1.5%',
             // centeredSlides: true,
-            loop: true,
+            loop: false,
             pagination: {
                 el: '.swiper-pagination',
                 type: 'custom',
