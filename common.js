@@ -629,7 +629,7 @@ function pageScript() {
         });
 
         // Audio Text Sync
-        const target = document.querySelectorAll(".play_text>.audio_line"),
+        const target = document.querySelectorAll(".play_text>div"),
             audio = document.querySelector("audio"),
             btn = document.querySelector(".play_cursor"), audioPlayBox = document.querySelector('.aud_txt_box');
 
