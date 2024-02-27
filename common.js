@@ -570,6 +570,7 @@ function pageScript() {
             // centeredSlides: true,
             loop: true,
             pagination: {
+                el: '.swiper-pagination',
                 type: 'custom',
                 renderCustom: function (swiper, current, total) {
                     return current + '-' + total;
