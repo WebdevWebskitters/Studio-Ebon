@@ -564,7 +564,7 @@ function pageScript() {
         }
          //Swiper Slider With Custom Arrow 2
          var swiper = new Swiper(".cultre_sldr", {
-            slidesPerView:"auto",
+            slidesPerView:2.5,
             grabCursor: true,
             spaceBetween: '7%',
             // centeredSlides: true,
