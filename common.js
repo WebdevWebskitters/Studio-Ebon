@@ -629,11 +629,11 @@ function pageScript() {
         });
 
         // Audio Text Sync
-        const target = document.querySelectorAll(".play_text>div"),
-            audio = document.querySelector("audio"),
-            btn = document.querySelector(".play_cursor"), audioPlayBox = document.querySelector('.aud_txt_box');
+        const target = document?.querySelectorAll(".play_text>div"),
+            audio = document?.querySelector("audio"),
+            btn = document?.querySelector(".play_cursor"), audioPlayBox = document?.querySelector('.aud_txt_box');
 
-        let time = audio.dataset.time;
+        let time = audio?.dataset.time;
         if (time != undefined || time != null) {
             let tl = gsap.timeline({
                 paused: !0,
@@ -671,7 +671,7 @@ function pageScript() {
                 })
                 .pause();
 
-            audioPlayBox.addEventListener("click", function () {
+            audioPlayBox?.addEventListener("click", function () {
                 if (!tl_main.isActive()) {
                     audio.play();
                     tl_main.restart();
