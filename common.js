@@ -307,10 +307,6 @@ function pageScript() {
             }
         })
         //Text Line Animation
-        $('.hdng_anim').each(function () {
-            let ele = $(this);
-            ele.wrap('<span class="hdng_wrppr"></span>')
-        })
         if ($(".bnr_hdng_wrp").length) {
             $(".bnr_hdng_wrp").each(function () {
                 let ele = $(this);
@@ -699,7 +695,8 @@ function pageScript() {
             btn.addEventListener("click", () => {
                 gsap.to(window, {
                     duration: 1,
-                    scrollTo: { y: "#about-studio-" + (index + 1), offsetY: 0 }
+                    scrollTo: { y: "#about-studio-" + (index + 1), offsetY: 0 },
+                    scroller: isDekstop ? pageContainer : window,
                 });
             });
         });
