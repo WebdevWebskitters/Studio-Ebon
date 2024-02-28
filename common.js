@@ -335,6 +335,35 @@ function pageScript() {
             })
 
         }
+        //Text Line Animation 2
+        if ($(".inner_bnnr").length) {
+            $(".inner_bnnr").each(function () {
+                let ele = $(this);
+                gsap.set([ele.find('.hdng_anim'), ele.find('.hdng_info_txt')], {
+                    translateY: "100%",
+                    transformStyle: "preserve-3d",
+                });
+                var t1 = gsap.timeline({
+                    repeat: 0,
+                    delay: 1.5,
+                    scrollTrigger: {
+                        trigger: ele,
+                        start: "top bottom",
+                        end: "bottom bottom",
+                        scrub: false,
+                        scroller: isDekstop ? pageContainer : window,
+                    },
+                })
+                t1
+                    .to($('.hdng_anim'), {
+                        translateY: 0,
+                    }, "+=0.3")
+                    .to($('.hdng_info_txt'), {
+                        translateY: 0,
+                    })
+            })
+
+        }
 
         //Video Animation
         let video_sec = document?.querySelector(".video_sec");
