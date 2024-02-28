@@ -746,9 +746,9 @@ function pageScript() {
 
         sectionAnim.forEach((el, i) => {
             // console.log(el);
-            sectionHeightEach = el.offsetHeight;
+            // sectionHeightEach = el.offsetHeight;
 
-            console.log(sectionHeightEach);
+            // console.log(sectionHeightEach);
             let tl = gsap.timeline({
                 ease: "none",
                 scrollTrigger: {
