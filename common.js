@@ -744,23 +744,23 @@ function pageScript() {
 
         //let topBox = document.querySelector('.top_box');
 
-        // sectionAnim.forEach((el, i) => {
-        //     // console.log(el);
-        //     // sectionHeightEach = el.offsetHeight;
+        sectionAnim.forEach((el, i) => {
+            // console.log(el);
+            // sectionHeightEach = el.offsetHeight;
 
-        //     // console.log(sectionHeightEach);
-        //     let tl = gsap.timeline({
-        //         ease: "none",
-        //         scrollTrigger: {
-        //             trigger: el,
-        //             start: "top top",
-        //             end: "bottom bottom",
-        //             scrub: true,
-        //             markers: true,
-        //         }
-        //     });
+            // console.log(sectionHeightEach);
+            let tl = gsap.timeline({
+                ease: "none",
+                scrollTrigger: {
+                    trigger: el,
+                    start: "top top",
+                    end: "bottom bottom",
+                    scrub: true,
+                    markers: true,
+                }
+            });
 
-        // });
+        });
 
         let circleAnimation = gsap.to(circle, {
             translateX: `${halfWidth - halfCircleWidth}px`,
@@ -777,6 +777,7 @@ function pageScript() {
             markers: true,
             scrub: 1,
             pin:circleOuter,
+            pinSpacing:false,
             animation: circleAnimation,
         });
 
