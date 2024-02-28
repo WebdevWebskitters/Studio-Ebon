@@ -1,7 +1,7 @@
 "use strict";
 document.addEventListener("DOMContentLoaded", pageScript, false);
 function pageScript() {
-    gsap.registerPlugin(ScrollTrigger, Observer);
+    gsap.registerPlugin(ScrollTrigger, Observer, ScrollToPlugin);
 
     window.scrollTo(0, 0);
     if (window.history.scrollRestoration) {
@@ -726,6 +726,99 @@ function pageScript() {
                     duration: 1,
                     scrollTo: { y: "#about-studio-" + (index + 1), offsetY: 0 },
                     scroller: isDekstop ? pageContainer : window,
+                });
+            });
+        });
+
+        // Orbit Animation
+        let circle = document.querySelector('.crcle_anim');
+        let circleOuter = document.querySelector('.orbt_wrp');
+        let sectionAnim = document.querySelectorAll('.mthd_idea_box');
+        //let mainSection = document.querySelector('.crcle_animation');
+        let orbitAnim = document.querySelectorAll('.ech_orbt_section');
+
+        let circleHeight = circleOuter.offsetHeight;
+        //let totalHeight = circleOuter.offsetHeight;
+        let halfWidth = circleOuter.offsetWidth / 2;
+        let halfCircleWidth = circle.offsetWidth / 2
+
+        //let topBox = document.querySelector('.top_box');
+
+        sectionAnim.forEach((el, i) => {
+            // console.log(el);
+            sectionHeightEach = el.offsetHeight;
+
+            console.log(sectionHeightEach);
+            let tl = gsap.timeline({
+                ease: "none",
+                scrollTrigger: {
+                    trigger: el,
+                    start: "top top",
+                    end: "bottom bottom",
+                    scrub: true,
+                    pin:circleOuter,
+                    markers: true,
+                }
+            });
+
+        });
+
+        let circleAnimation = gsap.to(circle, {
+            translateX: `${halfWidth - halfCircleWidth}px`,
+            scale: 0.8,
+            ease: 'none'
+        });
+
+        console.log(halfWidth)
+
+        ScrollTrigger.create({
+            trigger: sectionAnim,
+            start: "top top",
+            end: () => `+=${circleHeight / 2 + circleHeight / 3}px`,
+            markers: true,
+            scrub: 1,
+            animation: circleAnimation,
+        });
+
+        let dotAnim = document.querySelectorAll('.crcle_dot');
+
+        function addRemove(i) {
+            $(dotAnim).removeClass("active");
+            dotAnim[i].classList.add('active');
+        }
+
+        orbitAnim.forEach((el, i) => {
+            ScrollTrigger.create({
+                trigger: el,
+                start: "top 60%",
+                end: () => "bottom 60%",
+                onEnter: function () {
+                    addRemove(i);
+                },
+                onEnterBack: function () {
+                    addRemove(i);
+                },
+                onLeave: function () {
+                    if (i == 0) {
+                        dotAnim[0].classList.remove('active');
+                    }
+                },
+                onLeaveBack: function () {
+                    if (i == 0) {
+                        dotAnim[0].classList.remove('active');
+                    }
+                },
+                markers: true,
+            })
+
+        })
+
+        let navLinks = gsap.utils.toArray('.sec_lnk');
+        navLinks.forEach((btn, index) => {
+            btn.addEventListener("click", () => {
+                gsap.to(window, {
+                    duration: 1,
+                    scrollTo: { y: "#orbit-" + (index + 1), offsetY: 0 }
                 });
             });
         });
