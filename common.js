@@ -307,8 +307,8 @@ function pageScript() {
             }
         })
         //Text Line Animation
-        if ($(".bnr_hdng_wrp, .inner_bnnr").length) {
-            $(".bnr_hdng_wrp, .inner_bnnr").each(function () {
+        if ($(".bnr_hdng_wrp").length) {
+            $(".bnr_hdng_wrp").each(function () {
                 let ele = $(this);
                 gsap.set([ele.find('.hdng_anim'), ele.find('.hdng_info_txt')], {
                     translateY: "100%",
