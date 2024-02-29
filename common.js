@@ -750,7 +750,7 @@ function pageScript() {
             trigger: sectionAnim,
             start: "top top",
             end: () => `+=${circleHeight / 2 + circleHeight / 3}px`,
-            markers: true,
+            // markers: true,
             scrub: 1,
             animation: circleAnimation,
             scroller: isDekstop ? pageContainer : window,
@@ -787,7 +787,7 @@ function pageScript() {
                         dotAnim[0].classList.remove('active');
                     }
                 },
-                markers: true,
+                // markers: true,
             })
 
         })
