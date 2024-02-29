@@ -769,7 +769,7 @@ function pageScript() {
                 start: "top 60%",
                 end: () => "bottom 60%",
                 pin:circleOuter,
-                pinSpacing:false,
+                pinSpacing:"10% 0 0",
                 scroller: isDekstop ? pageContainer : window,
                 onEnter: function () {
                     addRemove(i);
