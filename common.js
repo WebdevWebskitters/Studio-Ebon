@@ -752,8 +752,6 @@ function pageScript() {
             end: () => `+=${circleHeight / 2 + circleHeight / 3}px`,
             markers: true,
             scrub: 1,
-            pin:circleOuter,
-            pinSpacing:false,
             animation: circleAnimation,
             scroller: isDekstop ? pageContainer : window,
         });
@@ -770,6 +768,8 @@ function pageScript() {
                 trigger: el,
                 start: "top 60%",
                 end: () => "bottom 60%",
+                pin:circleOuter,
+                pinSpacing:false,
                 scroller: isDekstop ? pageContainer : window,
                 onEnter: function () {
                     addRemove(i);
