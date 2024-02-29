@@ -796,7 +796,7 @@ function pageScript() {
 
         })
 
-        let navLinks = gsap.utils.toArray('.sec_lnk');
+        let navLinks = gsap.utils.toArray('.nxt_stp_lnk');
         navLinks.forEach((btn, index) => {
             btn.addEventListener("click", () => {
                 gsap.to(window, {
