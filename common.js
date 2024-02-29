@@ -734,42 +734,17 @@ function pageScript() {
         let circle = document.querySelector('.crcle_anim');
         let circleOuter = document.querySelector('.orbt_wrp');
         let sectionAnim = document.querySelectorAll('.mthd_idea_box');
-        //let mainSection = document.querySelector('.crcle_animation');
         let orbitAnim = document.querySelectorAll('.ech_orbt_section');
 
         let circleHeight = circleOuter.offsetHeight;
-        //let totalHeight = circleOuter.offsetHeight;
         let halfWidth = circleOuter.offsetWidth / 2;
         let halfCircleWidth = circle.offsetWidth / 2
-
-        //let topBox = document.querySelector('.top_box');
-
-        sectionAnim.forEach((el, i) => {
-            // console.log(el);
-            // sectionHeightEach = el.offsetHeight;
-
-            // console.log(sectionHeightEach);
-            let tl = gsap.timeline({
-                ease: "none",
-                scrollTrigger: {
-                    trigger: el,
-                    start: "top top",
-                    end: "bottom bottom",
-                    scrub: true,
-                    markers: true,
-                    scroller: isDekstop ? pageContainer : window,
-                }
-            });
-
-        });
 
         let circleAnimation = gsap.to(circle, {
             translateX: `${halfWidth - halfCircleWidth}px`,
             scale: 0.8,
             ease: 'none'
         });
-
-        console.log(halfWidth)
 
         ScrollTrigger.create({
             trigger: sectionAnim,
@@ -778,7 +753,7 @@ function pageScript() {
             markers: true,
             scrub: 1,
             pin:circleOuter,
-            // pinSpacing:true,
+            pinSpacing:false,
             animation: circleAnimation,
             scroller: isDekstop ? pageContainer : window,
         });
