@@ -801,7 +801,8 @@ function pageScript() {
             btn.addEventListener("click", () => {
                 gsap.to(window, {
                     duration: 1,
-                    scrollTo: { y: "#orbit-" + (index + 1), offsetY: 0 }
+                    scrollTo: { y: "#orbit-" + (index + 1), offsetY: 0 },
+                    scroller: isDekstop ? pageContainer : window,
                 });
             });
         });
