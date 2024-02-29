@@ -773,18 +773,22 @@ function pageScript() {
                 scroller: isDekstop ? pageContainer : window,
                 onEnter: function () {
                     addRemove(i);
+                    circleOuter.classList.add('anim_active')
                 },
                 onEnterBack: function () {
                     addRemove(i);
+                    circleOuter.classList.add('anim_active')
                 },
                 onLeave: function () {
                     if (i == 0) {
                         dotAnim[0].classList.remove('active');
+                        circleOuter.classList.remove('anim_active')
                     }
                 },
                 onLeaveBack: function () {
                     if (i == 0) {
                         dotAnim[0].classList.remove('active');
+                        circleOuter.classList.remove('anim_active')
                     }
                 },
                 // markers: true,
