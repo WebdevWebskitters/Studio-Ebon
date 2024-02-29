@@ -778,7 +778,7 @@ function pageScript() {
             markers: true,
             scrub: 1,
             pin:circleOuter,
-            pinSpacing:false,
+            // pinSpacing:true,
             animation: circleAnimation,
             scroller: isDekstop ? pageContainer : window,
         });
