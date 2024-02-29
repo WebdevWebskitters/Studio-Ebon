@@ -757,6 +757,7 @@ function pageScript() {
                     end: "bottom bottom",
                     scrub: true,
                     markers: true,
+                    scroller: isDekstop ? pageContainer : window,
                 }
             });
 
@@ -779,6 +780,7 @@ function pageScript() {
             pin:circleOuter,
             pinSpacing:false,
             animation: circleAnimation,
+            scroller: isDekstop ? pageContainer : window,
         });
 
         let dotAnim = document.querySelectorAll('.crcle_dot');
@@ -793,6 +795,7 @@ function pageScript() {
                 trigger: el,
                 start: "top 60%",
                 end: () => "bottom 60%",
+                scroller: isDekstop ? pageContainer : window,
                 onEnter: function () {
                     addRemove(i);
                 },
