@@ -731,14 +731,14 @@ function pageScript() {
         });
 
         // Orbit Animation
-        let circle = document.querySelector('.crcle_anim');
-        let circleOuter = document.querySelector('.orbt_wrp');
-        let sectionAnim = document.querySelectorAll('.mthd_idea_box');
-        let orbitAnim = document.querySelectorAll('.ech_orbt_section');
+        let circle = document?.querySelector('.crcle_anim');
+        let circleOuter = document?.querySelector('.orbt_wrp');
+        let sectionAnim = document?.querySelectorAll('.mthd_idea_box');
+        let orbitAnim = document?.querySelectorAll('.ech_orbt_section');
 
-        let circleHeight = circleOuter.offsetHeight;
-        let halfWidth = circleOuter.offsetWidth / 2;
-        let halfCircleWidth = circle.offsetWidth / 2
+        let circleHeight = circleOuter?.offsetHeight;
+        let halfWidth = circleOuter?.offsetWidth / 2;
+        let halfCircleWidth = circle?.offsetWidth / 2
 
         let circleAnimation = gsap.to(circle, {
             translateX: `${halfWidth - halfCircleWidth}px`,
