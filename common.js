@@ -818,13 +818,9 @@ function pageScript() {
             let itemClass = this.parentNode.className;
             for (let i = 0; i < accItem.length; i++) {
                 accItem[i].className = 'acc_item close';
-                this.nextElementSibling.style.height = 0;
-                this.nextElementSibling.style.opacity = 0;
             }
             if (itemClass == 'acc_item close') {
                 this.parentNode.className = 'acc_item open';
-                this.nextElementSibling.style.height = 'auto';
-                this.nextElementSibling.style.opacity = 1;
             }
         }
         //end ready
