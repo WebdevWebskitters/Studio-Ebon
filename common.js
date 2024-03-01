@@ -802,10 +802,31 @@ function pageScript() {
                 gsap.to(window, {
                     duration: 1,
                     scrollTo: { y: "#orbit-" + (index + 1), offsetY: 0 },
-                    scroller: isDekstop ? pageContainer : window,
+                    // scroller: isDekstop ? pageContainer : window,
                 });
             });
         });
+
+        // Accordion
+        var accItem = document.getElementsByClassName('acc_item');
+        var accBtn = document.getElementsByClassName('acc_bttn');
+        // var accPanel = document.getElementsByClassName('acc_bttn');
+        for (i = 0; i < accBtn.length; i++) {
+            accBtn[i].addEventListener('click', toggleItem, false);
+        }
+        function toggleItem() {
+            var itemClass = this.parentNode.className;
+            for (i = 0; i < accItem.length; i++) {
+                accItem[i].className = 'acc_item close';
+                this.nextElementSibling.style.height = 0;
+                this.nextElementSibling.style.opacity = 0;
+            }
+            if (itemClass == 'acc_item close') {
+                this.parentNode.className = 'acc_item open';
+                this.nextElementSibling.style.height = 'auto';
+                this.nextElementSibling.style.opacity = 1;
+            }
+        }
         //end ready
 
         //// page loader
