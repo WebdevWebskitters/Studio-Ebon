@@ -808,15 +808,15 @@ function pageScript() {
         });
 
         // Accordion
-        var accItem = document.getElementsByClassName('acc_item');
-        var accBtn = document.getElementsByClassName('acc_bttn');
+        let accItem = document.getElementsByClassName('acc_item');
+        let accBtn = document.getElementsByClassName('acc_bttn');
         // var accPanel = document.getElementsByClassName('acc_bttn');
-        for (i = 0; i < accBtn.length; i++) {
+        for (let i = 0; i < accBtn.length; i++) {
             accBtn[i].addEventListener('click', toggleItem, false);
         }
         function toggleItem() {
-            var itemClass = this.parentNode.className;
-            for (i = 0; i < accItem.length; i++) {
+            let itemClass = this.parentNode.className;
+            for (let i = 0; i < accItem.length; i++) {
                 accItem[i].className = 'acc_item close';
                 this.nextElementSibling.style.height = 0;
                 this.nextElementSibling.style.opacity = 0;
