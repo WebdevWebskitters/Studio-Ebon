@@ -728,7 +728,6 @@ function pageScript() {
                     //scroller: isDekstop ? pageContainer : window,
                 });
                 locoScroll.update();
-                ScrollTrigger.refresh();
             });
         });
 
@@ -807,7 +806,6 @@ function pageScript() {
                     // scroller: isDekstop ? pageContainer : window,
                 });
                 locoScroll.update();
-                ScrollTrigger.refresh();
             });
         });
 
@@ -819,7 +817,6 @@ function pageScript() {
             accBtn[i].addEventListener('click', toggleItem, false);
             accBtn[i].addEventListener('click', function(){
                 locoScroll.update();
-                ScrollTrigger.refresh();
             });
         }
         function toggleItem() {
