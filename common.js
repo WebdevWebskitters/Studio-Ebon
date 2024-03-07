@@ -725,7 +725,7 @@ function pageScript() {
                 gsap.to(window, {
                     duration: 1,
                     scrollTo: { y: "#about-studio-" + (index + 1), offsetY: 0 },
-                    scroller: isDekstop ? pageContainer : window,
+                    //scroller: isDekstop ? pageContainer : window,
                 });
                 locoScroll.update();
                 ScrollTrigger.refresh();
