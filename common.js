@@ -727,6 +727,8 @@ function pageScript() {
                     scrollTo: { y: "#about-studio-" + (index + 1), offsetY: 0 },
                     scroller: isDekstop ? pageContainer : window,
                 });
+                locoScroll.update();
+                ScrollTrigger.refresh();
             });
         });
 
@@ -804,6 +806,8 @@ function pageScript() {
                     scrollTo: { y: "#orbit-" + (index + 1), offsetY: 0 },
                     // scroller: isDekstop ? pageContainer : window,
                 });
+                locoScroll.update();
+                ScrollTrigger.refresh();
             });
         });
 
@@ -813,6 +817,10 @@ function pageScript() {
         // var accPanel = document.getElementsByClassName('acc_bttn');
         for (let i = 0; i < accBtn.length; i++) {
             accBtn[i].addEventListener('click', toggleItem, false);
+            accBtn[i].addEventListener('click', function(){
+                locoScroll.update();
+                ScrollTrigger.refresh();
+            });
         }
         function toggleItem() {
             let itemClass = this.parentNode.className;
