@@ -743,7 +743,7 @@ function pageScript() {
 
         let circleAnimation = gsap.to(circle, {
             translateX: `${halfWidth - halfCircleWidth}px`,
-            yPercent:10,
+            translateY:10,
             scale: 0.8,
             ease: 'none'
         });
