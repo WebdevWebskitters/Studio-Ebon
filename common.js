@@ -844,7 +844,7 @@ function pageScript() {
                 var count = parseInt(imgWrapper?.getAttribute("random_gallery"), 0);
                 var duration = Number(imgWrapper?.getAttribute("data-time"));
                 gsap.set(imgWrapper,{
-                    width: `${Math.round(((contW - imgWidth - imgWidth / (imgWrppr.length * 4)) / contW) * 100) / 2}%`,
+                    width: `${Math.round(((contW - imgWidth - imgWidth / (imgGallery.length * 4)) / contW) * 100) / 2}%`,
                 })
                 if (isNaN(count)) {
                     count = Math.floor(totalLn / 2);
