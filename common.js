@@ -833,7 +833,7 @@ function pageScript() {
 
         // Random Positioning Gallery
         const imgGallery = document?.querySelectorAll("[random_gallery]");
-        let contW  = document?.querySelector(".img_wrppr").getBoundingClientRect().width;
+        let contW  = document?.querySelector(".img_wrppr")?.getBoundingClientRect().width;
 
         if (imgGallery.length > 0) {
             imgGallery.forEach((imgWrapper, index) => {
