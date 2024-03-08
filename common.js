@@ -839,6 +839,7 @@ function pageScript() {
             imgGallery.forEach((imgWrapper, index) => {
                 const list = imgWrapper?.querySelector(".img_lstng");
                 const item = list?.querySelectorAll(".img_hldr");
+                let imgWidth = imgWrapper?.querySelector('.img_hldr > img').clientWidth;
                 const totalLn = item.length;
                 var count = parseInt(imgWrapper?.getAttribute("random_gallery"), 0);
                 var duration = Number(imgWrapper?.getAttribute("data-time"));
