@@ -963,7 +963,7 @@ function pageScript() {
         let bttnLink = document?.querySelectorAll(".vew_bttn");
         bttnLink.forEach((el,i) => {
             el.addEventListener("click", () => {
-                el[i].classList.add('btn_active');
+                bttnLink[i].classList.add('btn_active');
                 bttnLink.classList.remove('btn_active');
             })    
         })
