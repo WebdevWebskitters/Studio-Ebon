@@ -156,6 +156,51 @@ function pageScript() {
                 locoScroll.start();
             }, 1500);
             ///end
+
+            //Text Line Animation
+            if ($(".bnr_hdng_wrp").length) {
+                $(".bnr_hdng_wrp").each(function () {
+                    let ele = $(this);
+                    gsap.set([ele.find('.hdng_anim'), ele.find('.hdng_info_txt')], {
+                        translateY: "100%",
+                        transformStyle: "preserve-3d",
+                    });
+                    var t1 = gsap.timeline({
+                        repeat: 0,
+                        delay: 0.2,
+                    });
+                    t1
+                        .to($('.hdng_anim'), {
+                            translateY: 0,
+                        }, "+=0.3")
+                        .to($('.hdng_info_txt'), {
+                            translateY: 0,
+                        })
+                })
+
+            }
+            //Text Line Animation 2
+            if ($(".inner_bnnr").length) {
+                $(".inner_bnnr").each(function () {
+                    let ele = $(this);
+                    gsap.set([ele.find('.hdng_anim'), ele.find('.hdng_info_txt')], {
+                        translateY: "100%",
+                        transformStyle: "preserve-3d",
+                    });
+                    var t1 = gsap.timeline({
+                        repeat: 0,
+                        delay: 0.2,
+                    })
+                    t1
+                        .to($('.hdng_anim'), {
+                            translateY: 0,
+                        }, "+=0.3")
+                        .to($('.hdng_info_txt'), {
+                            translateY: 0,
+                        })
+                })
+
+            }
         }
         /////////////////////////////////////////
         /*
@@ -306,64 +351,6 @@ function pageScript() {
                 return tl;
             }
         })
-        //Text Line Animation
-        if ($(".bnr_hdng_wrp").length) {
-            $(".bnr_hdng_wrp").each(function () {
-                let ele = $(this);
-                gsap.set([ele.find('.hdng_anim'), ele.find('.hdng_info_txt')], {
-                    translateY: "100%",
-                    transformStyle: "preserve-3d",
-                });
-                var t1 = gsap.timeline({
-                    repeat: 0,
-                    delay: 1.5,
-                    scrollTrigger: {
-                        trigger: ele,
-                        start: "top bottom",
-                        end: "bottom bottom",
-                        scrub: false,
-                        scroller: isDekstop ? pageContainer : window,
-                    },
-                })
-                t1
-                    .to($('.hdng_anim'), {
-                        translateY: 0,
-                    }, "+=0.3")
-                    .to($('.hdng_info_txt'), {
-                        translateY: 0,
-                    })
-            })
-
-        }
-        //Text Line Animation 2
-        if ($(".inner_bnnr").length) {
-            $(".inner_bnnr").each(function () {
-                let ele = $(this);
-                gsap.set([ele.find('.hdng_anim'), ele.find('.hdng_info_txt')], {
-                    translateY: "100%",
-                    transformStyle: "preserve-3d",
-                });
-                var t1 = gsap.timeline({
-                    repeat: 0,
-                    delay: 1.5,
-                    scrollTrigger: {
-                        trigger: ele,
-                        start: "top bottom",
-                        end: "bottom bottom",
-                        scrub: false,
-                        scroller: isDekstop ? pageContainer : window,
-                    },
-                })
-                t1
-                    .to($('.hdng_anim'), {
-                        translateY: 0,
-                    }, "+=0.3")
-                    .to($('.hdng_info_txt'), {
-                        translateY: 0,
-                    })
-            })
-
-        }
 
         //Video Animation
         let video_sec = document?.querySelector(".video_sec");
@@ -793,7 +780,6 @@ function pageScript() {
                 //     scrollTo: { y: "#orbit-" + (index + 1), offsetY: 0 },
                 //     // scroller: isDekstop ? pageContainer : window,
                 // });
-                console.log(">","#orbit-" + (index + 1));
                 locoScroll.scrollTo("#orbit-" + (index + 1));
                 locoScroll.update();
             });
@@ -829,10 +815,10 @@ function pageScript() {
                 const item = list?.querySelectorAll(".img_hldr");
                 let imgWidth = imgWrapper?.querySelector('.mdl_img').clientWidth;
                 const totalLn = item.length;
-                let contW  = imgWrapper?.getBoundingClientRect().width;
+                let contW = imgWrapper?.getBoundingClientRect().width;
                 var count = parseInt(imgWrapper?.getAttribute("random_gallery"), 0);
                 var duration = Number(imgWrapper?.getAttribute("data-time"));
-                gsap.set(imgWrapper,{
+                gsap.set(imgWrapper, {
                     width: `${Math.round(((contW - imgWidth - imgWidth / (item.length * 4)) / contW) * 100) / 2}%`,
                 })
                 if (isNaN(count)) {
