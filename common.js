@@ -167,7 +167,7 @@ function pageScript() {
                     });
                     var t1 = gsap.timeline({
                         repeat: 0,
-                        
+
                     });
                     t1
                         .to($('.hdng_anim'), {
@@ -927,32 +927,58 @@ function pageScript() {
         }
 
         // Custom Select Dropdown
-      
+
         // if(postonTop !== null || assgnHeight !== null){
         //         postonTop.style.top = assgnHeight +  "px";
-            
+
         // }else{
         //    return false;
         // }
         if ($(".slct_rght").length) {
-            let postonTop =  document?.querySelector(".slct_lst_drp");
+            let postonTop = document?.querySelector(".slct_lst_drp");
             let assgnHeight = document?.querySelector(".srch_slct_tggle")?.clientHeight;
-            postonTop.style.top = assgnHeight +  "px";
-        }   
+            postonTop.style.top = assgnHeight + "px";
+        }
         $('srch_slct').hide()
-        $('.srch_slct_tggle').on('click',function(){
+        $('.srch_slct_tggle').on('click', function () {
             $(this).next().slideToggle();
             $(this).parent().toggleClass('selct_active');
         });
-        $('.custom_lnk').on('click',function(){
+        $('.custom_lnk').on('click', function () {
             $(this).parents('.srch_slct').find('.slct_lst_drp').slideUp();
             $(this).parents('.srch_slct').removeClass('selct_active');
         });
-        $('.custom_lnk input[type=radio]').change(function(){
-            if($(this).is(':checked')){
+        $('.custom_lnk input[type=radio]').change(function () {
+            if ($(this).is(':checked')) {
                 $(this).parents('.srch_slct').find('.srch_slct_tggle').children('.srch_txt_block').text($(this).next('span').text());
             }
         });
+
+        //Sticky Box
+        function handleScroll() {
+            var bttnBox = document.querySelector('.bttn_box');
+            var scrollValue = window.scrollY;
+
+            if (bttnBox !== null && scrollValue > bttnBox.clientHeight) {
+                stickyElement();
+            } else {
+                resetSticky();
+            }
+        }
+
+        function stickyElement() {
+            var bttnBox = document.querySelector('.bttn_box');
+            bttnBox.classList.add('sticky');
+        }
+
+        function resetSticky() {
+            var bttnBox = document.querySelector('.bttn_box');
+            if (bttnBox !== null) {
+                bttnBox.classList.remove('sticky');
+            }
+        }
+
+        window.addEventListener('scroll', handleScroll);
         //end ready
 
         //// page loader
