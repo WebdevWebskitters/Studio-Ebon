@@ -814,7 +814,7 @@ function pageScript() {
             imgGallery.forEach((imgWrapper, index) => {
                 const list = imgWrapper?.querySelector(".img_lstng");
                 const item = list?.querySelectorAll(".img_hldr");
-                let imgWidth = imgWrapper?.querySelector('.mdl_img').clientWidth;
+                let imgWidth = imgWrapper?.querySelector('.mdl_img')?.clientWidth;
                 const totalLn = item.length;
                 let contW = imgWrapper?.getBoundingClientRect().width;
                 var count = parseInt(imgWrapper?.getAttribute("random_gallery"), 0);
