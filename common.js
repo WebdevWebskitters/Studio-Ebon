@@ -956,10 +956,17 @@ function pageScript() {
 
         if ($(".bttn_box").length) {
             let postonTop =  document?.querySelector(".bttn_box");
-            let assgnHeight = document?.querySelector(".wrk_bnnr")?.clientHeight;
-            postonTop.style.position = "fixed";
+            let assgnHeight = document?.querySelector(".inner_bnnr")?.clientHeight;
             postonTop.style.top = assgnHeight +  "px";
+            postonTop.style.position = "fixed";
         }   
+        let bttnLink = document?.querySelectorAll(".vew_bttn");
+        bttnLink.forEach((el,i) => {
+            el.addEventListener("click", () => {
+                el[i].classList.add('btn_active');
+                bttnLink.classList.remove('btn_active');
+            })    
+        })
         //end ready
 
         //// page loader
