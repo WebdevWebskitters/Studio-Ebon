@@ -929,7 +929,7 @@ function pageScript() {
         // Custom Select Dropdown
         let postonTop =  document?.querySelector(".slct_lst_drp");
         let assgnHeight = document?.querySelector(".srch_slct_tggle")?.clientHeight;
-        if(postonTop !== null){
+        if(postonTop !== null || assgnHeight !== null){
                 postonTop.style.top = assgnHeight +  "px";
             
         }else{
