@@ -473,27 +473,12 @@ function pageScript() {
                         start: `top ${topPos2}`,
                         end: `+=${window.innerHeight}`,
                         scrub: 0.5,
-                        //transformOrigin: "top top",
                         scroller: isDekstop ? pageContainer : window,
                     },
                 })
             })
 
         }
-        // /add class in viewport
-        // function scrollUpdate() {
-        // document.querySelectorAll(".sldr_cursor_wrppr").forEach((sec) => {
-        //     let poz= ScrollTrigger.positionInViewport(sec, "center").toFixed(2);
-        //     console.log(poz);
-        //     poz>0 && poz<=1?document.querySelector('.custom_cursor').classList.add("active_cursor"):document.querySelector('.custom_cursor').classList.remove("active_cursor");
-        // });
-        // }
-        // if (isDekstop) {
-        //     locoScroll.on("scroll", scrollUpdate)
-        // }
-        // else{
-        //     window.addEventListener("scroll", scrollUpdate);
-        // }
 
         let brandBox = document.querySelectorAll('.brnd_lnk_box');
 
@@ -833,18 +818,18 @@ function pageScript() {
 
         // Random Positioning Gallery
         const imgGallery = document?.querySelectorAll("[random_gallery]");
-        let contW  = document?.querySelector(".img_wrppr")?.getBoundingClientRect().width;
 
         if (imgGallery.length > 0) {
             imgGallery.forEach((imgWrapper, index) => {
                 const list = imgWrapper?.querySelector(".img_lstng");
                 const item = list?.querySelectorAll(".img_hldr");
-                let imgWidth = imgWrapper?.querySelector('.img_hldr > img').clientWidth;
+                let imgWidth = imgWrapper?.querySelector('.mdl_img').clientWidth;
                 const totalLn = item.length;
+                let contW  = imgWrapper?.getBoundingClientRect().width;
                 var count = parseInt(imgWrapper?.getAttribute("random_gallery"), 0);
                 var duration = Number(imgWrapper?.getAttribute("data-time"));
                 gsap.set(imgWrapper,{
-                    width: `${Math.round(((contW - imgWidth - imgWidth / (imgGallery.length * 4)) / contW) * 100) / 2}%`,
+                    width: `${Math.round(((contW - imgWidth - imgWidth / (item.length * 4)) / contW) * 100) / 2}%`,
                 })
                 if (isNaN(count)) {
                     count = Math.floor(totalLn / 2);
@@ -932,12 +917,11 @@ function pageScript() {
                     subTl.pause().progress(0);
                     gsap.to(list, {
                         opacity: 1,
-                        pointerEvents: "all",
                         onComplete: () => mainTl.restart(),
                     });
                 });
 
-                document.addEventListener("mouseleave", () => {
+                btn.addEventListener("mouseleave", () => {
                     mainTl.pause().progress(0);
                     subTl.pause().progress(0);
                     gsap.to(list, {
