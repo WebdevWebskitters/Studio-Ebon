@@ -930,7 +930,7 @@ function pageScript() {
         let postonTop =  document?.querySelector(".slct_lst_drp");
         let assgnHeight = document?.querySelector(".srch_slct_tggle")?.clientHeight;
         if(postonTop != null){
-                return flase
+                return false
             
         }else{
             postonTop.style.top = assgnHeight +  "px";
