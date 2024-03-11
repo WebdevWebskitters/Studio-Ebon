@@ -813,13 +813,17 @@ function pageScript() {
         if ($("#modal-1").length) {
                 const list = imgGallery?.querySelector(".img_lstng");
                 const item = list?.querySelectorAll(".img_hldr");
-                let imgWidth = imgGallery?.querySelector('.mdl_img')?.clientWidth;
                 const totalLn = item?.length;
-                let contW = imgGallery?.getBoundingClientRect().width;
                 var count = parseInt(imgGallery?.getAttribute("random_gallery"), 0);
                 var duration = Number(imgGallery?.getAttribute("data-time"));
-                gsap.set(imgGallery, {
-                    width: `${Math.round(((contW - imgWidth - imgWidth / (item.length * 4)) / contW) * 100) / 2}%`,
+                let contW = imgGallery?.getBoundingClientRect().width;
+
+                item.forEach((el,i) => {
+                    let imgWrapper = imgGallery?.querySelector('.mdl_img');
+                    let imgWidth = imgWrapper?.querySelector('.mdl_img')?.clientWidth;
+                    gsap.set(el, {
+                        width: `${Math.round(((contW - imgWidth - imgWidth / (item.length * 4)) / contW) * 100) / 2}%`,
+                    })
                 })
                 if (isNaN(count)) {
                     count = Math.floor(totalLn / 2);
