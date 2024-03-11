@@ -818,6 +818,7 @@ function pageScript() {
 
         // Random Positioning Gallery
         const imgGallery = document?.querySelectorAll("[random_gallery]");
+        const modalGallery = document?.querySelector(".idea_modal");
 
         if (imgGallery.length > 0) {
             imgGallery.forEach((imgWrapper, index) => {
@@ -915,7 +916,7 @@ function pageScript() {
                 btn.addEventListener("mouseenter", () => {
                     mainTl.pause().progress(0);
                     subTl.pause().progress(0);
-                    gsap.to(list, {
+                    gsap.to(modalGallery, {
                         opacity: 1,
                         onComplete: () => mainTl.restart(),
                     });
@@ -924,7 +925,7 @@ function pageScript() {
                 btn.addEventListener("mouseleave", () => {
                     mainTl.pause().progress(0);
                     subTl.pause().progress(0);
-                    gsap.to(list, {
+                    gsap.to(modalGallery, {
                         opacity: 0,
                         pointerEvents: "none",
                     });
