@@ -807,19 +807,18 @@ function pageScript() {
         }
 
         // Random Positioning Gallery
-        const imgGallery = document?.querySelectorAll("[random_gallery]");
-        const modalGallery = document?.querySelector(".idea_modal");
+        const imgGallery = document?.getElementById("imgGallery");
+        // const modalGallery = document?.querySelector(".idea_modal");
 
-        if (imgGallery.length > 0) {
-            imgGallery.forEach((imgWrapper, index) => {
-                const list = imgWrapper?.querySelector(".img_lstng");
+        if (imgGallery.length) {
+                const list = imgGallery?.querySelector(".img_lstng");
                 const item = list?.querySelectorAll(".img_hldr");
-                let imgWidth = imgWrapper?.querySelector('.mdl_img')?.clientWidth;
+                let imgWidth = imgGallery?.querySelector('.mdl_img')?.clientWidth;
                 const totalLn = item?.length;
-                let contW = imgWrapper?.getBoundingClientRect().width;
-                var count = parseInt(imgWrapper?.getAttribute("random_gallery"), 0);
-                var duration = Number(imgWrapper?.getAttribute("data-time"));
-                gsap.set(imgWrapper, {
+                let contW = imgGallery?.getBoundingClientRect().width;
+                var count = parseInt(imgGallery?.getAttribute("random_gallery"), 0);
+                var duration = Number(imgGallery?.getAttribute("data-time"));
+                gsap.set(imgGallery, {
                     width: `${Math.round(((contW - imgWidth - imgWidth / (item.length * 4)) / contW) * 100) / 2}%`,
                 })
                 if (isNaN(count)) {
@@ -902,11 +901,11 @@ function pageScript() {
                     opacity: 0,
                     pointerEvents: "none",
                 });
-                const btn = imgWrapper.querySelector("[data-gallery_btn]");
+                const btn = document.querySelector("[data-gallery_btn]");
                 btn.addEventListener("mouseenter", () => {
                     mainTl.pause().progress(0);
                     subTl.pause().progress(0);
-                    gsap.to(modalGallery, {
+                    gsap.to(imgGallery, {
                         opacity: 1,
                         onComplete: () => mainTl.restart(),
                     });
@@ -915,12 +914,11 @@ function pageScript() {
                 btn.addEventListener("mouseleave", () => {
                     mainTl.pause().progress(0);
                     subTl.pause().progress(0);
-                    gsap.to(modalGallery, {
+                    gsap.to(imgGallery, {
                         opacity: 0,
                         pointerEvents: "none",
                     });
                 });
-            });
         }
         function getRandomNumber(min, max) {
             return Math.random() * (max - min) + min;
