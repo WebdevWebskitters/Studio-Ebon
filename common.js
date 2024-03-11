@@ -958,6 +958,7 @@ function pageScript() {
         function handleScroll() {
             var bttnBox = document.querySelector('.bttn_box');
             var scrollValue = window.scrollY;
+            locoScroll.update();
 
             if (bttnBox !== null && scrollValue > bttnBox.clientHeight) {
                 stickyElement();
@@ -978,7 +979,7 @@ function pageScript() {
             }
         }
 
-        locoScroll.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScroll,false);
         //end ready
 
         //// page loader
