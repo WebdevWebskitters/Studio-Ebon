@@ -928,7 +928,7 @@ function pageScript() {
 
         // Custom Select Dropdown
         let postonTop =  document?.querySelector(".slct_lst_drp");
-        let assgnHeight = document?.querySelector(".srch_slct_tggle").clientHeight;
+        let assgnHeight = document?.querySelector(".srch_slct_tggle")?.clientHeight;
         postonTop.style.top = assgnHeight +  "px";
         $('srch_slct').hide()
         $('.srch_slct_tggle').on('click',function(){
