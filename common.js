@@ -929,11 +929,11 @@ function pageScript() {
         // Custom Select Dropdown
         let postonTop =  document?.querySelector(".slct_lst_drp");
         let assgnHeight = document?.querySelector(".srch_slct_tggle")?.clientHeight;
-        if(postonTop != null){
-                return false
+        if(postonTop !== null){
+                postonTop.style.top = assgnHeight +  "px";
             
         }else{
-            postonTop.style.top = assgnHeight +  "px";
+           return
         }
         $('srch_slct').hide()
         $('.srch_slct_tggle').on('click',function(){
