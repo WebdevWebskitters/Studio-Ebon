@@ -927,7 +927,7 @@ function pageScript() {
         }
 
         // Custom Select Dropdown
-        document?.querySelector(".slct_lst_drp")?.style.top = document?.querySelector(".srch_slct_tggle")?.clientHeight + "px";
+        document?.querySelector(".slct_lst_drp").style.top = document?.querySelector(".srch_slct_tggle").clientHeight + "px";
         $('srch_slct').hide()
         $('.srch_slct_tggle').on('click',function(){
             $(this).next().slideToggle();
