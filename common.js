@@ -167,10 +167,11 @@ function pageScript() {
                     });
                     var t1 = gsap.timeline({
                         repeat: 0,
-                        delay: 0.2,
+                        
                     });
                     t1
                         .to($('.hdng_anim'), {
+                            delay: 1.5,
                             translateY: 0,
                         }, "+=0.3")
                         .to($('.hdng_info_txt'), {
@@ -189,10 +190,10 @@ function pageScript() {
                     });
                     var t1 = gsap.timeline({
                         repeat: 0,
-                        delay: 0.2,
                     })
                     t1
                         .to($('.hdng_anim'), {
+                            delay: 1.5,
                             translateY: 0,
                         }, "+=0.3")
                         .to($('.hdng_info_txt'), {
