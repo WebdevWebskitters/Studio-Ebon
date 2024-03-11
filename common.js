@@ -927,6 +927,18 @@ function pageScript() {
         }
 
         // Custom Select Dropdown
+        $('srch_slct').hide()
+        $('.srch_slct_tggle').on('click',function(){
+            $(this).next().slideToggle();
+        });
+        $('.custom_lnk').on('click',function(){
+            $(this).parents('.srch_slct').find('.slct_lst_drp').slideUp();
+        });
+        $('.custom_lnk input[type=radio]').change(function(){
+            if($(this).is(':checked')){
+                $(this).parents('.srch_slct').find('.srch_slct_tggle').children('.srch_txt_block').text($(this).next('span').text());
+            }
+        });
         //end ready
 
         //// page loader
