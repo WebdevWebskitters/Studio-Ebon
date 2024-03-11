@@ -927,7 +927,9 @@ function pageScript() {
         }
 
         // Custom Select Dropdown
-        document?.querySelector(".slct_lst_drp").style.top = document?.querySelector(".srch_slct_tggle").clientHeight + "px";
+        let postonTop =  document?.querySelector(".slct_lst_drp");
+        let assgnHeight = document?.querySelector(".srch_slct_tggle").clientHeight;
+        postonTop.style.top = assgnHeight +  "px";
         $('srch_slct').hide()
         $('.srch_slct_tggle').on('click',function(){
             $(this).next().slideToggle();
