@@ -807,7 +807,7 @@ function pageScript() {
         }
 
         // Random Positioning Gallery
-        const imgGallery = document?.getElementById("imgGallery");
+        const imgGallery = document?.getElementById("modal-1");
         // const modalGallery = document?.querySelector(".idea_modal");
 
         if (imgGallery.length) {
