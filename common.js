@@ -810,7 +810,7 @@ function pageScript() {
         const imgGallery = document?.getElementById("modal-1");
         // const modalGallery = document?.querySelector(".idea_modal");
 
-        if (imgGallery.length) {
+        if ($("#modal-1").length) {
                 const list = imgGallery?.querySelector(".img_lstng");
                 const item = list?.querySelectorAll(".img_hldr");
                 let imgWidth = imgGallery?.querySelector('.mdl_img')?.clientWidth;
