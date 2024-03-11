@@ -978,7 +978,7 @@ function pageScript() {
             }
         }
 
-        window.addEventListener('scroll', handleScroll);
+        locoScroll.addEventListener('scroll', handleScroll);
         //end ready
 
         //// page loader
