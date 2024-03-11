@@ -815,7 +815,7 @@ function pageScript() {
                 const list = imgWrapper?.querySelector(".img_lstng");
                 const item = list?.querySelectorAll(".img_hldr");
                 let imgWidth = imgWrapper?.querySelector('.mdl_img')?.clientWidth;
-                const totalLn = item.length;
+                const totalLn = item?.length;
                 let contW = imgWrapper?.getBoundingClientRect().width;
                 var count = parseInt(imgWrapper?.getAttribute("random_gallery"), 0);
                 var duration = Number(imgWrapper?.getAttribute("data-time"));
