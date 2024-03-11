@@ -927,14 +927,18 @@ function pageScript() {
         }
 
         // Custom Select Dropdown
-        let postonTop =  document?.querySelector(".slct_lst_drp");
-        let assgnHeight = document?.querySelector(".srch_slct_tggle")?.clientHeight;
-        if(postonTop !== null || assgnHeight !== null){
-                postonTop.style.top = assgnHeight +  "px";
+      
+        // if(postonTop !== null || assgnHeight !== null){
+        //         postonTop.style.top = assgnHeight +  "px";
             
-        }else{
-           return false;
-        }
+        // }else{
+        //    return false;
+        // }
+        if ($(".slct_rght").length) {
+            let postonTop =  document?.querySelector(".slct_lst_drp");
+            let assgnHeight = document?.querySelector(".srch_slct_tggle")?.clientHeight;
+            postonTop.style.top = assgnHeight +  "px";
+        }   
         $('srch_slct').hide()
         $('.srch_slct_tggle').on('click',function(){
             $(this).next().slideToggle();
