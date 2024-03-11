@@ -901,10 +901,10 @@ function pageScript() {
                     mainTl.pause();
                 }
 
-                gsap.set(list, {
-                    opacity: 0,
-                    pointerEvents: "none",
-                });
+                // gsap.set(list, {
+                //     opacity: 0,
+                //     pointerEvents: "none",
+                // });
                 const btn = document.querySelector("[data-gallery_btn]");
                 btn.addEventListener("mouseenter", () => {
                     mainTl.pause().progress(0);
