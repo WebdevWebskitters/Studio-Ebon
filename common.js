@@ -958,15 +958,20 @@ function pageScript() {
             let postonTop =  document?.querySelector(".bttn_box");
             let assgnHeight = document?.querySelector(".inner_bnnr")?.clientHeight;
             postonTop.style.top = assgnHeight +  "px";
-            postonTop.style.position = "fixed";
+            // postonTop.style.position = "fixed";
         }   
-        let bttnLink = document?.querySelectorAll(".vew_bttn");
-        bttnLink.forEach((el,i) => {
-            el.addEventListener("click", () => {
-                bttnLink.classList.remove('btn_active');
-                bttnLink[i].classList.add('btn_active');
-            })    
-        })
+        // let bttnLink = document?.querySelectorAll(".vew_bttn");
+        // bttnLink.forEach((el,i) => {
+        //     el.addEventListener("click", () => {
+        //         bttnLink.classList.remove('btn_active');
+        //         bttnLink[i].classList.add('btn_active');
+        //     })    
+        // })
+
+        $(".vew_bttn").click(function () {
+            $(".bttn_box").find(".btn_active").removeClass("btn_active");
+            $(this).addClass("btn_active");
+          });          
         //end ready
 
         //// page loader
