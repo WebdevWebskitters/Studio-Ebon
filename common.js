@@ -785,7 +785,7 @@ function pageScript() {
 
         })
 
-        let navLinks = gsap.utils.toArray('.nxt_stp_lnk');
+        let navLinks = document.querySelectorAll('.nxt_stp_lnk');
         navLinks.forEach((btn, index) => {
             btn.addEventListener("click", () => {
                 // gsap.to(window, {
@@ -793,7 +793,7 @@ function pageScript() {
                 //     scrollTo: { y: "#orbit-" + (index + 1), offsetY: 0 },
                 //     // scroller: isDekstop ? pageContainer : window,
                 // });
-                console.log("#orbit-" + (index + 1));
+                console.log(">","#orbit-" + (index + 1));
                 locoScroll.scrollTo("#orbit-" + (index + 1));
                 locoScroll.update();
             });
