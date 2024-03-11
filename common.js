@@ -707,11 +707,12 @@ function pageScript() {
         let goToLinks = gsap.utils.toArray('.hw_lnk');
         goToLinks.forEach((btn, index) => {
             btn.addEventListener("click", () => {
-                gsap.to(window, {
-                    duration: 1,
-                    scrollTo: { y: "#about-studio-" + (index + 1), offsetY: 0 },
-                    //scroller: isDekstop ? pageContainer : window,
-                });
+                // gsap.to(window, {
+                //     duration: 1,
+                //     scrollTo: { y: "#about-studio-" + (index + 1), offsetY: 0 },
+                //     //scroller: isDekstop ? pageContainer : window,
+                // });
+                locoScroll.scrollTo("#about-studio-" + (index + 1));
                 locoScroll.update();
             });
         });
@@ -787,11 +788,12 @@ function pageScript() {
         let navLinks = gsap.utils.toArray('.nxt_stp_lnk');
         navLinks.forEach((btn, index) => {
             btn.addEventListener("click", () => {
-                gsap.to(window, {
-                    duration: 1,
-                    scrollTo: { y: "#orbit-" + (index + 1), offsetY: 0 },
-                    // scroller: isDekstop ? pageContainer : window,
-                });
+                // gsap.to(window, {
+                //     duration: 1,
+                //     scrollTo: { y: "#orbit-" + (index + 1), offsetY: 0 },
+                //     // scroller: isDekstop ? pageContainer : window,
+                // });
+                locoScroll.scrollTo("#orbit-" + (index + 1));
                 locoScroll.update();
             });
         });
@@ -935,6 +937,8 @@ function pageScript() {
         function getRandomNumber(min, max) {
             return Math.random() * (max - min) + min;
         }
+
+        // Custom Select Dropdown
         //end ready
 
         //// page loader
