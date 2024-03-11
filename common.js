@@ -933,7 +933,7 @@ function pageScript() {
                 postonTop.style.top = assgnHeight +  "px";
             
         }else{
-           return
+           return false
         }
         $('srch_slct').hide()
         $('.srch_slct_tggle').on('click',function(){
