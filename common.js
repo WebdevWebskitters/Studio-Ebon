@@ -954,10 +954,12 @@ function pageScript() {
         $('.srch_slct_tggle').on('click', function () {
             $(this).next().slideToggle();
             $(this).parent().toggleClass('selct_active');
+            locoScroll.update();
         });
         $('.custom_lnk').on('click', function () {
             $(this).parents('.srch_slct').find('.slct_lst_drp').slideUp();
             $(this).parents('.srch_slct').removeClass('selct_active');
+            locoScroll.update();
         });
         $('.custom_lnk input[type=radio]').change(function () {
             if ($(this).is(':checked')) {
