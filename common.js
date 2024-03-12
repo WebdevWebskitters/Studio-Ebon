@@ -822,8 +822,8 @@ function pageScript() {
             let contW = imgGallery?.getBoundingClientRect().width;
 
             item.forEach((el, i) => {
-                let imgWrapper = imgGallery?.querySelector('.mdl_img');
-                let imgWidth = imgWrapper?.querySelector('.mdl_img')?.clientWidth;
+                let imgWrapper = el?.querySelector('.mdl_img');
+                let imgWidth = imgWrapper?.clientWidth;
                 gsap.set(el, {
                     width: `${Math.round(((contW - imgWidth - imgWidth / (item.length * 4)) / contW) * 100) / 2}%`,
                 })
