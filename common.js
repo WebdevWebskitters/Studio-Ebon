@@ -1031,6 +1031,67 @@ Vars
             oldScrollY = y
         }
         render();
+
+        // On Hover Show Respective Item
+        let hiddenBox = document.querySelectorAll('.hddn_wrk_item');
+        let navItemLink = document.querySelectorAll('.wrk_nav_lnk')
+
+        hiddenBox.forEach((elem) => {
+            gsap.set(elem, { opacity: 0, yPercent: 10, zIndex: 0, overflow: "hidden" });
+            gsap.set($(elem).find("img"), {
+                yPercent: 50,
+                opacity: 0,
+            })
+            gsap.set($(elem).children("[data-text]"), {
+                yPercent: 100,
+                opacity: 0,
+            })
+        });
+
+        function hoverAnim() {
+            let index = Array.from(navItemLink).indexOf(event.target);
+            let aa = hiddenBox[index];
+            gsap.timeline()
+                .to($(hiddenBox).not($(aa)), { opacity: 0, yPercent: -10, duration: 0.4, zIndex: 0, ease: "none" })
+                .to(aa, { opacity: 1, yPercent: 0, duration: 0.4, zIndex: 1, ease: "none", }, "-=0.35")
+                .to($(aa).find("img"), {
+                    duration: 0.5,
+                    yPercent: 0,
+                    opacity: 1,
+                }, "-=0.35")
+                .to($(aa).children("[data-text]"), {
+                    duration: 0.3,
+                    yPercent: 0,
+                    opacity: 1,
+                    stagger: 0.1,
+                }, "-=0.15")
+                .set($(hiddenBox).not($(aa)).find("img"), { opacity: 0, yPercent: 50, })
+                .set($(hiddenBox).not($(aa)).children("[data-text]"), { opacity: 0, yPercent: 100, })
+                .set($(hiddenBox).not($(aa)), { opacity: 0, yPercent: 10, zIndex: 0, })
+        }
+        function hoverAnimOut() {
+            let index = Array.from(navItemLink).indexOf(event.target);
+            let aa = hiddenBox[index];
+            gsap.timeline().to($(aa).find("[data-text]"), {
+                duration: 0.2,
+                yPercent: -100,
+                opacity: 0,
+                stagger: 0.1,
+            }).to($(aa).find("img"), {
+                // duration: 0.3,
+                yPercent: -50,
+                opacity: 0,
+            }, "<")
+                .set(aa, { opacity: 0, yPercent: -10, zIndex: 0, })
+        }
+
+        // }
+        // hoverAnimOut();
+        navItemLink.forEach((ele, x) => {
+            ele.addEventListener('mouseenter', hoverAnim, false);
+            ele.addEventListener('mouseleave', hoverAnimOut, false);
+            ele.addEventListener('mouseout', hoverAnimOut, false);
+        })
         //end ready
 
         //// page loader
