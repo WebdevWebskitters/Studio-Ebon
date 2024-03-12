@@ -826,6 +826,7 @@ function pageScript() {
                 gsap.set(el, {
                     width: `${Math.round(((contW - imgWidth - imgWidth / (el.length * 4)) / contW) * 100) / 2}%`,
                 })
+                console.log(imgWidth);
             })
             if (isNaN(count)) {
                 count = Math.floor(totalLn / 2);
