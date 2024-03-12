@@ -999,7 +999,7 @@ Vars
                 },
                 modifiers: {
                     y: (y) => {
-                        const s = gsap.utils.wrap(-itemHeight, wrapHeight - itemHeight, parseInt(y))
+                        const s = gsap.utils.wrap(-itemHeight, wrapHeight - itemHeight / 2, parseInt(y))
                         return `${s}px`
                     }
                 }
