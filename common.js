@@ -820,11 +820,11 @@ function pageScript() {
             var count = parseInt(imgGallery?.getAttribute("random_gallery"), 0);
             var duration = Number(imgGallery?.getAttribute("data-time"));
             let contW = imgGallery?.getBoundingClientRect().width;
-
+            console.log(contW);
             item.forEach((el) => {
                 let imgWidth = el?.querySelector('.mdl_img')?.clientWidth;
                 gsap.set(el, {
-                    width: `${Math.round(((contW - imgWidth - imgWidth / (el.length * 4)) / contW) * 100) / 2}%`,
+                    width: `${Math.round(((contW - imgWidth - imgWidth / (item.length * 4)) / contW) * 100) / 2}%`,
                 })
                 console.log(imgWidth);
             })
