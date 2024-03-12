@@ -916,8 +916,10 @@ function pageScript() {
             });
 
             btn.addEventListener("mouseleave", () => {
-                mainTl.pause().progress(0);
-                subTl.pause().progress(0);
+                mainTl.progress(0,true);
+                mainTl.pause();
+                subTl.progress(0,true);
+                subTl.pause();
                 gsap.to(imgGallery, {
                     opacity: 0,
                     pointerEvents: "none",
