@@ -998,8 +998,8 @@ function pageScript() {
         $menu?.addEventListener('mousewheel', handleMouseWheel)
         $menu?.addEventListener('selectstart', () => { return false })
         window.addEventListener('resize', () => {
-            menuHeight = $menu.clientHeight
-            itemHeight = $items[0].clientHeight
+            menuHeight = $menu?.clientHeight
+            itemHeight = $items[0]?.clientHeight
             wrapHeight = $items.length * itemHeight
         })
         const render = () => {
