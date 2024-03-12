@@ -2,6 +2,9 @@
 document.addEventListener("DOMContentLoaded", pageScript, false);
 function pageScript() {
     gsap.registerPlugin(ScrollTrigger, Observer, ScrollToPlugin);
+    gsap.config({
+        nullTargetWarn: false,
+      });
 
     window.scrollTo(0, 0);
     if (window.history.scrollRestoration) {
