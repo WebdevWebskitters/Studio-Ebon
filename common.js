@@ -167,7 +167,7 @@ function pageScript() {
                     });
                     var t1 = gsap.timeline({
                         repeat: 0,
-                        
+
                     });
                     t1
                         .to($('.hdng_anim'), {
@@ -811,157 +811,157 @@ function pageScript() {
         // const modalGallery = document?.querySelector(".idea_modal");
 
         if ($("#modal-1").length) {
-                const list = imgGallery?.querySelector(".img_lstng");
-                const item = list?.querySelectorAll(".img_hldr");
-                const totalLn = item?.length;
-                var count = parseInt(imgGallery?.getAttribute("random_gallery"), 0);
-                var duration = Number(imgGallery?.getAttribute("data-time"));
-                let contW = imgGallery?.getBoundingClientRect().width;
+            const list = imgGallery?.querySelector(".img_lstng");
+            const item = list?.querySelectorAll(".img_hldr");
+            const totalLn = item?.length;
+            var count = parseInt(imgGallery?.getAttribute("random_gallery"), 0);
+            var duration = Number(imgGallery?.getAttribute("data-time"));
+            let contW = imgGallery?.getBoundingClientRect().width;
 
-                item.forEach((el,i) => {
-                    let imgWrapper = imgGallery?.querySelector('.mdl_img');
-                    let imgWidth = imgWrapper?.querySelector('.mdl_img')?.clientWidth;
-                    gsap.set(el, {
-                        width: `${Math.round(((contW - imgWidth - imgWidth / (item.length * 4)) / contW) * 100) / 2}%`,
-                    })
+            item.forEach((el, i) => {
+                let imgWrapper = imgGallery?.querySelector('.mdl_img');
+                let imgWidth = imgWrapper?.querySelector('.mdl_img')?.clientWidth;
+                gsap.set(el, {
+                    width: `${Math.round(((contW - imgWidth - imgWidth / (item.length * 4)) / contW) * 100) / 2}%`,
                 })
-                if (isNaN(count)) {
-                    count = Math.floor(totalLn / 2);
-                }
-                if (duration == 0) {
-                    duration = 1;
-                }
-                // console.log(count, duration);
-                var k = 0;
-                var mainTl = gsap.timeline({
+            })
+            if (isNaN(count)) {
+                count = Math.floor(totalLn / 2);
+            }
+            if (duration == 0) {
+                duration = 1;
+            }
+            // console.log(count, duration);
+            var k = 0;
+            var mainTl = gsap.timeline({
+                pause: true,
+                defaults: {
+                    duration: duration,
+                },
+            }),
+                subTl = gsap.timeline({
                     pause: true,
+                    repeatRefresh: true,
+                    repeat: -1,
                     defaults: {
                         duration: duration,
                     },
-                }),
-                    subTl = gsap.timeline({
-                        pause: true,
-                        repeatRefresh: true,
-                        repeat: -1,
-                        defaults: {
-                            duration: duration,
+                });
+
+            if (count + 2 < totalLn) {
+                [...item].map((el, i) => {
+                    //primary setup
+                    gsap.set(el, {
+                        opacity: 0,
+                        position: "absolute",
+                        left: 0,
+                        top: 0,
+                        x: getRandomNumber(0, list.clientWidth - el.clientWidth / 2),
+                        y: getRandomNumber(0, list.clientHeight - el.clientHeight / 2),
+                    });
+
+                    if (i >= 0 && i < count) {
+                        k = count + i;
+                    }
+                    if (k > totalLn - 2) {
+                        k = -1;
+                    }
+                    k++;
+                    //console.log(i, ">>", k, i);
+
+                    subTl
+                        .to(item[k], {
+                            opacity: 1,
+                        })
+                        .to(
+                            item[i],
+                            {
+                                opacity: 0,
+                            },
+                            "<"
+                        )
+                        .set(item[i], {
+                            x: getRandomNumber(0, list.clientWidth - item[i].clientWidth / 2),
+                            y: getRandomNumber(0, list.clientHeight - item[i].clientHeight / 2),
+                        });
+                });
+                subTl.pause();
+
+                //for first time show
+                for (let i = 0; i <= count; i++) {
+                    mainTl.set(item[i], { opacity: 0 }).to(item[i], {
+                        opacity: 1,
+                        onComplete: () => {
+                            if (i == count) {
+                                subTl.restart();
+                            }
                         },
                     });
-
-                if (count + 2 < totalLn) {
-                    [...item].map((el, i) => {
-                        //primary setup
-                        gsap.set(el, {
-                            opacity: 0,
-                            position: "absolute",
-                            left: 0,
-                            top: 0,
-                            x: getRandomNumber(0, list.clientWidth - el.clientWidth / 2),
-                            y: getRandomNumber(0, list.clientHeight - el.clientHeight / 2),
-                        });
-
-                        if (i >= 0 && i < count) {
-                            k = count + i;
-                        }
-                        if (k > totalLn - 2) {
-                            k = -1;
-                        }
-                        k++;
-                        //console.log(i, ">>", k, i);
-
-                        subTl
-                            .to(item[k], {
-                                opacity: 1,
-                            })
-                            .to(
-                                item[i],
-                                {
-                                    opacity: 0,
-                                },
-                                "<"
-                            )
-                            .set(item[i], {
-                                x: getRandomNumber(0, list.clientWidth - item[i].clientWidth / 2),
-                                y: getRandomNumber(0, list.clientHeight - item[i].clientHeight / 2),
-                            });
-                    });
-                    subTl.pause();
-
-                    //for first time show
-                    for (let i = 0; i <= count; i++) {
-                        mainTl.set(item[i], { opacity: 0 }).to(item[i], {
-                            opacity: 1,
-                            onComplete: () => {
-                                if (i == count) {
-                                    subTl.restart();
-                                }
-                            },
-                        });
-                    }
-                    mainTl.pause();
                 }
+                mainTl.pause();
+            }
 
-                // gsap.set(list, {
-                //     opacity: 0,
-                //     pointerEvents: "none",
-                // });
-                const btn = document.querySelector("[data-gallery_btn]");
-                btn.addEventListener("mouseenter", () => {
-                    mainTl.pause().progress(0);
-                    subTl.pause().progress(0);
-                    gsap.to(imgGallery, {
-                        opacity: 1,
-                        onComplete: () => mainTl.restart(),
-                    });
+            // gsap.set(list, {
+            //     opacity: 0,
+            //     pointerEvents: "none",
+            // });
+            const btn = document.querySelector("[data-gallery_btn]");
+            btn.addEventListener("mouseenter", () => {
+                mainTl.pause().progress(0);
+                subTl.pause().progress(0);
+                gsap.to(imgGallery, {
+                    opacity: 1,
+                    onComplete: () => mainTl.restart(),
                 });
+            });
 
-                btn.addEventListener("mouseleave", () => {
-                    mainTl.pause().progress(0);
-                    subTl.pause().progress(0);
-                    gsap.to(imgGallery, {
-                        opacity: 0,
-                        pointerEvents: "none",
-                    });
+            btn.addEventListener("mouseleave", () => {
+                mainTl.pause().progress(0);
+                subTl.pause().progress(0);
+                gsap.to(imgGallery, {
+                    opacity: 0,
+                    pointerEvents: "none",
                 });
+            });
         }
         function getRandomNumber(min, max) {
             return Math.random() * (max - min) + min;
         }
 
         // Custom Select Dropdown
-      
+
         // if(postonTop !== null || assgnHeight !== null){
         //         postonTop.style.top = assgnHeight +  "px";
-            
+
         // }else{
         //    return false;
         // }
         if ($(".slct_rght").length) {
-            let postonTop =  document?.querySelector(".slct_lst_drp");
+            let postonTop = document?.querySelector(".slct_lst_drp");
             let assgnHeight = document?.querySelector(".srch_slct_tggle")?.clientHeight;
-            postonTop.style.top = assgnHeight +  "px";
-        }   
+            postonTop.style.top = assgnHeight + "px";
+        }
         $('srch_slct').hide()
-        $('.srch_slct_tggle').on('click',function(){
+        $('.srch_slct_tggle').on('click', function () {
             $(this).next().slideToggle();
             $(this).parent().toggleClass('selct_active');
         });
-        $('.custom_lnk').on('click',function(){
+        $('.custom_lnk').on('click', function () {
             $(this).parents('.srch_slct').find('.slct_lst_drp').slideUp();
             $(this).parents('.srch_slct').removeClass('selct_active');
         });
-        $('.custom_lnk input[type=radio]').change(function(){
-            if($(this).is(':checked')){
+        $('.custom_lnk input[type=radio]').change(function () {
+            if ($(this).is(':checked')) {
                 $(this).parents('.srch_slct').find('.srch_slct_tggle').children('.srch_txt_block').text($(this).next('span').text());
             }
         });
 
         if ($(".bttn_box").length) {
-            let postonTop =  document?.querySelector(".bttn_box");
+            let postonTop = document?.querySelector(".bttn_box");
             let assgnHeight = document?.querySelector(".inner_bnnr")?.clientHeight;
-            postonTop.style.top = assgnHeight +  "px";
+            postonTop.style.top = assgnHeight + "px";
             // postonTop.style.position = "fixed";
-        }   
+        }
         // let bttnLink = document?.querySelectorAll(".vew_bttn");
         // bttnLink.forEach((el,i) => {
         //     el.addEventListener("click", () => {
@@ -973,7 +973,58 @@ function pageScript() {
         $(".vew_bttn").click(function () {
             $(".bttn_box").find(".btn_active").removeClass("btn_active");
             $(this).addClass("btn_active");
-          });          
+        });
+
+        // Loop Scroll
+        /*--------------------
+Vars
+--------------------*/
+        const $menu = document.querySelector('.list_item_wrppr')
+        const $items = document.querySelectorAll('.hddn_wrk_item')
+        let menuHeight = $menu.clientHeight
+        let itemHeight = $items[0].clientHeight
+        let wrapHeight = $items.length * itemHeight
+        let scrollSpeed = 0
+        let oldScrollY = 0
+        let scrollY = 0
+        let y = 0
+
+        const lerp = (v0, v1, t) => {
+            return v0 * (1 - t) + v1 * t
+        }
+        const dispose = (scroll) => {
+            gsap.set($items, {
+                y: (i) => {
+                    return i * itemHeight + scroll
+                },
+                modifiers: {
+                    y: (y) => {
+                        const s = gsap.utils.wrap(-itemHeight, wrapHeight - itemHeight, parseInt(y))
+                        return `${s}px`
+                    }
+                }
+            })
+        }
+        dispose(0)
+        const handleMouseWheel = (e) => {
+            scrollY -= e.deltaY
+        }
+        $menu.addEventListener('mousewheel', handleMouseWheel)
+        $menu.addEventListener('selectstart', () => { return false })
+        window.addEventListener('resize', () => {
+            menuHeight = $menu.clientHeight
+            itemHeight = $items[0].clientHeight
+            wrapHeight = $items.length * itemHeight
+        })
+        const render = () => {
+            requestAnimationFrame(render)
+            y = lerp(y, scrollY, .1)
+            dispose(y)
+
+            scrollSpeed = y - oldScrollY
+            oldScrollY = y
+        }
+        render();
         //end ready
 
         //// page loader
