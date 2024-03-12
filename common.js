@@ -980,7 +980,7 @@ function pageScript() {
 Vars
 --------------------*/
         const $menu = document.querySelector('.list_item_wrppr')
-        const $items = document.querySelectorAll('.hddn_wrk_item')
+        const $items = document.querySelectorAll('.wrk_lstng_item')
         let menuHeight = $menu.clientHeight
         let itemHeight = $items[0].clientHeight
         let wrapHeight = $items.length * itemHeight
