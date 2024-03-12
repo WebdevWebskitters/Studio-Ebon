@@ -979,52 +979,52 @@ function pageScript() {
         /*--------------------
 Vars
 --------------------*/
-        const $menu = document.querySelector('.list_item_wrppr')
-        const $items = document.querySelectorAll('.wrk_lstng_item')
-        let menuHeight = $menu.clientHeight
-        let itemHeight = $items[0].clientHeight
-        let wrapHeight = $items.length * itemHeight
-        let scrollSpeed = 0
-        let oldScrollY = 0
-        let scrollY = 0
-        let y = 0
+        // const $menu = document.querySelector('.list_item_wrppr')
+        // const $items = document.querySelectorAll('.wrk_lstng_item')
+        // let menuHeight = $menu.clientHeight
+        // let itemHeight = $items[0].clientHeight
+        // let wrapHeight = $items.length * itemHeight
+        // let scrollSpeed = 0
+        // let oldScrollY = 0
+        // let scrollY = 0
+        // let y = 0
 
-        const lerp = (v0, v1, t) => {
-            return v0 * (1 - t) + v1 * t
-        }
-        const dispose = (scroll) => {
-            gsap.set($items, {
-                y: (i) => {
-                    return i * itemHeight + scroll
-                },
-                modifiers: {
-                    y: (y) => {
-                        const s = gsap.utils.wrap(-itemHeight, wrapHeight - (itemHeight + itemHeight / 2), parseInt(y))
-                        return `${s}px`
-                    }
-                }
-            })
-        }
-        dispose(0)
-        const handleMouseWheel = (e) => {
-            scrollY -= e.deltaY
-        }
-        $menu.addEventListener('mousewheel', handleMouseWheel)
-        $menu.addEventListener('selectstart', () => { return false })
-        window.addEventListener('resize', () => {
-            menuHeight = $menu.clientHeight
-            itemHeight = $items[0].clientHeight
-            wrapHeight = $items.length * itemHeight
-        })
-        const render = () => {
-            requestAnimationFrame(render)
-            y = lerp(y, scrollY, .1)
-            dispose(y)
+        // const lerp = (v0, v1, t) => {
+        //     return v0 * (1 - t) + v1 * t
+        // }
+        // const dispose = (scroll) => {
+        //     gsap.set($items, {
+        //         y: (i) => {
+        //             return i * itemHeight + scroll
+        //         },
+        //         modifiers: {
+        //             y: (y) => {
+        //                 const s = gsap.utils.wrap(-itemHeight, wrapHeight - (itemHeight + itemHeight / 2), parseInt(y))
+        //                 return `${s}px`
+        //             }
+        //         }
+        //     })
+        // }
+        // dispose(0)
+        // const handleMouseWheel = (e) => {
+        //     scrollY -= e.deltaY
+        // }
+        // $menu.addEventListener('mousewheel', handleMouseWheel)
+        // $menu.addEventListener('selectstart', () => { return false })
+        // window.addEventListener('resize', () => {
+        //     menuHeight = $menu.clientHeight
+        //     itemHeight = $items[0].clientHeight
+        //     wrapHeight = $items.length * itemHeight
+        // })
+        // const render = () => {
+        //     requestAnimationFrame(render)
+        //     y = lerp(y, scrollY, .1)
+        //     dispose(y)
 
-            scrollSpeed = y - oldScrollY
-            oldScrollY = y
-        }
-        render();
+        //     scrollSpeed = y - oldScrollY
+        //     oldScrollY = y
+        // }
+        // render();
         //end ready
 
         //// page loader
