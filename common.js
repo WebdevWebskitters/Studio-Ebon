@@ -907,8 +907,9 @@ function pageScript() {
             // });
             const btn = document.querySelector("[data-gallery_btn]");
             btn.addEventListener("mouseenter", () => {
-                mainTl.pause().progress(0);
-                subTl.pause().progress(0);
+                mainTl.totalProgress(0);
+                mainTl.pause();
+                subTl.totalProgress(0);
                 gsap.to(imgGallery, {
                     opacity: 1,
                     onComplete: () => mainTl.restart(),
@@ -916,9 +917,9 @@ function pageScript() {
             });
 
             btn.addEventListener("mouseleave", () => {
-                mainTl.progress(0,true);
+                mainTl.totalProgress(0);
                 mainTl.pause();
-                subTl.progress(0,true);
+                subTl.totalProgress(0);
                 subTl.pause();
                 gsap.to(imgGallery, {
                     opacity: 0,
