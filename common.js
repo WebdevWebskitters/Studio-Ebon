@@ -821,11 +821,10 @@ function pageScript() {
             var duration = Number(imgGallery?.getAttribute("data-time"));
             let contW = imgGallery?.getBoundingClientRect().width;
 
-            item.forEach((el, i) => {
-                let imgWrapper = item?.querySelector('.mdl_img');
-                let imgWidth = imgWrapper?.clientWidth;
+            item.forEach((el) => {
+                let imgWidth = el?.querySelector('.mdl_img')?.clientWidth;
                 gsap.set(el, {
-                    width: `${Math.round(((contW - imgWidth - imgWidth / (item.length * 4)) / contW) * 100) / 2}%`,
+                    width: `${Math.round(((contW - imgWidth - imgWidth / (el.length * 4)) / contW) * 100) / 2}%`,
                 })
             })
             if (isNaN(count)) {
