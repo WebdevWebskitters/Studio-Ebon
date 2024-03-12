@@ -1015,8 +1015,8 @@ Vars
         const handleMouseWheel = (e) => {
             scrollY -= e.deltaY
         }
-        $menu.addEventListener('mousewheel', handleMouseWheel)
-        $menu.addEventListener('selectstart', () => { return false })
+        $menu?.addEventListener('mousewheel', handleMouseWheel)
+        $menu?.addEventListener('selectstart', () => { return false })
         window.addEventListener('resize', () => {
             menuHeight = $menu.clientHeight
             itemHeight = $items[0].clientHeight
