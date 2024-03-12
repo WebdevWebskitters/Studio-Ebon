@@ -961,13 +961,6 @@ function pageScript() {
                 $(this).parents('.srch_slct').find('.srch_slct_tggle').children('.srch_txt_block').text($(this).next('span').text());
             }
         });
-
-        if ($(".bttn_box").length) {
-            $(".vew_bttn").click(function () {
-                $(".bttn_box").find(".btn_active").removeClass("btn_active");
-                $(this).addClass("btn_active");
-            });
-        }
         // Loop Scroll
         const $menu = document?.querySelector('.list_item_wrppr')
         const $items = document?.querySelectorAll('.wrk_lstng_item')
