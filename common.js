@@ -131,9 +131,9 @@ function pageScript() {
     // }a
 
     $(document).ready(function () {
-        $(".mrque_dtls_sldr").wrapInner("<em class='mrquee_txt'></em>");
-        $(".mrquee_txt").wrap("<span class='mrquee_item'></span>");
-
+       
+        $(".mrque_dtls_sldr").wrapInner("<em class='mrquee_txt mrquee_txt_alt'></em>");
+        $(".mrquee_txt_alt").wrap("<span class='mrquee_item'></span>");
         $(".txt_lne_indvdl").wrapInner("<span class='hdng_info_txt'></span>");
         ///////// init function //////////////////
         function loadInit() {
