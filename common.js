@@ -959,12 +959,14 @@ function pageScript() {
         $('.custom_lnk input[type=radio]').change(function () {
             if ($(this).is(':checked')) {
                 $(this).parents('.srch_slct').find('.srch_slct_tggle').children('.srch_txt_block').text($(this).next('span').text());
+                locoScroll.stop();
+                setTimeout(() => {
+                    locoScroll.update();
+                    ScrollTrigger.refresh();
+                    console.log("clicked radio input");
+                }, 150);
+                locoScroll.start();
             }
-            setTimeout(() => {
-                locoScroll.update();
-                ScrollTrigger.refresh();
-                console.log("clicked radio input");
-            }, 200);
         });
 
         // Loop Scroll
