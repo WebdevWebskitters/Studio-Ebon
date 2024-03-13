@@ -962,6 +962,7 @@ function pageScript() {
             }
             setTimeout(() => {
                 locoScroll.update();
+                ScrollTrigger.refresh();
                 console.log("clicked radio input");
             }, 5000);
         });
