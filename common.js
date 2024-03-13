@@ -958,17 +958,19 @@ function pageScript() {
             setTimeout(() => {
                 locoScroll.update();
             }, 300);
+            console.log("clicked custom link");
         });
         $('.custom_lnk input[type=radio]').change(function () {
             if ($(this).is(':checked')) {
                 $(this).parents('.srch_slct').find('.srch_slct_tggle').children('.srch_txt_block').text($(this).next('span').text());
             }
+            console.log("clicked radio input");
         });
         document.querySelector(".rdio_lbl")?.addEventListener("click", ()=> {
             setTimeout(() => {
                 locoScroll.update();
             }, 300);
-            console.log("clicked");
+            console.log("clicked radio label");
         })
         // Loop Scroll
         const $menu = document?.querySelector('.list_item_wrppr')
