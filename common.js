@@ -962,10 +962,13 @@ function pageScript() {
                 $(this).parents('.srch_slct').find('.srch_slct_tggle').children('.srch_txt_block').text($(this).next('span').text());
             }
         });
-        document?.querySelector('.rdio_cstm')?.addEventListener("click", () => {
+        document.querySelector('.rdio_cstm')?.addEventListener("click", () => {
             locoScroll.update();
         })
-        document?.querySelector('.custom_lnk > input[type=radio]')?.addEventListener("click", () => {
+        document.querySelector('.custom_lnk > input[type=radio]')?.addEventListener("click", () => {
+            locoScroll.update();
+        })
+        document.querySelector('.slct_item')?.addEventListener("click", () => {
             locoScroll.update();
         })
         // Loop Scroll
