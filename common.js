@@ -159,6 +159,11 @@ function pageScript() {
                 locoScroll.start();
             }, 1500);
             ///end
+             // Details Text Wrapper
+        $(".mrque_dtls_sldr").WrapInner("<em class='mrquee_txt'></em>");
+        $(".mrquee_txt").wrap("<span class='mrquee_item'></span>");
+
+        $(".txt_lne_indvdl").WrapInner("<span class='hdng_info_txt'></span>");
 
             //Text Line Animation
             if ($(".bnr_hdng_wrp").length) {
@@ -1090,11 +1095,6 @@ function pageScript() {
                 }
             }
         });
-        // Details Text Wrapper
-        $(".mrque_dtls_sldr").WrapInner("<em class='mrquee_txt'></em>");
-        $(".mrquee_txt").wrap("<span class='mrquee_item'></span>");
-
-        $(".txt_lne_indvdl").WrapInner("<span class='hdng_info_txt'></span>");
         //end ready
 
         //// page loader
