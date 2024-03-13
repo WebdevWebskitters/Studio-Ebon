@@ -955,26 +955,17 @@ function pageScript() {
         $('.custom_lnk').on('click', function () {
             $(this).parents('.srch_slct').find('.slct_lst_drp').slideUp();
             $(this).parents('.srch_slct').removeClass('selct_active');
-            setTimeout(() => {
-                locoScroll.update();
-            }, 300);
-            console.log("clicked custom link");
         });
         $('.custom_lnk input[type=radio]').change(function () {
             if ($(this).is(':checked')) {
                 $(this).parents('.srch_slct').find('.srch_slct_tggle').children('.srch_txt_block').text($(this).next('span').text());
-                setTimeout(() => {
-                    locoScroll.update();
-                }, 300);
             }
-            console.log("clicked radio input");
-        });
-        document.querySelector(".rdio_lbl")?.addEventListener("click", ()=> {
             setTimeout(() => {
                 locoScroll.update();
-            }, 300);
-            console.log("clicked radio label");
-        })
+            }, 1000);
+            console.log("clicked radio input");
+        });
+
         // Loop Scroll
         const $menu = document?.querySelector('.list_item_wrppr')
         const $items = document?.querySelectorAll('.wrk_lstng_item')
