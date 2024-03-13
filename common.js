@@ -960,11 +960,8 @@ function pageScript() {
             if ($(this).is(':checked')) {
                 $(this).parents('.srch_slct').find('.srch_slct_tggle').children('.srch_txt_block').text($(this).next('span').text());
             }
-            setTimeout(() => {
-                locoScroll.update();
+            locoScroll.update();
                 ScrollTrigger.refresh();
-                console.log("clicked radio input");
-            }, 300);
         });
 
         // Loop Scroll
