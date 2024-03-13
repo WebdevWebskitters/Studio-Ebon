@@ -4,7 +4,7 @@ function pageScript() {
     gsap.registerPlugin(ScrollTrigger, Observer, ScrollToPlugin);
     gsap.config({
         nullTargetWarn: false,
-      });
+    });
 
     window.scrollTo(0, 0);
     if (window.history.scrollRestoration) {
@@ -131,10 +131,20 @@ function pageScript() {
     // }a
 
     $(document).ready(function () {
-       
+
         $(".mrque_dtls_sldr").wrapInner("<em class='mrquee_txt mrquee_txt_alt'></em>");
         $(".mrquee_txt_alt").wrap("<span class='mrquee_item'></span>");
         $(".txt_lne_indvdl").wrapInner("<span class='hdng_info_txt'></span>");
+
+        // Clone Text And Append
+        let hdngInner = document.querySelectorAll('.mrque_dtls_sldr .mrquee_item');
+        let hdngMain = document.querySelectorAll('.mrque_dtls_sldr');
+        window.addEventListener('load', function () {
+            hdngInner.forEach((el, i) => {
+                let copy = el.cloneNode(true);
+                hdngMain.appendChild(copy);
+            })
+        });
         ///////// init function //////////////////
         function loadInit() {
             //locomotive & scrolltrigger refresh
@@ -163,8 +173,8 @@ function pageScript() {
                 locoScroll.start();
             }, 1500);
             ///end
-             // Details Text Wrapper
-     
+            // Details Text Wrapper
+
 
             //Text Line Animation
             if ($(".bnr_hdng_wrp").length) {
