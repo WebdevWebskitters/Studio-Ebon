@@ -965,13 +965,22 @@ function pageScript() {
         document.querySelector('.rdio_cstm')?.addEventListener("click", () => {
             setTimeout(() => {
                 locoScroll.update();
-            }, 100);
+            }, 300);
         })
         document.querySelector('.custom_lnk > input[type=radio]')?.addEventListener("click", () => {
-            locoScroll.update();
+            setTimeout(() => {
+                locoScroll.update();
+            }, 300);
         })
         document.querySelector('.slct_item')?.addEventListener("click", () => {
-            locoScroll.update();
+            setTimeout(() => {
+                locoScroll.update();
+            }, 300);
+        })
+        document.querySelector('.custom_lnk')?.addEventListener("click", () => {
+            setTimeout(() => {
+                locoScroll.update();
+            }, 300);
         })
         // Loop Scroll
         const $menu = document?.querySelector('.list_item_wrppr')
