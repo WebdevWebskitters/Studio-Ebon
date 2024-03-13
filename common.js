@@ -963,7 +963,9 @@ function pageScript() {
             }
         });
         document.querySelector('.rdio_cstm')?.addEventListener("click", () => {
-            locoScroll.update();
+            setTimeout(() => {
+                locoScroll.update();
+            }, 100);
         })
         document.querySelector('.custom_lnk > input[type=radio]')?.addEventListener("click", () => {
             locoScroll.update();
