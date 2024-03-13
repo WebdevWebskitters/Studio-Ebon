@@ -820,13 +820,11 @@ function pageScript() {
             var count = parseInt(imgGallery?.getAttribute("random_gallery"), 0);
             var duration = Number(imgGallery?.getAttribute("data-time"));
             let contW = imgGallery?.getBoundingClientRect().width;
-            console.log(contW);
             item.forEach((el) => {
                 let imgWidth = el?.querySelector('.mdl_img')?.clientWidth;
                 gsap.set(el, {
                     width: `${Math.round(((contW - imgWidth - imgWidth / (item.length * 4)) / contW) * 100) / 2}%`,
                 })
-                console.log(imgWidth);
             })
             if (isNaN(count)) {
                 count = Math.floor(totalLn / 2);
@@ -834,7 +832,6 @@ function pageScript() {
             if (duration == 0) {
                 duration = 1;
             }
-            // console.log(count, duration);
             var k = 0;
             var mainTl = gsap.timeline({
                 pause: true,
@@ -870,7 +867,6 @@ function pageScript() {
                         k = -1;
                     }
                     k++;
-                    //console.log(i, ">>", k, i);
 
                     subTl
                         .to(item[k], {
@@ -966,6 +962,9 @@ function pageScript() {
                 $(this).parents('.srch_slct').find('.srch_slct_tggle').children('.srch_txt_block').text($(this).next('span').text());
             }
         });
+        $('.rdio_cstm').addEventListener("click", () => {
+            locoScroll.update();
+        })
         // Loop Scroll
         const $menu = document?.querySelector('.list_item_wrppr')
         const $items = document?.querySelectorAll('.wrk_lstng_item')
@@ -997,7 +996,7 @@ function pageScript() {
         const handleMouseWheel = (e) => {
             scrollY -= e.deltaY
         }
-        $menu?.addEventListener('mousewheel', handleMouseWheel)
+        $menu?.addEventListener('wheel', handleMouseWheel)
         $menu?.addEventListener('selectstart', () => { return false })
         window.addEventListener('resize', () => {
             menuHeight = $menu?.clientHeight
