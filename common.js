@@ -955,33 +955,15 @@ function pageScript() {
         $('.custom_lnk').on('click', function () {
             $(this).parents('.srch_slct').find('.slct_lst_drp').slideUp();
             $(this).parents('.srch_slct').removeClass('selct_active');
-            locoScroll.update();
+            setTimeout(() => {
+                locoScroll.update();
+            }, 300);
         });
         $('.custom_lnk input[type=radio]').change(function () {
             if ($(this).is(':checked')) {
                 $(this).parents('.srch_slct').find('.srch_slct_tggle').children('.srch_txt_block').text($(this).next('span').text());
             }
         });
-        document.querySelector('.rdio_cstm')?.addEventListener("click", () => {
-            setTimeout(() => {
-                locoScroll.update();
-            }, 300);
-        })
-        document.querySelector('.custom_lnk > input[type=radio]')?.addEventListener("click", () => {
-            setTimeout(() => {
-                locoScroll.update();
-            }, 300);
-        })
-        document.querySelector('.slct_item')?.addEventListener("click", () => {
-            setTimeout(() => {
-                locoScroll.update();
-            }, 300);
-        })
-        document.querySelector('.custom_lnk')?.addEventListener("click", () => {
-            setTimeout(() => {
-                locoScroll.update();
-            }, 300);
-        })
         // Loop Scroll
         const $menu = document?.querySelector('.list_item_wrppr')
         const $items = document?.querySelectorAll('.wrk_lstng_item')
