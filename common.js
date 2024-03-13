@@ -964,6 +964,11 @@ function pageScript() {
                 $(this).parents('.srch_slct').find('.srch_slct_tggle').children('.srch_txt_block').text($(this).next('span').text());
             }
         });
+        document.querySelector(".rdio_lbl")?.addEventListener("click", ()=> {
+            setTimeout(() => {
+                locoScroll.update();
+            }, 300);
+        })
         // Loop Scroll
         const $menu = document?.querySelector('.list_item_wrppr')
         const $items = document?.querySelectorAll('.wrk_lstng_item')
