@@ -963,7 +963,7 @@ function pageScript() {
             setTimeout(() => {
                 locoScroll.update();
                 console.log("clicked radio input");
-            }, 1500);
+            }, 5000);
         });
 
         // Loop Scroll
