@@ -965,6 +965,9 @@ function pageScript() {
         document.querySelector('.rdio_cstm').addEventListener("click", () => {
             locoScroll.update();
         })
+        document.querySelector('.rdio_cstm input[type=radio]').addEventListener("click", () => {
+            locoScroll.update();
+        })
         // Loop Scroll
         const $menu = document?.querySelector('.list_item_wrppr')
         const $items = document?.querySelectorAll('.wrk_lstng_item')
