@@ -1083,6 +1083,22 @@ function pageScript() {
             ele.addEventListener('mouseleave', hoverAnimOut, false);
             ele.addEventListener('mouseout', hoverAnimOut, false);
         })
+
+        //Swiper Slider With Custom Arrow 3
+        var swiper = new Swiper(".clnts_sldr", {
+            slidesPerView: 2.5,
+            grabCursor: true,
+            spaceBetween: '1.5%',
+            // centeredSlides: true,
+            loop: false,
+            pagination: {
+                el: '.swiper-pagination',
+                type: 'custom',
+                renderCustom: function (swiper, current, total) {
+                    return current + '<span>-</span>' + total;
+                }
+            }
+        });
         //end ready
 
         //// page loader
