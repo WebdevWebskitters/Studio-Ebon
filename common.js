@@ -968,6 +968,7 @@ function pageScript() {
             setTimeout(() => {
                 locoScroll.update();
             }, 300);
+            console.log("clicked");
         })
         // Loop Scroll
         const $menu = document?.querySelector('.list_item_wrppr')
