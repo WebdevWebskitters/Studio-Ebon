@@ -137,14 +137,12 @@ function pageScript() {
         $(".txt_lne_indvdl").wrapInner("<span class='hdng_info_txt'></span>");
 
         // Clone Text And Append
-        let hdngInner = document.querySelectorAll('.mrque_dtls_sldr .mrquee_item');
         let hdngMain = document.querySelectorAll('.mrque_dtls_sldr');
-        window.addEventListener('load', function () {
-            hdngInner.forEach((el, i) => {
-                let copy = el.cloneNode(true);
-                hdngMain.appendChild(copy);
-            })
-        });
+        hdngMain.forEach((el, i) => {
+            let hdngInner = document.querySelector('.mrque_dtls_sldr .mrquee_item');
+            let copy = hdngInner.cloneNode(true);
+            el.appendChild(copy);
+        })
         ///////// init function //////////////////
         function loadInit() {
             //locomotive & scrolltrigger refresh
