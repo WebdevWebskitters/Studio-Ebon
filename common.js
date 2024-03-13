@@ -964,7 +964,7 @@ function pageScript() {
                 locoScroll.update();
                 ScrollTrigger.refresh();
                 console.log("clicked radio input");
-            }, 5000);
+            }, 300);
         });
 
         // Loop Scroll
