@@ -962,7 +962,7 @@ function pageScript() {
                 $(this).parents('.srch_slct').find('.srch_slct_tggle').children('.srch_txt_block').text($(this).next('span').text());
             }
         });
-        $('.rdio_cstm').addEventListener("click", () => {
+        document.querySelector('.rdio_cstm').addEventListener("click", () => {
             locoScroll.update();
         })
         // Loop Scroll
