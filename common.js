@@ -963,11 +963,11 @@ function pageScript() {
         $('.custom_lnk input[type=radio]').change(function () {
             if ($(this).is(':checked')) {
                 $(this).parents('.srch_slct').find('.srch_slct_tggle').children('.srch_txt_block').text($(this).next('span').text());
+                setTimeout(() => {
+                    locoScroll.update();
+                }, 300);
             }
             console.log("clicked radio input");
-            setTimeout(() => {
-                locoScroll.update();
-            }, 300);
         });
         document.querySelector(".rdio_lbl")?.addEventListener("click", ()=> {
             setTimeout(() => {
