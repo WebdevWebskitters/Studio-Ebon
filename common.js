@@ -962,8 +962,8 @@ function pageScript() {
             }
             setTimeout(() => {
                 locoScroll.update();
-            }, 1000);
-            console.log("clicked radio input");
+                console.log("clicked radio input");
+            }, 1500);
         });
 
         // Loop Scroll
