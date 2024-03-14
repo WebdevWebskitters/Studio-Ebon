@@ -1214,7 +1214,7 @@ function pageScript() {
                         });
                         item[i].classList.add("active");
 
-                        if (list.querySelectorAll("li.active").length > count) {
+                        if (list.querySelectorAll(".idea_slde_item.active").length > count) {
                             if (i - count >= 0) {
                                 k = i - count;
                             } else {
