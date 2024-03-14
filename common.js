@@ -134,7 +134,9 @@ function pageScript() {
 
         $(".mrque_dtls_sldr").wrapInner("<em class='mrquee_txt mrquee_txt_alt'></em>");
         $(".mrquee_txt_alt").wrap("<span class='mrquee_item'></span>");
-        $(".txt_lne_indvdl").wrapInner("<span class='hdng_info_txt'></span>");
+        // $(".txt_lne_indvdl").wrapInner("<span class='hdng_info_txt'></span>");
+        $(".bnnr_para_txt ul > li").addClass("txt_lne_indvdl");
+        $(".bnnr_para_txt ul > li > strong").addClass("txt_lne_indvdl");
 
         // Clone Text And Append
         let hdngMain = document.querySelectorAll('.mrque_dtls_sldr');
@@ -142,7 +144,7 @@ function pageScript() {
             let hdngInner = document.querySelector('.mrque_dtls_sldr .mrquee_item');
             let copy = hdngInner.cloneNode(true);
             el.appendChild(copy);
-            hdngInner.after(copy);
+            copy.insertBefore(hdngInner);
         })
         ///////// init function //////////////////
         function loadInit() {
