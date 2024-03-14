@@ -144,7 +144,7 @@ function pageScript() {
             let hdngInner = document.querySelector('.mrque_dtls_sldr .mrquee_item');
             let copy = hdngInner.cloneNode(true);
             el.appendChild(copy);
-            copy.insertBefore(hdngInner);
+            // copy.insertBefore(hdngInner);
         })
         ///////// init function //////////////////
         function loadInit() {
