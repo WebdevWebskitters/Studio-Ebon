@@ -154,6 +154,14 @@ function pageScript() {
             el.appendChild(copy);
             // copy.insertBefore(hdngInner);
         })
+         // Clone Text And Append 2
+         let hdngMain3 = document.querySelectorAll('.mrquee_spkng_sldr');
+         hdngMain3.forEach((el, i) => {
+             let hdngInner = document.querySelector('.mrquee_spkng_sldr .mrquee_item');
+             let copy = hdngInner.cloneNode(true);
+             el.appendChild(copy);
+             // copy.insertBefore(hdngInner);
+         })
         ///////// init function //////////////////
         function loadInit() {
             //locomotive & scrolltrigger refresh
