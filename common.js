@@ -1127,8 +1127,8 @@ function pageScript() {
         const clickGallery = document.querySelectorAll("[click_gallery]");
         if (clickGallery.length > 0) {
             clickGallery.forEach((imgWrapper) => {
-                const list = imgWrapper.querySelector("ul");
-                const item = list.querySelectorAll("li");
+                const list = imgWrapper.querySelector(".idea_slde_lstng");
+                const item = list.querySelectorAll(".idea_slde_item");
                 const totalLn = item.length;
                 var count = parseInt(imgWrapper.getAttribute("click_gallery"), 0);
                 var duration = Number(imgWrapper.getAttribute("data-time"));
