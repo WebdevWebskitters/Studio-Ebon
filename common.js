@@ -1247,6 +1247,25 @@ function pageScript() {
                 }
             });
         }
+
+        // Sticky Left
+        let stickyBox = document.querySelector('.dtls_lft_box');
+        let stickyAnim = gsap.to(stickyBox, {
+            yPercent: 15,
+            ease: 'none',
+            scroller: isDekstop ? pageContainer : window,
+        });
+        ScrollTrigger.create({
+            trigger: $(".dtls_cntnt_row"),
+            start: "top top",
+            end: "bottom bottom",
+            // markers: true,
+            scrub: 1,
+            pin: stickyBox,
+            pinSpacing: false,
+            animation: stickyAnim,
+            scroller: isDekstop ? pageContainer : window,
+        });
         //end ready
 
         //// page loader
