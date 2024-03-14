@@ -1124,7 +1124,7 @@ function pageScript() {
             }
         });
         // Random Positioning Click Gallery
-        const clickGallery = document.querySelectorAll("[click_gallery]");
+        const clickGallery = document.querySelectorAll(".idea_slde_wrppr");
         if (clickGallery.length > 0) {
             clickGallery.forEach((imgWrapper) => {
                 const list = imgWrapper.querySelector(".idea_slde_lstng");
