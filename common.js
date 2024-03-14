@@ -136,7 +136,7 @@ function pageScript() {
         $(".mrquee_txt_alt").wrap("<span class='mrquee_item'></span>");
         // $(".txt_lne_indvdl").wrapInner("<span class='hdng_info_txt'></span>");
         $(".bnnr_para_txt ul > li").addClass("txt_lne_indvdl");
-        $(".bnnr_para_txt ul > li > strong").addClass("txt_lne_indvdl");
+        $(".bnnr_para_txt ul > li > strong").addClass("hdng_info_txt");
 
         // Clone Text And Append
         let hdngMain = document.querySelectorAll('.mrque_dtls_sldr');
