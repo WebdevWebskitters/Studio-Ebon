@@ -1179,10 +1179,10 @@ function pageScript() {
                         gsap.set(el, {
                             opacity: 0,
                             position: "absolute",
-                            left: 0,
-                            top: 0,
+                            // left: 0,
+                            // top: 0,
                             scale: 0.8,
-                            transformOrighin: "50% 50%",
+                            // transformOrighin: "50% 50%",
                             zIndex: 0,
                             width: gsap.utils.random(35, 48, 5) + "%",
                             // width:
