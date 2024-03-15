@@ -420,11 +420,11 @@ function pageScript() {
                 ease: "none",
             },
         });
-        if(isDekstop && !isMobile){
+        if(isDekstop){
             tl.set(videoBox, {
                 clipPath: "inset(22% 30%)",
                 opacity: 1,
-                yPercent: !isMobile?-20:-40,
+                yPercent: isDekstop? -40 : -20,
                 overwrite: true,
             })
                 .set(videoPara, {
