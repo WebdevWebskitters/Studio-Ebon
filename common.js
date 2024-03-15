@@ -137,35 +137,32 @@ function pageScript() {
         // $(".txt_lne_indvdl").wrapInner("<span class='hdng_info_txt'></span>");
         $(".bnnr_para_txt ul > li").addClass("txt_lne_indvdl");
         $(".bnnr_para_txt ul > li > strong").addClass("hdng_info_txt");
-        let totalLength = 4;
-        for (let i = 0; i < totalLength - 1; i++) {
-            $(".mrque_dtls_sldr").append(function () {
-                return $(".mrque_dtls_sldr").find('.mrquee_item:first').clone();
-            })
-        }
+        let totalLength = 3;
+        let hdngMain = document.querySelectorAll('.mrque_dtls_sldr');
+        hdngMain.forEach((el,i) => {
+            let hdngInner = el.querySelector('.mrquee_item');
+            for(let i=0;i<totalLength;i++){
+                let copy = hdngInner.cloneNode(true);
+                el.appendChild(copy);
+            }
+        })
         // Clone Text And Append 2
-        // let totalLength2 = 4;
-        // for (let j = 0; j < totalLength2 - 1; j++) {
-        //     $(".mrque_dtls_sldr_alt").append(function () {
-        //         return $(".mrque_dtls_sldr_alt").find('.mrquee_item:first').clone();
-        //     })
-        // }
-        // // Clone Text And Append 2
-        // let totalLength3 = 4;
-        // $(".mrquee_spkng_sldr").each(function(){
-        //     for (let k = 0; k < totalLength3 - 1; k++) {
-        //         $(".mrquee_spkng_sldr").append(function () {
-        //             return $(".mrquee_spkng_sldr").find('.mrquee_item:first').clone();
-        //         })
-        //     }
-        // })
+        let totalLength2 = 3;
+        let hdngMain2 = document.querySelectorAll('.mrque_dtls_sldr_alt');
+        hdngMain2.forEach((el,i) => {
+            let hdngInner = el.querySelector('.mrquee_item');
+            for(let i=0;i<totalLength2;i++){
+                let copy = hdngInner.cloneNode(true);
+                el.appendChild(copy);
+            }
+        })
         // Clone Text And Append 2
-        let totalLength3 = 4;
+        let totalLength3 = 3;
         let hdngMain3 = document.querySelectorAll('.mrquee_spkng_sldr');
         hdngMain3.forEach((el,i) => {
             let hdngInner = el.querySelector('.mrquee_item');
-            let copy = hdngInner.cloneNode(true);
             for(let i=0;i<totalLength3;i++){
+                let copy = hdngInner.cloneNode(true);
                 el.appendChild(copy);
             }
         })
