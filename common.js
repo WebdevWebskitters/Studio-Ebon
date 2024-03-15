@@ -1288,6 +1288,10 @@ function pageScript() {
             animation: stickyAnim,
             scroller: isDekstop ? pageContainer : window,
         });
+        // Onclick Hamburger Add class to Body
+        document.querySelector(".ham_bttn").addEventListener("click",()=>{
+            document.querySelector("body").toggleClass("menu-open");
+        })
         //end ready
 
         //// page loader
