@@ -269,15 +269,16 @@ function pageScript() {
         var swiper = new Swiper(".trstd_sldr", {
             loop: true,
             freeMode: true,
-            spaceBetween: '6%',
+            spaceBetween: '3%',
             autoplay: {
                 delay: 0,
             },
             speed: 3000,
-            slidesPerView: 6,
+            slidesPerView: 3,
             breakpoints: {
-                767: {
-                  slidesPerView: 3,
+                768: {
+                  slidesPerView: 6,
+                  spaceBetween: '3%',
                 },
               },
         });
