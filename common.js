@@ -1290,7 +1290,7 @@ function pageScript() {
         });
         // Onclick Hamburger Add class to Body
         document.querySelector(".ham_bttn").addEventListener("click",()=>{
-            document.querySelector("body").toggleClass("menu-open");
+            document.querySelector("body").classList.toggle("menu-open");
         })
         //end ready
 
