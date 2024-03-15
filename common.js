@@ -141,7 +141,7 @@ function pageScript() {
         // Clone Text And Append
         let hdngMain = document.querySelectorAll('.mrque_dtls_sldr');
         let hdngInner = document.querySelector('.mrque_dtls_sldr .mrquee_item');
-        totalLength = 4;
+        let totalLength = 4;
         for(let i=0;i<totalLength.length;i++){
             let copy = hdngInner.cloneNode(true);
             hdngMain.appendChild(copy);
