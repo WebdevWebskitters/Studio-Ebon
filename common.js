@@ -140,12 +140,12 @@ function pageScript() {
 
         // Clone Text And Append
         let hdngMain = document.querySelectorAll('.mrque_dtls_sldr');
-        hdngMain.forEach((el, i) => {
-            let hdngInner = document.querySelector('.mrque_dtls_sldr .mrquee_item');
+        let hdngInner = document.querySelector('.mrque_dtls_sldr .mrquee_item');
+        totalLength = 4;
+        for(let i=0;i<totalLength.length;i++){
             let copy = hdngInner.cloneNode(true);
-            el.appendChild(copy);
-            // copy.insertBefore(hdngInner);
-        })
+            hdngMain.appendChild(copy);
+        }
         // Clone Text And Append 2
         let hdngMain2 = document.querySelectorAll('.mrque_dtls_sldr_alt');
         hdngMain2.forEach((el, i) => {
