@@ -144,21 +144,21 @@ function pageScript() {
             return $(".mrque_dtls_sldr").find('.mrquee_item').length==0?$(this).clone(): $(".mrque_dtls_sldr").find('.mrquee_item:first').clone();
         })   
         // Clone Text And Append 2
-        let hdngMain2 = document.querySelectorAll('.mrque_dtls_sldr_alt');
-        hdngMain2.forEach((el, i) => {
-            let hdngInner = document.querySelector('.mrque_dtls_sldr_alt .mrquee_item');
-            let copy = hdngInner.cloneNode(true);
-            el.appendChild(copy);
-            // copy.insertBefore(hdngInner);
-        })
-        // Clone Text And Append 2
-        let hdngMain3 = document.querySelectorAll('.mrquee_spkng_sldr');
-        hdngMain3.forEach((el, i) => {
-            let hdngInner = document.querySelector('.mrquee_spkng_sldr .mrquee_item');
-            let copy = hdngInner.cloneNode(true);
-            el.appendChild(copy);
-            // copy.insertBefore(hdngInner);
-        })
+        // let hdngMain2 = document.querySelectorAll('.mrque_dtls_sldr_alt');
+        // hdngMain2.forEach((el, i) => {
+        //     let hdngInner = document.querySelector('.mrque_dtls_sldr_alt .mrquee_item');
+        //     let copy = hdngInner.cloneNode(true);
+        //     el.appendChild(copy);
+        //     // copy.insertBefore(hdngInner);
+        // })
+        // // Clone Text And Append 2
+        // let hdngMain3 = document.querySelectorAll('.mrquee_spkng_sldr');
+        // hdngMain3.forEach((el, i) => {
+        //     let hdngInner = document.querySelector('.mrquee_spkng_sldr .mrquee_item');
+        //     let copy = hdngInner.cloneNode(true);
+        //     el.appendChild(copy);
+        //     // copy.insertBefore(hdngInner);
+        // })
         ///////// init function //////////////////
         function loadInit() {
             //locomotive & scrolltrigger refresh
