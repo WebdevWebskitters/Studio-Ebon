@@ -275,6 +275,11 @@ function pageScript() {
             },
             speed: 3000,
             slidesPerView: 6,
+            breakpoints: {
+                767: {
+                  slidesPerView: 3,
+                },
+              },
         });
 
         //Swiper Slider With Custom Arrow
