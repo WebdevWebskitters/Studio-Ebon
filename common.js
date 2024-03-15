@@ -123,7 +123,7 @@ function pageScript() {
     //for mobile
     else {
         detectDevice();
-        $(page_container).unwrap();
+        $(pageContainer).unwrap();
     }
 
 
