@@ -136,8 +136,17 @@ function pageScript() {
         $(".mrquee_txt_alt").wrap("<span class='mrquee_item'></span>");
         $(".bnnr_para_txt ul > li").addClass("txt_lne_indvdl");
         $(".bnnr_para_txt ul > li > strong").addClass("hdng_info_txt");
-                 // Clone Text And Append
-            let totalLength = 3;
+        // Clone Text And Append
+        let totalLength = 3;
+        let hdng = document.querySelectorAll('.mrquee_sldr');
+        hdng.forEach((el,i) => {
+            let hdngInner = el.querySelector('.mrquee_item');
+            for(let i=0;i<totalLength;i++){
+                let copy = hdngInner.cloneNode(true);
+                el.appendChild(copy);
+            }
+        });
+            // Clone Text And Append
             let hdngMain = document.querySelectorAll('.mrque_dtls_sldr');
             hdngMain.forEach((el,i) => {
                 let hdngInner = el.querySelector('.mrquee_item');
