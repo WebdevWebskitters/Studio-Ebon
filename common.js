@@ -479,26 +479,29 @@ function pageScript() {
         }
 
         //Footer Animation
-        if ($(".innr_footr").length) {
-            $(".innr_footr").each(function () {
-                let ele = $(this);
-                gsap.set(ele, {
-                    yPercent: -35,
-                    // transformStyle: "preserve-3d",
-                });
-                gsap
-                    .to(ele, {
-                        scrollTrigger: {
-                            trigger: ele,
-                            start: "top 85%",
-                            end: "bottom 50%",
-                            scrub: 1.2,
-                            // transformOrigin: "top top",
-                            scroller: isDekstop ? pageContainer : window,
-                        },
-                        yPercent: 0,
-                    })
-            })
+        if(isDekstop){
+            if ($(".innr_footr").length) {
+                $(".innr_footr").each(function () {
+                    let ele = $(this);
+                    gsap.set(ele, {
+                        yPercent: -35,
+                        // transformStyle: "preserve-3d",
+                    });
+                    gsap
+                        .to(ele, {
+                            scrollTrigger: {
+                                trigger: ele,
+                                start: "top 85%",
+                                end: "bottom 50%",
+                                scrub: 1.2,
+                                // transformOrigin: "top top",
+                                scroller: isDekstop ? pageContainer : window,
+                            },
+                            yPercent: 0,
+                        })
+                })
+    
+            }
 
         }
         let topPos2 = document?.querySelector('.vid_hdng_box')?.getBoundingClientRect().top;
