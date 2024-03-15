@@ -427,7 +427,7 @@ function pageScript() {
             tl.set(videoBox, {
                 clipPath: "inset(22% 30%)",
                 opacity: 1,
-                yPercent: isDekstop? -40 : -20,
+                yPercent: -40,
                 overwrite: true,
             })
                 .set(videoPara, {
@@ -543,46 +543,48 @@ function pageScript() {
             })
         });
         //Menu Link Animation
-        let linkAnim = document?.querySelectorAll('.nav_menu > .nav_lnk');
-        let botHedrTop = document?.querySelector('.main_header')?.getBoundingClientRect().top;
-        linkAnim.forEach((el) => {
-            ScrollTrigger.create({
-                trigger: '.main_header',
-                start: `top ${botHedrTop}`,
-                end: `+=${window.innerHeight / 5}`,
-                scroller: isDekstop ? pageContainer : window,
-                onEnterBack: function () {
-                    gsap
-                        .to(el, {
-                            yPercent: 0,
-                            opacity: 1,
-                            ease: "power3.inOut",
-                            stagger: 0.2,
-                            duration: 0.3,
-                        })
-                },
-                onLeave: function () {
-                    gsap
-                        .to(el, {
-                            yPercent: -100,
-                            opacity: 0,
-                            ease: "power3.inOut",
-                            stagger: 0.2,
-                            duration: 0.3,
-                        })
-                },
-                onLeaveBack: function () {
-                    gsap
-                        .to(el, {
-                            yPercent: 0,
-                            opacity: 1,
-                            ease: "power3.inOut",
-                            stagger: 0.2,
-                            duration: 0.3,
-                        })
-                },
+        if(isDekstop){
+            let linkAnim = document?.querySelectorAll('.nav_menu > .nav_lnk');
+            let botHedrTop = document?.querySelector('.main_header')?.getBoundingClientRect().top;
+            linkAnim.forEach((el) => {
+                ScrollTrigger.create({
+                    trigger: '.main_header',
+                    start: `top ${botHedrTop}`,
+                    end: `+=${window.innerHeight / 5}`,
+                    scroller: isDekstop ? pageContainer : window,
+                    onEnterBack: function () {
+                        gsap
+                            .to(el, {
+                                yPercent: 0,
+                                opacity: 1,
+                                ease: "power3.inOut",
+                                stagger: 0.2,
+                                duration: 0.3,
+                            })
+                    },
+                    onLeave: function () {
+                        gsap
+                            .to(el, {
+                                yPercent: -100,
+                                opacity: 0,
+                                ease: "power3.inOut",
+                                stagger: 0.2,
+                                duration: 0.3,
+                            })
+                    },
+                    onLeaveBack: function () {
+                        gsap
+                            .to(el, {
+                                yPercent: 0,
+                                opacity: 1,
+                                ease: "power3.inOut",
+                                stagger: 0.2,
+                                duration: 0.3,
+                            })
+                    },
+                })
             })
-        })
+        }
         //parallax Background
         if ($("[data-parallax]").length) {
             $("[data-parallax]").each(function () {
