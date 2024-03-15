@@ -16,10 +16,10 @@ function pageScript() {
     var isDekstop = true;
     var isMobile = true;
 
-    if(window.innerWidth > mob_size && window.innerWidth < responsive_size){
+    if (window.innerWidth > mob_size && window.innerWidth < responsive_size) {
         isMobile = false;
         document.body.classList.add("tabLayout");
-    }else if (window.innerWidth <= responsive_size) {
+    } else if (window.innerWidth <= responsive_size) {
         isDekstop = false;
         document.body.classList.add("mobileLayout");
     }
@@ -269,7 +269,7 @@ function pageScript() {
         var swiper = new Swiper(".trstd_sldr", {
             loop: true,
             freeMode: true,
-            spaceBetween: '3%',
+            spaceBetween: '6%',
             autoplay: {
                 delay: 0,
             },
@@ -277,10 +277,10 @@ function pageScript() {
             slidesPerView: 3,
             breakpoints: {
                 768: {
-                  slidesPerView: 6,
-                  spaceBetween: '3%',
+                    slidesPerView: 6,
+                    spaceBetween: '6%',
                 },
-              },
+            },
         });
 
         //Swiper Slider With Custom Arrow
@@ -418,18 +418,18 @@ function pageScript() {
         })
 
         //Video Animation
-        let video_sec = document?.querySelector(".video_sec");
-        let videoBox = video_sec?.querySelector(".video_box"),
-            videoPara = video_sec?.querySelector(".para");
+        if (isDekstop) {
+            let video_sec = document?.querySelector(".video_sec");
+            let videoBox = video_sec?.querySelector(".video_box"),
+                videoPara = video_sec?.querySelector(".para");
 
-        let topPos = videoBox?.getBoundingClientRect().top;
-        let tl = gsap.timeline({
-            defaults: {
-                duration: 0.5,
-                ease: "none",
-            },
-        });
-        if(isDekstop){
+            let topPos = videoBox?.getBoundingClientRect().top;
+            let tl = gsap.timeline({
+                defaults: {
+                    duration: 0.5,
+                    ease: "none",
+                },
+            });
             tl.set(videoBox, {
                 clipPath: "inset(22% 30%)",
                 opacity: 1,
@@ -463,7 +463,7 @@ function pageScript() {
                     yPercent: 97,
                     transformOrigin: "50% 100%",
                 });
-    
+
             tl.pause();
             ScrollTrigger.create({
                 trigger: video_sec,
@@ -473,7 +473,7 @@ function pageScript() {
                 scrub: 1.1,
                 scroller: isDekstop ? pageContainer : window,
             });
-    
+
             ScrollTrigger.create({
                 trigger: video_sec,
                 start: "top +=12.5%",
@@ -485,7 +485,7 @@ function pageScript() {
         }
 
         //Footer Animation
-        if(isDekstop){
+        if (isDekstop) {
             if ($(".innr_footr").length) {
                 $(".innr_footr").each(function () {
                     let ele = $(this);
@@ -506,7 +506,7 @@ function pageScript() {
                             yPercent: 0,
                         })
                 })
-    
+
             }
 
         }
@@ -552,7 +552,7 @@ function pageScript() {
             })
         });
         //Menu Link Animation
-        if(isDekstop){
+        if (isDekstop) {
             let linkAnim = document?.querySelectorAll('.nav_menu > .nav_lnk');
             let botHedrTop = document?.querySelector('.main_header')?.getBoundingClientRect().top;
             linkAnim.forEach((el) => {
@@ -1295,7 +1295,7 @@ function pageScript() {
             scroller: isDekstop ? pageContainer : window,
         });
         // Onclick Hamburger Add class to Body
-        document.querySelector(".ham_bttn").addEventListener("click",()=>{
+        document.querySelector(".ham_bttn").addEventListener("click", () => {
             document.querySelector("body").classList.toggle("menu-open");
         })
         //end ready
