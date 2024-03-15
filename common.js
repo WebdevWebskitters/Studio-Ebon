@@ -12,7 +12,9 @@ function pageScript() {
     }
 
     const responsive_size = 1024;
+    const mob_size = 767;
     var isDekstop = true;
+    var isMobile = true;
 
     if (window.innerWidth <= responsive_size) {
         isDekstop = false;
@@ -204,7 +206,7 @@ function pageScript() {
                 isLoaded = true;
 
                 enableScroll();
-                locoScroll.start();
+                locoScroll?.start();
             }, 1500);
             ///end
             // Details Text Wrapper
@@ -418,65 +420,60 @@ function pageScript() {
                 ease: "none",
             },
         });
-
-        tl.set(videoBox, {
-            clipPath: "inset(22% 30%)",
-            opacity: 1,
-            yPercent: -40,
-            overwrite: true,
-        })
-            .set(videoPara, {
-                opacity: 0,
-                yPercent: 100,
+        if(isDekstop && !isMobile){
+            tl.set(videoBox, {
+                clipPath: "inset(22% 30%)",
+                opacity: 1,
+                yPercent: !isMobile?-20:-40,
                 overwrite: true,
             })
-            //   .to(videoBox, {
-            //     yPercent: 0,
-            //     clipPath: "inset(5% 5%)",
-            //   })
-            .to(videoBox, {
-                yPercent: 0,
-                clipPath: "inset(0% 0%)",
-                duration: 1.5,
-            })
-            .to(
-                videoPara,
-                {
-                    opacity: 1,
+                .set(videoPara, {
+                    opacity: 0,
+                    yPercent: 100,
+                    overwrite: true,
+                })
+                .to(videoBox, {
                     yPercent: 0,
-                },
-                "-=1"
-            )
-            .to(videoPara, {
-                opacity: 0,
-                yPercent: -200,
-            })
-            .to(videoBox, {
-                clipPath: "inset(43% 53% 34% 28%)",
-                yPercent: 97,
-                transformOrigin: "50% 100%",
+                    clipPath: "inset(0% 0%)",
+                    duration: 1.5,
+                })
+                .to(
+                    videoPara,
+                    {
+                        opacity: 1,
+                        yPercent: 0,
+                    },
+                    "-=1"
+                )
+                .to(videoPara, {
+                    opacity: 0,
+                    yPercent: -200,
+                })
+                .to(videoBox, {
+                    clipPath: "inset(43% 53% 34% 28%)",
+                    yPercent: 97,
+                    transformOrigin: "50% 100%",
+                });
+    
+            tl.pause();
+            ScrollTrigger.create({
+                trigger: video_sec,
+                start: `top ${topPos}`,
+                end: "+=320%",
+                animation: tl,
+                scrub: 1.1,
+                scroller: isDekstop ? pageContainer : window,
             });
-
-        tl.pause();
-        ScrollTrigger.create({
-            trigger: video_sec,
-            start: `top ${topPos}`,
-            end: "+=320%",
-            animation: tl,
-            scrub: 1.1,
-            //   invalidateOnRefresh: true,
-            scroller: isDekstop ? pageContainer : window,
-        });
-
-        ScrollTrigger.create({
-            trigger: video_sec,
-            start: "top +=12.5%",
-            end: "+=150%",
-            pin: true,
-            scrub: 1.1,
-            //   invalidateOnRefresh: true,
-            scroller: isDekstop ? pageContainer : window,
-        });
+    
+            ScrollTrigger.create({
+                trigger: video_sec,
+                start: "top +=12.5%",
+                end: "+=150%",
+                pin: true,
+                scrub: 1.1,
+                scroller: isDekstop ? pageContainer : window,
+            });
+        }
 
         //Footer Animation
         if ($(".innr_footr").length) {
