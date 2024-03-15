@@ -16,7 +16,7 @@ function pageScript() {
     var isDekstop = true;
     var isMobile = true;
 
-    if(window.innerWidth >= mob_size && window.innerWidth <= responsive_size){
+    if(window.innerWidth > mob_size && window.innerWidth < responsive_size){
         isMobile = false;
         document.body.classList.add("tabLayout");
     }else if (window.innerWidth <= responsive_size) {
