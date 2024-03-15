@@ -163,7 +163,7 @@ function pageScript() {
         let totalLength3 = 4;
         let hdngMain3 = document.querySelectorAll('.mrquee_spkng_sldr');
         hdngMain3.forEach((el,i) => {
-            let hdngInner = hdngMain3.querySelector('.mrquee_item');
+            let hdngInner = el.querySelector('.mrquee_item');
             let copy = hdngInner.cloneNode(true);
             for(let i=0;i<totalLength3;i++){
                 el.appendChild(copy);
