@@ -15,8 +15,11 @@ function pageScript() {
     const mob_size = 767;
     var isDekstop = true;
     var isMobile = true;
-
-    if (window.innerWidth <= responsive_size) {
+    
+    if(window.innerWidth >= mob_size && window.innerWidth <= responsive_size){
+        isMobile = false;
+        document.body.classList.add("tabLayout");
+    }elseif (window.innerWidth <= responsive_size) {
         isDekstop = false;
         document.body.classList.add("mobileLayout");
     }
