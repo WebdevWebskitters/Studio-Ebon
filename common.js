@@ -1296,7 +1296,7 @@ function pageScript() {
             scroller: isDekstop ? pageContainer : window,
         });
         // Onclick Hamburger Add class to Body
-        document.querySelector(".ham_bttn").addEventListener("click", () => {
+        document.querySelector(".ham_bttn")?.addEventListener("click", () => {
             document.querySelector("body").classList.toggle("menu-open");
         })
         //end ready
