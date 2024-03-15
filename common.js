@@ -272,21 +272,28 @@ function pageScript() {
             breakpoints: {
                 768: {
                     slidesPerView: 6,
-                    spaceBetween: '6%',
+                    spaceBetween: '10%',
                 },
             },
         });
 
         //Swiper Slider With Custom Arrow
         var swiper = new Swiper(".clnt_sldr", {
-            slidesPerView: 3.5,
+            slidesPerView: 1.5,
             grabCursor: true,
-            spaceBetween: '7%',
+            spaceBetween: '4%',
             // centeredSlides: true,
             loop: true,
             navigation: {
                 nextEl: ".custom_arrw_lft",
                 prevEl: ".custom_arrw_rght",
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 3.5,
+                    grabCursor: true,
+                    spaceBetween: '7%',
+                },
             },
         });
         let wrapperHolder = document.querySelectorAll('.sldr_cursor_wrppr');
