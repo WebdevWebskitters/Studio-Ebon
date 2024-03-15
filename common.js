@@ -152,7 +152,7 @@ function pageScript() {
         let totalLength = 4;
         for (let i = 0; i < totalLength; i++) {
             $(".mrque_dtls_sldr").append(function () {
-                return $(".mrque_dtls_sldr").find('.mrquee_item:first').clone();
+                return $(".mrque_dtls_sldr").find('.mrquee_item').clone();
             })
         }
         // Clone Text And Append 2
