@@ -120,6 +120,11 @@ function pageScript() {
         ScrollTrigger.refresh();
         locoScroll.stop();
     }
+    //for mobile
+    else {
+        detectDevice();
+        $(page_container).unwrap();
+    }
 
 
     // try {
@@ -139,40 +144,40 @@ function pageScript() {
         // Clone Text And Append
         let totalLength = 3;
         let hdng = document.querySelectorAll('.mrquee_sldr');
-        hdng.forEach((el,i) => {
+        hdng.forEach((el, i) => {
             let hdngInner = el.querySelector('.mrquee_item');
-            for(let i=0;i<totalLength;i++){
+            for (let i = 0; i < totalLength; i++) {
                 let copy = hdngInner.cloneNode(true);
                 el.appendChild(copy);
             }
         });
-            // Clone Text And Append
-            let hdngMain = document.querySelectorAll('.mrque_dtls_sldr');
-            hdngMain.forEach((el,i) => {
-                let hdngInner = el.querySelector('.mrquee_item');
-                for(let i=0;i<totalLength;i++){
-                    let copy = hdngInner.cloneNode(true);
-                    el.appendChild(copy);
-                }
-            });
-            // Clone Text And Append 2
-            let hdngMain2 = document.querySelectorAll('.mrque_dtls_sldr_alt');
-            hdngMain2.forEach((el,i) => {
-                let hdngInner = el.querySelector('.mrquee_item');
-                for(let i=0;i<totalLength;i++){
-                    let copy = hdngInner.cloneNode(true);
-                    el.appendChild(copy);
-                }
-            });
-            // Clone Text And Append 3
-            let hdngMain3 = document.querySelectorAll('.mrquee_spkng_sldr');
-            hdngMain3.forEach((el,i) => {
-                let hdngInner = el.querySelector('.mrquee_item');
-                for(let i=0;i<totalLength;i++){
-                    let copy = hdngInner.cloneNode(true);
-                    el.appendChild(copy);
-                }
-            });
+        // Clone Text And Append
+        let hdngMain = document.querySelectorAll('.mrque_dtls_sldr');
+        hdngMain.forEach((el, i) => {
+            let hdngInner = el.querySelector('.mrquee_item');
+            for (let i = 0; i < totalLength; i++) {
+                let copy = hdngInner.cloneNode(true);
+                el.appendChild(copy);
+            }
+        });
+        // Clone Text And Append 2
+        let hdngMain2 = document.querySelectorAll('.mrque_dtls_sldr_alt');
+        hdngMain2.forEach((el, i) => {
+            let hdngInner = el.querySelector('.mrquee_item');
+            for (let i = 0; i < totalLength; i++) {
+                let copy = hdngInner.cloneNode(true);
+                el.appendChild(copy);
+            }
+        });
+        // Clone Text And Append 3
+        let hdngMain3 = document.querySelectorAll('.mrquee_spkng_sldr');
+        hdngMain3.forEach((el, i) => {
+            let hdngInner = el.querySelector('.mrquee_item');
+            for (let i = 0; i < totalLength; i++) {
+                let copy = hdngInner.cloneNode(true);
+                el.appendChild(copy);
+            }
+        });
 
         ///////// init function //////////////////
         function loadInit() {
