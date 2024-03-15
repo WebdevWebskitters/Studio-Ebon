@@ -164,8 +164,8 @@ function pageScript() {
         let hdngMain3 = document.querySelectorAll('.mrquee_spkng_sldr');
         hdngMain3.forEach((el,i) => {
             let hdngInner = el.querySelector('.mrquee_item');
-            let copy = hdngInner.cloneNode(true);
             for(let i=0;i<totalLength3;i++){
+                let copy = hdngInner.cloneNode(true);
                 el.appendChild(copy);
             }
         })
