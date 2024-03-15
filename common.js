@@ -150,9 +150,9 @@ function pageScript() {
         //     // copy.insertBefore(hdngInner);
         // })
         let totalLength = 4;
-        for (let i = 0; i < totalLength; i++) {
+        for (let i = 0; i < totalLength - 1; i++) {
             $(".mrque_dtls_sldr").append(function () {
-                return $(".mrque_dtls_sldr").find('.mrquee_item').clone();
+                return $(".mrque_dtls_sldr").find('.mrquee_item:first').clone();
             })
         }
         // Clone Text And Append 2
