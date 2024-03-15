@@ -144,14 +144,16 @@ function pageScript() {
             })
         }
         // Clone Text And Append 2
-        for (let j = 0; j < totalLength - 1; j++) {
+        let totalLength2 = 4;
+        for (let j = 0; j < totalLength2 - 1; j++) {
             $(".mrque_dtls_sldr_alt").append(function () {
                 return $(".mrque_dtls_sldr_alt").find('.mrquee_item:first').clone();
             })
         }
         // Clone Text And Append 2
+        let totalLength3 = 4;
         $(".mrquee_spkng_sldr").each(function(){
-            for (let k = 0; k < totalLength - 1; k++) {
+            for (let k = 0; k < totalLength3 - 1; k++) {
                 $(".mrquee_spkng_sldr").append(function () {
                     return $(".mrquee_spkng_sldr").find('.mrquee_item:first').clone();
                 })
