@@ -144,19 +144,29 @@ function pageScript() {
             })
         }
         // Clone Text And Append 2
-        let totalLength2 = 4;
-        for (let j = 0; j < totalLength2 - 1; j++) {
-            $(".mrque_dtls_sldr_alt").append(function () {
-                return $(".mrque_dtls_sldr_alt").find('.mrquee_item:first').clone();
-            })
-        }
+        // let totalLength2 = 4;
+        // for (let j = 0; j < totalLength2 - 1; j++) {
+        //     $(".mrque_dtls_sldr_alt").append(function () {
+        //         return $(".mrque_dtls_sldr_alt").find('.mrquee_item:first').clone();
+        //     })
+        // }
+        // // Clone Text And Append 2
+        // let totalLength3 = 4;
+        // $(".mrquee_spkng_sldr").each(function(){
+        //     for (let k = 0; k < totalLength3 - 1; k++) {
+        //         $(".mrquee_spkng_sldr").append(function () {
+        //             return $(".mrquee_spkng_sldr").find('.mrquee_item:first').clone();
+        //         })
+        //     }
+        // })
         // Clone Text And Append 2
         let totalLength3 = 4;
-        $(".mrquee_spkng_sldr").each(function(){
-            for (let k = 0; k < totalLength3 - 1; k++) {
-                $(".mrquee_spkng_sldr").append(function () {
-                    return $(".mrquee_spkng_sldr").find('.mrquee_item:first').clone();
-                })
+        let hdngMain3 = document.querySelectorAll('.mrquee_spkng_sldr');
+        hdngMain3.forEach((el,i) => {
+            let hdngInner = hdngMain.querySelector('.mrquee_item');
+            let copy = hdngInner.cloneNode(true);
+            for(let i=0;i<totalLength3;i++){
+                el.appendChild(copy);
             }
         })
         ///////// init function //////////////////
