@@ -139,22 +139,22 @@ function pageScript() {
         $(".bnnr_para_txt ul > li > strong").addClass("hdng_info_txt");
 
         // Clone Text And Append
-        let hdngMain = document.querySelectorAll('.mrque_dtls_sldr');
-        hdngMain.forEach((el, i) => {
-            let hdngInner = document.querySelector('.mrquee_item');
-            let copy = hdngInner.cloneNode(true);
-            let totalLength = 4;
-            for(let j=0;j<totalLength;j++){
-                el.appendChild(copy);
-            }
-            // copy.insertBefore(hdngInner);
-        })
-        // let totalLength = 4;
-        // for (let i = 0; i < totalLength; i++) {
-        //     $(".mrque_dtls_sldr").append(function () {
-        //         return $(".mrque_dtls_sldr").find('.mrquee_item').length == 0 ? $(this).clone() : $(".mrque_dtls_sldr").find('.mrquee_item:first').clone();
-        //     })
-        // }
+        // let hdngMain = document.querySelectorAll('.mrque_dtls_sldr');
+        // hdngMain.forEach((el, i) => {
+        //     let hdngInner = document.querySelector('.mrquee_item');
+        //     let copy = hdngInner.cloneNode(true);
+        //     let totalLength = 4;
+        //     for(let j=0;j<totalLength;j++){
+        //         el.appendChild(copy);
+        //     }
+        //     // copy.insertBefore(hdngInner);
+        // })
+        let totalLength = 4;
+        for (let i = 0; i < totalLength; i++) {
+            $(".mrque_dtls_sldr").append(function () {
+                return $(".mrque_dtls_sldr").find('.mrquee_item:first').clone();
+            })
+        }
         // Clone Text And Append 2
         let hdngMain2 = document.querySelectorAll('.mrque_dtls_sldr_alt');
         hdngMain2.forEach((el, i) => {
