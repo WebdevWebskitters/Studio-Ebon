@@ -144,7 +144,7 @@ function pageScript() {
             let hdngInner = document.querySelector('.mrquee_item');
             let copy = hdngInner.cloneNode(true);
             let totalLength = 4;
-            for(let i=0;i<totalLength;i++){
+            for(let j=0;j<totalLength;j++){
                 el.appendChild(copy);
             }
             // copy.insertBefore(hdngInner);
