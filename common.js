@@ -423,7 +423,7 @@ function pageScript() {
                 ease: "none",
             },
         });
-        if(!isMobile){
+        if(isDekstop){
             tl.set(videoBox, {
                 clipPath: "inset(22% 30%)",
                 opacity: 1,
