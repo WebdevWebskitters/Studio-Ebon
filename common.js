@@ -12,10 +12,15 @@ function pageScript() {
     }
 
     const responsive_size = 1024;
+    const mob_size = 767;
     var isDekstop = true;
+    var isMob = false;
     if (window.innerWidth <= responsive_size) {
         isDekstop = false;
         document.body.classList.add("mobileLayout");
+    }
+    if (window.innerWidth >= responsive_size) {
+        isMob = true;
     }
 
     //detect device
@@ -786,7 +791,7 @@ function pageScript() {
         });
 
         // Orbit Animation
-        if(isDekstop){
+        if(!isMob){
 
 
             let circle = document?.querySelector('.crcle_anim');
