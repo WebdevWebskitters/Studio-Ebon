@@ -693,6 +693,13 @@ function pageScript() {
 
         let cursorXYZ = document.querySelector('.play_cursor');
         let playBttn = document.querySelector('.ply_bttn');
+        if(!isMob){
+            document.querySelector(".mob_ply")?.remove();
+            document.querySelector(".play_cursor_mob")?.remove();
+        }else{
+            document.querySelector(".dsktp_ply")?.remove();
+            document.querySelector(".ply_dsktop")?.remove();
+        }
         audioBox.forEach((el) => {
             function mouseFunction(e) {
                 let mousePosX = e.clientX;
@@ -805,7 +812,7 @@ function pageScript() {
     
             let circleAnimation = gsap.to(circle, {
                 translateX: `${halfWidth - halfCircleWidth}px`,
-                translateY: `${circle?.offsetHeight / 3}px`,
+                translateY: isMob?`${circle?.offsetHeight / 3}px`,
                 scale: 0.75,
                 ease: 'none',
                 scroller: isDekstop ? pageContainer : window,
