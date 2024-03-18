@@ -19,8 +19,8 @@ function pageScript() {
         isDekstop = false;
         document.body.classList.add("mobileLayout");
     }
-    if (window.innerWidth >= mob_size) {
-        isMob = false;
+    if (window.innerWidth <= mob_size) {
+        isMob = true;
     }
 
     //detect device
@@ -694,12 +694,12 @@ function pageScript() {
         let cursorXYZ = document.querySelector('.play_cursor');
         let playBttn = document.querySelector('.ply_bttn');
         if(!isMob){
-            document.querySelector(".mob_ply")?.remove();
-            document.querySelector(".play_cursor_mob")?.remove();
-        }
-        if(isMob){
             document.querySelector(".dsktp_ply")?.remove();
             document.querySelector(".ply_dsktop")?.remove();
+        }
+        if(isMob){
+            document.querySelector(".mob_ply")?.remove();
+            document.querySelector(".play_cursor_mob")?.remove();
         }
         audioBox.forEach((el) => {
             function mouseFunction(e) {
@@ -799,7 +799,7 @@ function pageScript() {
         });
 
         // Orbit Animation
-        if(!isMob){
+        if(isMob){
 
 
             let circle = document?.querySelector('.crcle_anim');
@@ -813,7 +813,7 @@ function pageScript() {
     
             let circleAnimation = gsap.to(circle, {
                 translateX: `${halfWidth - halfCircleWidth}px`,
-                translateY: () => isMob?`${circle?.offsetHeight / 3}px`: `${circle?.offsetHeight / 2}px`,
+                translateY: () => isDekstop ? `${circle?.offsetHeight / 3}px`: `${circle?.offsetHeight / 2}px`,
                 scale: 0.75,
                 ease: 'none',
                 scroller: isDekstop ? pageContainer : window,
