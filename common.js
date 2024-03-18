@@ -12,10 +12,16 @@ function pageScript() {
     }
 
     const responsive_size = 1024;
+    const mob_size = 767;
     var isDekstop = true;
+    var isMobile = false;
     if (window.innerWidth <= responsive_size) {
         isDekstop = false;
         document.body.classList.add("mobileLayout");
+    }
+    if (window.innerWidth >= mob_size) {
+        isMobile = false;
+        // document.body.classList.add("mobileLayout");
     }
 
     //detect device
@@ -709,7 +715,7 @@ function pageScript() {
         // Audio Text Sync
         const target = document?.querySelectorAll(".play_text>div"),
             audio = document?.querySelector("audio"),
-            btn = document?.querySelector(".play_cursor"), audioPlayBox = document?.querySelectorAll('.aud_txt_box');
+            btn1 = document?.querySelector(".play_cursor.ply_dsktop"), btn2 = document?.querySelector(".play_cursor.play_cursor_mob"), audioPlayBox1 = document.querySelector('.aud_txt_box.dsktp_ply'), audioPlayBox2 = document.querySelector('.aud_txt_box.mob_ply');
 
         let time = audio?.dataset.time;
         if (time != undefined || time != null) {
@@ -748,22 +754,37 @@ function pageScript() {
                     ease: "none"
                 })
                 .pause();
-                audioPlayBox.forEach((elem)=>{
-                    elem?.addEventListener("click", function () {
+                if(!isMobile){
+                    audioPlayBox1?.addEventListener("click", function () {
                         if (!tl_main.isActive()) {
                             audio.play();
                             tl_main.restart();
                             // btn.innerHTML = "now playing";
-                            btn.classList.add('playing');
+                            btn1.classList.add('playing');
                         } else {
                             audio.currentTime = 0;
                             audio.pause();
                             tl_main.pause();
                             // btn.innerHTML = "play";
-                            btn.classList.remove('playing');
+                            btn1.classList.remove('playing');
                         }
-                })
-            });
+                    });
+                }else{
+                    audioPlayBox2?.addEventListener("click", function () {
+                        if (!tl_main.isActive()) {
+                            audio.play();
+                            tl_main.restart();
+                            // btn.innerHTML = "now playing";
+                            btn2.classList.add('playing');
+                        } else {
+                            audio.currentTime = 0;
+                            audio.pause();
+                            tl_main.pause();
+                            // btn.innerHTML = "play";
+                            btn2.classList.remove('playing');
+                        }
+                    });
+                }
 
             window.addEventListener("resize", () => {
                 audio.pause();
