@@ -812,7 +812,7 @@ function pageScript() {
     
             let circleAnimation = gsap.to(circle, {
                 translateX: `${halfWidth - halfCircleWidth}px`,
-                translateY: isMob?`${circle?.offsetHeight / 3}px`,
+                translateY: () => isMob?`${circle?.offsetHeight / 3}px`: `${circle?.offsetHeight / 2}px`,
                 scale: 0.75,
                 ease: 'none',
                 scroller: isDekstop ? pageContainer : window,
