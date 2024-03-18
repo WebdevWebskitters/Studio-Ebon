@@ -1173,9 +1173,9 @@ function pageScript() {
 
         //Swiper Slider With Custom Arrow 3
         var swiper = new Swiper(".clnts_sldr", {
-            slidesPerView: 2.5,
+            slidesPerView: 1.5,
             grabCursor: true,
-            spaceBetween: '1.5%',
+            spaceBetween: '2%',
             // centeredSlides: true,
             loop: false,
             pagination: {
@@ -1184,7 +1184,14 @@ function pageScript() {
                 renderCustom: function (swiper, current, total) {
                     return current + '<span>-</span>' + total;
                 }
-            }
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2.5,
+                    grabCursor: true,
+                    spaceBetween: '1.5%',
+                },
+            },
         });
         // Random Positioning Click Gallery
         const clickGallery = document.querySelectorAll(".idea_slde_wrppr");
