@@ -1228,35 +1228,35 @@ function pageScript() {
                             //     100 +
                             //   "%",
                         });
-                        // if (i < count) {
-                        //     let center = {
-                        //         x: window.innerWidth / 2 - el.clientWidth / 2,
-                        //         y: window.innerHeight / 2 - el.clientHeight / 2,
-                        //         xOffset: window.innerWidth / (count * 2),
-                        //         yOffset: window.innerHeight / (count * 2),
-                        //     };
-                        //     gsap.set(el, {
-                        //         opacity: 1,
-                        //         x:
-                        //             center.x +
-                        //             gsap.utils.random(
-                        //                 -center.xOffset,
-                        //                 center.xOffset,
-                        //                 center.xOffset / 2
-                        //             ),
-                        //         y:
-                        //             center.y +
-                        //             gsap.utils.random(
-                        //                 -center.yOffset,
-                        //                 center.yOffset,
-                        //                 center.yOffset / 2
-                        //             ),
-                        //         scale: 1,
-                        //         transformOrighin: "50% 50%",
-                        //         zIndex: 2,
-                        //     });
-                        //     el.classList.add("active");
-                        // }
+                        if (i < count) {
+                            // let center = {
+                            //     x: window.innerWidth / 2 - el.clientWidth / 2,
+                            //     y: window.innerHeight / 2 - el.clientHeight / 2,
+                            //     xOffset: window.innerWidth / (count * 2),
+                            //     yOffset: window.innerHeight / (count * 2),
+                            // };
+                            gsap.set(el, {
+                                opacity: 1,
+                                // x:
+                                //     center.x +
+                                //     gsap.utils.random(
+                                //         -center.xOffset,
+                                //         center.xOffset,
+                                //         center.xOffset / 2
+                                //     ),
+                                // y:
+                                //     center.y +
+                                //     gsap.utils.random(
+                                //         -center.yOffset,
+                                //         center.yOffset,
+                                //         center.yOffset / 2
+                                //     ),
+                                scale: 1,
+                                // transformOrighin: "50% 50%",
+                                zIndex: 2,
+                            });
+                            el.classList.add("active");
+                        }
                     });
 
                     function callImg(i, pos) {
