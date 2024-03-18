@@ -694,12 +694,12 @@ function pageScript() {
         let cursorXYZ = document.querySelector('.play_cursor');
         let playBttn = document.querySelector('.ply_bttn');
         if(!isMob){
-            document.querySelector(".dsktp_ply")?.remove();
-            document.querySelector(".ply_dsktop")?.remove();
-        }
-        if(isMob){
             document.querySelector(".mob_ply")?.remove();
             document.querySelector(".play_cursor_mob")?.remove();
+        }
+        if(isMob){
+             document.querySelector(".dsktp_ply")?.remove();
+            document.querySelector(".ply_dsktop")?.remove();
         }
         audioBox.forEach((el) => {
             function mouseFunction(e) {
@@ -799,7 +799,7 @@ function pageScript() {
         });
 
         // Orbit Animation
-        if(isMob){
+        if(!isMob){
 
 
             let circle = document?.querySelector('.crcle_anim');
