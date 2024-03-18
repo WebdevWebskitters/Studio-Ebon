@@ -20,7 +20,7 @@ function pageScript() {
         document.body.classList.add("mobileLayout");
     }
     if (window.innerWidth >= mob_size) {
-        isMob = true;
+        isMob = false;
     }
 
     //detect device
