@@ -799,7 +799,7 @@ function pageScript() {
         });
 
         // Orbit Animation
-        if(!isMob){
+        if(isMob){
 
 
             let circle = document?.querySelector('.crcle_anim');
@@ -1195,7 +1195,9 @@ function pageScript() {
                 const totalLn = item.length;
                 var count = parseInt(imgWrapper.getAttribute("click_gallery"), 0);
                 var duration = Number(imgWrapper.getAttribute("data-time"));
-
+                if(isMob){
+                    count = 0;
+                }
                 if (count + 1 < totalLn) {
                     if (isNaN(count)) {
                         count = Math.floor(totalLn / 2);
@@ -1213,12 +1215,12 @@ function pageScript() {
                         gsap.set(el, {
                             opacity: 0,
                             position: "absolute",
-                            // left: 0,
-                            // top: 0,
+                            left: 0,
+                            top: 0,
                             scale: 0.8,
                             // transformOrighin: "50% 50%",
                             zIndex: 0,
-                            width: gsap.utils.random(35, 48, 5) + "%",
+                            width: () => isMob? gsap.utils.random(35, 48, 5) + "%": "100%",
                             // width:
                             //   (getRandomNumber(
                             //     window.innerWidth / count,
@@ -1229,32 +1231,56 @@ function pageScript() {
                             //   "%",
                         });
                         if (i < count) {
-                            // let center = {
-                            //     x: window.innerWidth / 2 - el.clientWidth / 2,
-                            //     y: window.innerHeight / 2 - el.clientHeight / 2,
-                            //     xOffset: window.innerWidth / (count * 2),
-                            //     yOffset: window.innerHeight / (count * 2),
-                            // };
-                            gsap.set(el, {
-                                opacity: 1,
-                                // x:
-                                //     center.x +
-                                //     gsap.utils.random(
-                                //         -center.xOffset,
-                                //         center.xOffset,
-                                //         center.xOffset / 2
-                                //     ),
-                                // y:
-                                //     center.y +
-                                //     gsap.utils.random(
-                                //         -center.yOffset,
-                                //         center.yOffset,
-                                //         center.yOffset / 2
-                                //     ),
-                                scale: 1,
-                                // transformOrighin: "50% 50%",
-                                zIndex: 2,
-                            });
+                            let center = {
+                                x: window.innerWidth / 2 - el.clientWidth / 2,
+                                y: window.innerHeight / 2 - el.clientHeight / 2,
+                                xOffset: window.innerWidth / (count * 2),
+                                yOffset: window.innerHeight / (count * 2),
+                            };
+                            if(isMob){
+                                gsap.set(el, {
+                                    opacity: 1,
+                                    x:
+                                        center.x +
+                                        gsap.utils.random(
+                                            -center.xOffset,
+                                            center.xOffset,
+                                            center.xOffset / 2
+                                        ),
+                                    y:
+                                        center.y +
+                                        gsap.utils.random(
+                                            -center.yOffset,
+                                            center.yOffset,
+                                            center.yOffset / 2
+                                        ),
+                                    scale: 1,
+                                    transformOrighin: "50% 50%",
+                                    zIndex: 2,
+                                });
+                                
+                                gsap.set(el[0], {
+                                    xPercent:2,
+                                    yPercent:0,
+                                });
+                                gsap.set(el[1], {
+                                    xPercent:2,
+                                    yPercent:0,
+                                });
+                                gsap.set(el[2], {
+                                    xPercent:2,
+                                    yPercent:0,
+                                });
+                            }else{
+                                gsap.set(el[0], {
+                                    opacity: 1,
+                                    xPercent:0,
+                                    yPercent:0,
+                                    scale: 1,
+                                    transformOrighin: "50% 50%",
+                                    zIndex: 2,
+                                }); 
+                            }
                             el.classList.add("active");
                         }
                     });
