@@ -1252,7 +1252,7 @@ function pageScript() {
                                 //         center.yOffset / 2
                                 //     ),
                                 scale: 1,
-                                // transformOrighin: "50% 50%",
+                                transformOrighin: "50% 50%",
                                 zIndex: 2,
                             });
                             el.classList.add("active");
