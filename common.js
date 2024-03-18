@@ -19,7 +19,7 @@ function pageScript() {
         isDekstop = false;
         document.body.classList.add("mobileLayout");
     }
-    if (window.innerWidth >= responsive_size) {
+    if (window.innerWidth >= mob_size) {
         isMob = true;
     }
 
