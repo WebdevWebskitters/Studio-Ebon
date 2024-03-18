@@ -12,16 +12,10 @@ function pageScript() {
     }
 
     const responsive_size = 1024;
-    const mob_size = 767;
     var isDekstop = true;
-    var isMobile = false;
     if (window.innerWidth <= responsive_size) {
         isDekstop = false;
         document.body.classList.add("mobileLayout");
-    }
-    if (window.innerWidth >= mob_size) {
-        isMobile = false;
-        // document.body.classList.add("mobileLayout");
     }
 
     //detect device
@@ -715,7 +709,7 @@ function pageScript() {
         // Audio Text Sync
         const target = document?.querySelectorAll(".play_text>div"),
             audio = document?.querySelector("audio"),
-            btn1 = document?.querySelector(".play_cursor.ply_dsktop"), btn2 = document?.querySelector(".play_cursor.play_cursor_mob"), audioPlayBox1 = document.querySelector('.aud_txt_box.dsktp_ply'), audioPlayBox2 = document.querySelector('.aud_txt_box.mob_ply');
+            btn = document?.querySelector(".play_cursor"), audioPlayBox = document.querySelector('.aud_txt_box');
 
         let time = audio?.dataset.time;
         if (time != undefined || time != null) {
@@ -754,37 +748,21 @@ function pageScript() {
                     ease: "none"
                 })
                 .pause();
-                if(!isMobile){
-                    audioPlayBox1?.addEventListener("click", function () {
-                        if (!tl_main.isActive()) {
-                            audio.play();
-                            tl_main.restart();
-                            // btn.innerHTML = "now playing";
-                            btn1.classList.add('playing');
-                        } else {
-                            audio.currentTime = 0;
-                            audio.pause();
-                            tl_main.pause();
-                            // btn.innerHTML = "play";
-                            btn1.classList.remove('playing');
-                        }
-                    });
-                }else{
-                    audioPlayBox2?.addEventListener("click", function () {
-                        if (!tl_main.isActive()) {
-                            audio.play();
-                            tl_main.restart();
-                            // btn.innerHTML = "now playing";
-                            btn2.classList.add('playing');
-                        } else {
-                            audio.currentTime = 0;
-                            audio.pause();
-                            tl_main.pause();
-                            // btn.innerHTML = "play";
-                            btn2.classList.remove('playing');
-                        }
-                    });
+
+            audioPlayBox?.addEventListener("click", function () {
+                if (!tl_main.isActive()) {
+                    audio.play();
+                    tl_main.restart();
+                    // btn.innerHTML = "now playing";
+                    btn.classList.add('playing');
+                } else {
+                    audio.currentTime = 0;
+                    audio.pause();
+                    tl_main.pause();
+                    // btn.innerHTML = "play";
+                    btn.classList.remove('playing');
                 }
+            });
 
             window.addEventListener("resize", () => {
                 audio.pause();
@@ -808,83 +786,89 @@ function pageScript() {
         });
 
         // Orbit Animation
-        let circle = document?.querySelector('.crcle_anim');
-        let circleOuter = document?.querySelector('.orbt_wrp');
-        let sectionAnim = document?.querySelectorAll('.mthd_idea_box');
-        let orbitAnim = document?.querySelectorAll('.ech_orbt_section');
+        if(isDekstop){
 
-        let circleHeight = circleOuter?.offsetHeight;
-        let halfWidth = circleOuter?.offsetWidth / 2;
-        let halfCircleWidth = circle?.offsetWidth / 2
 
-        let circleAnimation = gsap.to(circle, {
-            translateX: `${halfWidth - halfCircleWidth}px`,
-            translateY: `${circle?.offsetHeight / 3}px`,
-            scale: 0.75,
-            ease: 'none',
-            scroller: isDekstop ? pageContainer : window,
-        });
-
-        ScrollTrigger.create({
-            trigger: sectionAnim,
-            start: "top top",
-            end: () => `+=${circleHeight / 2 + circleHeight / 3}px`,
-            // markers: true,
-            scrub: 1,
-            animation: circleAnimation,
-            scroller: isDekstop ? pageContainer : window,
-        });
-
-        let dotAnim = document.querySelectorAll('.crcle_dot');
-
-        function addRemove(i) {
-            $(dotAnim).removeClass("active");
-            dotAnim[i].classList.add('active');
-        }
-
-        orbitAnim.forEach((el, i) => {
-            ScrollTrigger.create({
-                trigger: el,
-                start: "top 60%",
-                end: () => "bottom 60%",
-                pin: circleOuter,
-                pinSpacing: false,
+            let circle = document?.querySelector('.crcle_anim');
+            let circleOuter = document?.querySelector('.orbt_wrp');
+            let sectionAnim = document?.querySelectorAll('.mthd_idea_box');
+            let orbitAnim = document?.querySelectorAll('.ech_orbt_section');
+    
+            let circleHeight = circleOuter?.offsetHeight;
+            let halfWidth = circleOuter?.offsetWidth / 2;
+            let halfCircleWidth = circle?.offsetWidth / 2
+    
+            let circleAnimation = gsap.to(circle, {
+                translateX: `${halfWidth - halfCircleWidth}px`,
+                translateY: `${circle?.offsetHeight / 3}px`,
+                scale: 0.75,
+                ease: 'none',
                 scroller: isDekstop ? pageContainer : window,
-                onEnter: function () {
-                    addRemove(i);
-                    circleOuter.classList.add('anim_active')
-                },
-                onEnterBack: function () {
-                    addRemove(i);
-                    circleOuter.classList.add('anim_active')
-                },
-                onLeave: function () {
-                    if (i == 0) {
-                        dotAnim[0].classList.remove('active');
-                        circleOuter.classList.remove('anim_active')
-                    }
-                },
-                onLeaveBack: function () {
-                    if (i == 0) {
-                        dotAnim[0].classList.remove('active');
-                        circleOuter.classList.remove('anim_active')
-                    }
-                },
+            });
+    
+            ScrollTrigger.create({
+                trigger: sectionAnim,
+                start: "top top",
+                end: () => `+=${circleHeight / 2 + circleHeight / 3}px`,
                 // markers: true,
+                scrub: 1,
+                animation: circleAnimation,
+                scroller: isDekstop ? pageContainer : window,
+            });
+    
+            let dotAnim = document.querySelectorAll('.crcle_dot');
+    
+            function addRemove(i) {
+                $(dotAnim).removeClass("active");
+                dotAnim[i].classList.add('active');
+            }
+    
+            orbitAnim.forEach((el, i) => {
+                ScrollTrigger.create({
+                    trigger: el,
+                    start: "top 60%",
+                    end: () => "bottom 60%",
+                    pin: circleOuter,
+                    pinSpacing: false,
+                    scroller: isDekstop ? pageContainer : window,
+                    onEnter: function () {
+                        addRemove(i);
+                        circleOuter.classList.add('anim_active')
+                    },
+                    onEnterBack: function () {
+                        addRemove(i);
+                        circleOuter.classList.add('anim_active')
+                    },
+                    onLeave: function () {
+                        if (i == 0) {
+                            dotAnim[0].classList.remove('active');
+                            circleOuter.classList.remove('anim_active')
+                        }
+                    },
+                    onLeaveBack: function () {
+                        if (i == 0) {
+                            dotAnim[0].classList.remove('active');
+                            circleOuter.classList.remove('anim_active')
+                        }
+                    },
+                    // markers: true,
+                })
+    
             })
-
-        })
-
+        }
         let navLinks = document.querySelectorAll('.nxt_stp_lnk');
         navLinks.forEach((btn, index) => {
             btn.addEventListener("click", () => {
-                // gsap.to(window, {
-                //     duration: 1,
-                //     scrollTo: { y: "#orbit-" + (index + 1), offsetY: 0 },
-                //     // scroller: isDekstop ? pageContainer : window,
-                // });
-                locoScroll.scrollTo("#orbit-" + (index + 1));
-                locoScroll.update();
+                if(isDekstop){
+                    locoScroll.scrollTo("#orbit-" + (index + 1));
+                    locoScroll.update();
+                }else{
+                    gsap.to(window, {
+                    duration: 1,
+                    scrollTo: { y: "#orbit-" + (index + 1), offsetY: 0 },
+                    // scroller: isDekstop ? pageContainer : window,
+                });
+                }
             });
         });
 
