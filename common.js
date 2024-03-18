@@ -1260,14 +1260,17 @@ function pageScript() {
                                 });
                                 
                                 gsap.set(el[0], {
+                                    opacity: 1,
                                     xPercent:2,
                                     yPercent:0,
                                 });
                                 gsap.set(el[1], {
+                                    opacity: 1,
                                     xPercent:2,
                                     yPercent:0,
                                 });
                                 gsap.set(el[2], {
+                                    opacity: 1,
                                     xPercent:2,
                                     yPercent:0,
                                 });
