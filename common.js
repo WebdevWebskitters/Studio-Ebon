@@ -636,14 +636,29 @@ function pageScript() {
                 renderCustom: function (swiper, current, total) {
                     return current + '<span>-</span>' + total;
                 }
-            }
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
         });
         //Swiper Slider With Custom Arrow 3
         var swiper = new Swiper(".tem_sldr", {
-            slidesPerView: 3.5,
+            slidesPerView: 1.5,
             grabCursor: true,
             spaceBetween: '1.5%',
             loop: false,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 3.5,
+                    grabCursor: true,
+                    spaceBetween: '1.5%',
+                },
+            },
         });
         // Custom Cursor 3
         let mrqueeBox = document.querySelectorAll('.mrquee_cursor_hldr');
