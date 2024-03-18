@@ -1239,7 +1239,6 @@ function pageScript() {
                             };
                             if(isMob){
                                 gsap.set(el, {
-                                    opacity: 1,
                                     x:
                                         center.x +
                                         gsap.utils.random(
@@ -1258,7 +1257,6 @@ function pageScript() {
                                     transformOrighin: "50% 50%",
                                     zIndex: 2,
                                 });
-                                
                                 gsap.set(el[0], {
                                     opacity: 1,
                                     xPercent:2,
@@ -1285,6 +1283,9 @@ function pageScript() {
                                 }); 
                             }
                             el.classList.add("active");
+                            gsap.set(el, {
+                                opacity: 1,
+                            })    
                         }
                     });
 
