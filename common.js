@@ -1228,7 +1228,7 @@ function pageScript() {
                             scale: 0.8,
                             transformOrigin: "50% 50%",
                             zIndex: 0,
-                            width: gsap.utils.random(35, 48, 5) + "%"
+                            width: gsap.utils.random(40, 48, 0) + "%"
                         });
                         if (i < count) {
                             if (!isMob) {
@@ -1259,16 +1259,16 @@ function pageScript() {
                                     zIndex: 2
                                 });
                                 gsap.set(item[0], {
-                                    x: "20%",
-                                    y:0,
+                                    x: "0%",
+                                    y:"0%",
                                 });
                                 gsap.set(item[1], {
-                                    x: "30%",
-                                    y:0,
+                                    x: "60%",
+                                    y:"15%",
                                 });
                                 gsap.set(item[2], {
-                                    x: "25%",
-                                    y:"5%",
+                                    x: "35%",
+                                    y:"35%",
                                 });
                             } else {
                                 gsap.set(el, {
