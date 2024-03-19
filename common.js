@@ -1210,7 +1210,7 @@ function pageScript() {
                     if (duration == 0) {
                         duration = 1;
                     }
-                    if (isMobile) {
+                    if (isMob) {
                         count = 1;
                     }
                     i = count;
@@ -1231,7 +1231,7 @@ function pageScript() {
                             width: gsap.utils.random(35, 48, 5) + "%"
                         });
                         if (i < count) {
-                            if (!isMobile) {
+                            if (!isMob) {
                                 let center = {
                                     x: window.innerWidth / 2 - el.clientWidth / 2,
                                     y: window.innerHeight / 2 - el.clientHeight / 2,
