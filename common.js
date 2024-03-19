@@ -1337,23 +1337,26 @@ function pageScript() {
         }
 
         // Sticky Left
-        let stickyBox = document.querySelector('.dtls_lft_box');
-        let stickyAnim = gsap.to(stickyBox, {
-            yPercent: 15,
-            ease: 'none',
-            scroller: isDekstop ? pageContainer : window,
-        });
-        ScrollTrigger.create({
-            trigger: $(".dtls_cntnt_row"),
-            start: "top top",
-            end: "bottom bottom",
-            // markers: true,
-            scrub: 1,
-            pin: stickyBox,
-            pinSpacing: false,
-            animation: stickyAnim,
-            scroller: isDekstop ? pageContainer : window,
-        });
+        if(!isMob){
+            let stickyBox = document.querySelector('.dtls_lft_box');
+            let stickyAnim = gsap.to(stickyBox, {
+                yPercent: 35,
+                ease: 'none',
+                scroller: isDekstop ? pageContainer : window,
+            });
+            ScrollTrigger.create({
+                trigger: $(".dtls_cntnt_row"),
+                start: "top top",
+                end: "bottom bottom",
+                // markers: true,
+                scrub: 1,
+                anticipatePin:1,
+                pin: stickyBox,
+                pinSpacing: false,
+                animation: stickyAnim,
+                scroller: isDekstop ? pageContainer : window,
+            });
+        }
         // Onclick Hamburger Add class to Body
         document.querySelector(".ham_bttn")?.addEventListener("click", () => {
             document.querySelector("body").classList.toggle("menu-open");
