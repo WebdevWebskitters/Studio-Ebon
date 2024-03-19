@@ -1281,11 +1281,11 @@ function pageScript() {
                                 });
                                 gsap.set(item[1], {
                                     x: center.x + 100,
-                                    y: center.y - 50,
+                                    y: center.y - 30,
                                 });
                                 gsap.set(item[2], {
                                     x: center.x,
-                                    y: center.y + 100,
+                                    y: center.y + 200,
                                 });
                             } else {
                                 gsap.set(el, {
