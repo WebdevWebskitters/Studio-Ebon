@@ -284,7 +284,7 @@ function pageScript() {
 
         //Swiper Slider With Custom Arrow
         var swiper = new Swiper(".clnt_sldr", {
-            slidesPerView: 1.5,
+            slidesPerView: 2.5,
             grabCursor: true,
             spaceBetween: '4%',
             // centeredSlides: true,
@@ -632,7 +632,7 @@ function pageScript() {
         var swiper = new Swiper(".cultre_sldr", {
             slidesPerView: 1.5,
             grabCursor: true,
-            spaceBetween: '1.5%',
+            spaceBetween: '2.5%',
             // centeredSlides: true,
             loop: false,
             pagination: {
@@ -651,7 +651,7 @@ function pageScript() {
         var swiper = new Swiper(".tem_sldr", {
             slidesPerView: 1.5,
             grabCursor: true,
-            spaceBetween: '1.5%',
+            spaceBetween: '2.5%',
             loop: false,
             navigation: {
                 nextEl: ".swiper-button-next",
