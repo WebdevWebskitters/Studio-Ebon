@@ -1277,15 +1277,15 @@ function pageScript() {
 
                                 gsap.set(item[0], {
                                     x: center.x - "50%",
-                                    y: center.y + 52
+                                    y: center.y  - "48%"
                                 });
                                 gsap.set(item[1], {
-                                    x: center.x - 150,
-                                    y: center.y - 52
+                                    x: center.x - "10%",
+                                    y: center.y - "32%"
                                 });
                                 gsap.set(item[2], {
                                     x: center.x,
-                                    y: center.y
+                                    y: center.y + "40%"
                                 });
                             } else {
                                 gsap.set(el, {
