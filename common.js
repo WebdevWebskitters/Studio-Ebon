@@ -1276,12 +1276,12 @@ function pageScript() {
                                 });
 
                                 gsap.set(item[0], {
-                                    x: center.x - 300,
-                                    y: center.y - 300,
+                                    x: center.x - 400,
+                                    y: center.y - 100,
                                 });
                                 gsap.set(item[1], {
-                                    x: center.x + 200,
-                                    y: center.y - 100,
+                                    x: center.x + 100,
+                                    y: center.y - 50,
                                 });
                                 gsap.set(item[2], {
                                     x: center.x,
