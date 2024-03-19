@@ -1258,15 +1258,15 @@ function pageScript() {
                                     transformOrigin: "50% 50%",
                                     zIndex: 2
                                 });
-                                gsap.set(el[0], {
+                                gsap.set(item[0], {
                                     x: "20%",
                                     y:0,
                                 });
-                                gsap.set(el[1], {
+                                gsap.set(item[1], {
                                     x: "30%",
                                     y:0,
                                 });
-                                gsap.set(el[2], {
+                                gsap.set(item[2], {
                                     x: "25%",
                                     y:"5%",
                                 });
