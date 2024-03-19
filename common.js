@@ -1276,7 +1276,7 @@ function pageScript() {
                                 });
 
                                 gsap.set(item[0], {
-                                    x: center.x + 150,
+                                    x: center.x - "50%",
                                     y: center.y + 52
                                 });
                                 gsap.set(item[1], {
