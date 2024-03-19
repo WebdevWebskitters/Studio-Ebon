@@ -621,32 +621,34 @@ function pageScript() {
             })
         }
         //parallax Background
-        if ($("[data-parallax]").length) {
-            $("[data-parallax]").each(function () {
-                let pr_this = $(this);
-                let pr_val = Number(pr_this.attr("data-parallax"));
-                if (pr_this.find(".parallax_bg").length) {
-                    gsap.set(pr_this.find(".parallax_bg"), {
-                        yPercent: -pr_val,
-                        height: 100 + pr_val + "%",
-                    });
-
-                    gsap.to(pr_this.find(".parallax_bg"), {
-                        yPercent: pr_val,
-                        duration: 1,
-                        ease: "none",
-                        scrollTrigger: {
-                            trigger: pr_this,
-                            start: "top bottom",
-                            end: "bottom top",
-                            scrub: 1.3,
-                            invalidateOnRefresh: true,
-                            scroller: isDekstop ? pageContainer : window,
-                            // markers: true,
-                        },
-                    });
-                }
-            })
+        if(!isMob){
+            if ($("[data-parallax]").length) {
+                $("[data-parallax]").each(function () {
+                    let pr_this = $(this);
+                    let pr_val = Number(pr_this.attr("data-parallax"));
+                    if (pr_this.find(".parallax_bg").length) {
+                        gsap.set(pr_this.find(".parallax_bg"), {
+                            yPercent: -pr_val,
+                            height: 100 + pr_val + "%",
+                        });
+    
+                        gsap.to(pr_this.find(".parallax_bg"), {
+                            yPercent: pr_val,
+                            duration: 1,
+                            ease: "none",
+                            scrollTrigger: {
+                                trigger: pr_this,
+                                start: "top bottom",
+                                end: "bottom top",
+                                scrub: 1.3,
+                                invalidateOnRefresh: true,
+                                scroller: isDekstop ? pageContainer : window,
+                                // markers: true,
+                            },
+                        });
+                    }
+                })
+            }
         }
         //Swiper Slider With Custom Arrow 2
         var swiper = new Swiper(".cultre_sldr", {
