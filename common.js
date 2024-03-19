@@ -1222,7 +1222,7 @@ function pageScript() {
                     [...item].map((el, i) => {
                         gsap.set(el, {
                             opacity: 0,
-                            position: "absolute",
+                            position: isMob ? "relative" : "absolute",
                             left: 0,
                             top: 0,
                             scale: 0.8,
@@ -1289,8 +1289,8 @@ function pageScript() {
                             zIndex: 0
                         });
                         gsap.set(item[i], {
-                            x: pos.x - item[i].clientWidth / 2,
-                            y: pos.y - item[i].clientHeight / 2,
+                            x: () => isMob ? 0 : pos.x - item[i].clientWidth / 2,
+                            y: isMob ? 0 : pos.y - item[i].clientHeight / 2,
                             scale: 0.8,
                             zIndex: 1
                         });
