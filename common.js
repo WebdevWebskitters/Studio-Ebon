@@ -1258,6 +1258,18 @@ function pageScript() {
                                     transformOrighin: "50% 50%",
                                     zIndex: 2
                                 });
+                                gsap.set(el[0], {
+                                    x: "20%",
+                                    y:0,
+                                });
+                                gsap.set(el[1], {
+                                    x: "30%",
+                                    y:0,
+                                });
+                                gsap.set(el[2], {
+                                    x: "25%",
+                                    y:"5%",
+                                });
                             } else {
                                 gsap.set(el, {
                                     opacity: 1,
