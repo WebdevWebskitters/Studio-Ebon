@@ -693,12 +693,12 @@ function pageScript() {
 
         let cursorXYZ = document.querySelector('.play_cursor');
         let playBttn = document.querySelector('.ply_bttn');
-        if(!isMob){
+        if (!isMob) {
             document.querySelector(".mob_ply")?.remove();
             document.querySelector(".play_cursor_mob")?.remove();
         }
-        if(isMob){
-             document.querySelector(".dsktp_ply")?.remove();
+        if (isMob) {
+            document.querySelector(".dsktp_ply")?.remove();
             document.querySelector(".ply_dsktop")?.remove();
         }
         audioBox.forEach((el) => {
@@ -799,26 +799,26 @@ function pageScript() {
         });
 
         // Orbit Animation
-        if(isMob){
+        if (isMob) {
 
 
             let circle = document?.querySelector('.crcle_anim');
             let circleOuter = document?.querySelector('.orbt_wrp');
             let sectionAnim = document?.querySelectorAll('.mthd_idea_box');
             let orbitAnim = document?.querySelectorAll('.ech_orbt_section');
-    
+
             let circleHeight = circleOuter?.offsetHeight;
             let halfWidth = circleOuter?.offsetWidth / 2;
             let halfCircleWidth = circle?.offsetWidth / 2
-    
+
             let circleAnimation = gsap.to(circle, {
                 translateX: `${halfWidth - halfCircleWidth}px`,
-                translateY: () => isDekstop ? `${circle?.offsetHeight / 3}px`: `${circle?.offsetHeight / 2}px`,
+                translateY: () => isDekstop ? `${circle?.offsetHeight / 3}px` : `${circle?.offsetHeight / 2}px`,
                 scale: 0.75,
                 ease: 'none',
                 scroller: isDekstop ? pageContainer : window,
             });
-    
+
             ScrollTrigger.create({
                 trigger: sectionAnim,
                 start: "top top",
@@ -828,14 +828,14 @@ function pageScript() {
                 animation: circleAnimation,
                 scroller: isDekstop ? pageContainer : window,
             });
-    
+
             let dotAnim = document.querySelectorAll('.crcle_dot');
-    
+
             function addRemove(i) {
                 $(dotAnim).removeClass("active");
                 dotAnim[i].classList.add('active');
             }
-    
+
             orbitAnim.forEach((el, i) => {
                 ScrollTrigger.create({
                     trigger: el,
@@ -866,21 +866,21 @@ function pageScript() {
                     },
                     // markers: true,
                 })
-    
+
             })
         }
         let navLinks = document.querySelectorAll('.nxt_stp_lnk');
         navLinks.forEach((btn, index) => {
             btn.addEventListener("click", () => {
-                if(isDekstop){
+                if (isDekstop) {
                     locoScroll.scrollTo("#orbit-" + (index + 1));
                     locoScroll.update();
-                }else{
+                } else {
                     gsap.to(window, {
-                    duration: 1,
-                    scrollTo: { y: "#orbit-" + (index + 1), offsetY: 0 },
-                    // scroller: isDekstop ? pageContainer : window,
-                });
+                        duration: 1,
+                        scrollTo: { y: "#orbit-" + (index + 1), offsetY: 0 },
+                        // scroller: isDekstop ? pageContainer : window,
+                    });
                 }
             });
         });
@@ -1202,15 +1202,16 @@ function pageScript() {
                 const totalLn = item.length;
                 var count = parseInt(imgWrapper.getAttribute("click_gallery"), 0);
                 var duration = Number(imgWrapper.getAttribute("data-time"));
-                if(isMob){
-                    count = 0;
-                }
+
                 if (count + 1 < totalLn) {
                     if (isNaN(count)) {
                         count = Math.floor(totalLn / 2);
                     }
                     if (duration == 0) {
                         duration = 1;
+                    }
+                    if (isMobile) {
+                        count = 1;
                     }
                     i = count;
 
@@ -1225,27 +1226,20 @@ function pageScript() {
                             left: 0,
                             top: 0,
                             scale: 0.8,
-                            // transformOrighin: "50% 50%",
+                            transformOrighin: "50% 50%",
                             zIndex: 0,
-                            width: () => isMob? gsap.utils.random(35, 48, 5) + "%": "100%",
-                            // width:
-                            //   (getRandomNumber(
-                            //     window.innerWidth / count,
-                            //     window.innerWidth / 2
-                            //   ) /
-                            //     window.innerWidth) *
-                            //     100 +
-                            //   "%",
+                            width: gsap.utils.random(35, 48, 5) + "%"
                         });
                         if (i < count) {
-                            let center = {
-                                x: window.innerWidth / 2 - el.clientWidth / 2,
-                                y: window.innerHeight / 2 - el.clientHeight / 2,
-                                xOffset: window.innerWidth / (count * 2),
-                                yOffset: window.innerHeight / (count * 2),
-                            };
-                            if(isMob){
+                            if (!isMobile) {
+                                let center = {
+                                    x: window.innerWidth / 2 - el.clientWidth / 2,
+                                    y: window.innerHeight / 2 - el.clientHeight / 2,
+                                    xOffset: window.innerWidth / (count * 2),
+                                    yOffset: window.innerHeight / (count * 2)
+                                };
                                 gsap.set(el, {
+                                    opacity: 1,
                                     x:
                                         center.x +
                                         gsap.utils.random(
@@ -1262,55 +1256,37 @@ function pageScript() {
                                         ),
                                     scale: 1,
                                     transformOrighin: "50% 50%",
-                                    zIndex: 2,
+                                    zIndex: 2
                                 });
-                                gsap.set(el[0], {
+                            } else {
+                                gsap.set(el, {
                                     opacity: 1,
-                                    xPercent:2,
-                                    yPercent:0,
-                                });
-                                gsap.set(el[1], {
-                                    opacity: 1,
-                                    xPercent:2,
-                                    yPercent:0,
-                                });
-                                gsap.set(el[2], {
-                                    opacity: 1,
-                                    xPercent:2,
-                                    yPercent:0,
-                                });
-                            }else{
-                                gsap.set(el[0], {
-                                    opacity: 1,
-                                    xPercent:0,
-                                    yPercent:0,
+                                    x: 0,
+                                    y: 0,
                                     scale: 1,
                                     transformOrighin: "50% 50%",
-                                    zIndex: 2,
-                                }); 
+                                    zIndex: 2
+                                });
                             }
                             el.classList.add("active");
-                            gsap.set(el, {
-                                opacity: 1,
-                            })    
                         }
                     });
 
                     function callImg(i, pos) {
                         gsap.set(item, {
-                            zIndex: 0,
+                            zIndex: 0
                         });
                         gsap.set(item[i], {
                             x: pos.x - item[i].clientWidth / 2,
                             y: pos.y - item[i].clientHeight / 2,
                             scale: 0.8,
-                            zIndex: 1,
+                            zIndex: 1
                         });
                         gsap.to(item[i], {
                             opacity: 1,
                             scale: 1,
                             transformOrighin: "50% 50%",
-                            ease: "Power3.easeOut",
+                            ease: "Power3.easeOut"
                         });
                         item[i].classList.add("active");
 
@@ -1327,14 +1303,14 @@ function pageScript() {
                             gsap.to(item[k], {
                                 opacity: 0,
                                 scale: 0.8,
-                                ease: "Power3.easeOut",
+                                ease: "Power3.easeOut"
                             });
                             item[k].classList.remove("active");
                         }
                     }
 
                     gsap.set(list, {
-                        opacity: 1,
+                        opacity: 1
                     });
                     imgWrapper.addEventListener("click", (e) => {
                         var pos = { x: e.clientX, y: e.clientY };
