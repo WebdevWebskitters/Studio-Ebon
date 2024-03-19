@@ -1325,7 +1325,7 @@ function pageScript() {
                         opacity: 1
                     });
                     imgWrapper.addEventListener("click", (e) => {
-                        var pos = { x: e.clientX, y: e.clientY };
+                        var pos = isMob ?  { x: 0, y: 0 } : { x: e.clientX, y: e.clientY };
                         callImg(i, pos);
                         i++;
                         if (i >= totalLn) {
