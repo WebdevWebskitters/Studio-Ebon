@@ -218,10 +218,20 @@ function pageScript() {
             if ($(".bnr_hdng_wrp").length) {
                 $(".bnr_hdng_wrp").each(function () {
                     let ele = $(this);
-                    gsap.set([ele?.find('.hdng_anim'), ele?.find('.hdng_info_txt')], {
-                        translateY: "100%",
-                        transformStyle: "preserve-3d",
-                    });
+                    if ($(".hdng_anim").length) {
+                        gsap.set(ele.find('.hdng_anim'), {
+                            translateY: "100%",
+                            transformStyle: "preserve-3d",
+                        });
+
+                    }    
+                    if ($(".hdng_anim").length) {
+                        gsap.set(ele.find('.hdng_info_txt'), {
+                            translateY: "100%",
+                            transformStyle: "preserve-3d",
+                        });
+
+                    }  
                     var t1 = gsap.timeline({
                         repeat: 0,
 
@@ -241,10 +251,20 @@ function pageScript() {
             if ($(".inner_bnnr").length) {
                 $(".inner_bnnr").each(function () {
                     let ele = $(this);
-                    gsap.set([ele?.find('.hdng_anim'), ele?.find('.hdng_info_txt')], {
-                        translateY: "100%",
-                        transformStyle: "preserve-3d",
-                    });
+                    if ($(".hdng_anim").length) {
+                        gsap.set(ele.find('.hdng_anim'), {
+                            translateY: "100%",
+                            transformStyle: "preserve-3d",
+                        });
+
+                    }    
+                    if ($(".hdng_anim").length) {
+                        gsap.set(ele.find('.hdng_info_txt'), {
+                            translateY: "100%",
+                            transformStyle: "preserve-3d",
+                        });
+
+                    }  
                     var t1 = gsap.timeline({
                         repeat: 0,
                     })
