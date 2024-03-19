@@ -1226,7 +1226,7 @@ function pageScript() {
                             left: 0,
                             top: 0,
                             scale: 0.8,
-                            transformOrighin: "50% 50%",
+                            transformOrigin: "50% 50%",
                             zIndex: 0,
                             width: gsap.utils.random(35, 48, 5) + "%"
                         });
@@ -1240,22 +1240,22 @@ function pageScript() {
                                 };
                                 gsap.set(el, {
                                     opacity: 1,
-                                    x:
-                                        center.x +
-                                        gsap.utils.random(
-                                            -center.xOffset,
-                                            center.xOffset,
-                                            center.xOffset / 2
-                                        ),
-                                    y:
-                                        center.y +
-                                        gsap.utils.random(
-                                            -center.yOffset,
-                                            center.yOffset,
-                                            center.yOffset / 2
-                                        ),
+                                    // x:
+                                    //     center.x +
+                                    //     gsap.utils.random(
+                                    //         -center.xOffset,
+                                    //         center.xOffset,
+                                    //         center.xOffset / 2
+                                    //     ),
+                                    // y:
+                                    //     center.y +
+                                    //     gsap.utils.random(
+                                    //         -center.yOffset,
+                                    //         center.yOffset,
+                                    //         center.yOffset / 2
+                                    //     ),
                                     scale: 1,
-                                    transformOrighin: "50% 50%",
+                                    transformOrigin: "50% 50%",
                                     zIndex: 2
                                 });
                                 gsap.set(el[0], {
