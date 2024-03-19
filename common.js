@@ -288,12 +288,12 @@ function pageScript() {
         var swiper = new Swiper(".trstd_sldr", {
             loop: true,
             freeMode: true,
-            spaceBetween: '6%',
+            spaceBetween: '10%',
             autoplay: {
                 delay: 0,
             },
             speed: 3000,
-            slidesPerView: 3,
+            slidesPerView: 2,
             breakpoints: {
                 768: {
                     slidesPerView: 6,
@@ -304,7 +304,7 @@ function pageScript() {
 
         //Swiper Slider With Custom Arrow
         var swiper = new Swiper(".clnt_sldr", {
-            slidesPerView: 1.5,
+            slidesPerView: 1.15,
             grabCursor: true,
             spaceBetween: '5%',
             // centeredSlides: true,
