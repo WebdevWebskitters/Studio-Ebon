@@ -1263,12 +1263,12 @@ function pageScript() {
                                     y:"0%",
                                 });
                                 gsap.set(item[1], {
-                                    x: "60%",
+                                    x: "70%",
                                     y:"15%",
                                 });
                                 gsap.set(item[2], {
-                                    x: "35%",
-                                    y:"35%",
+                                    x: "42%",
+                                    y:"57%",
                                 });
                             } else {
                                 gsap.set(el, {
