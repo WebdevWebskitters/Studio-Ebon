@@ -1276,16 +1276,16 @@ function pageScript() {
                                 });
 
                                 gsap.set(item[0], {
-                                    x: center.x - "5vw",
-                                    y: center.y - "8vw"
+                                    x: center.x - 300,
+                                    y: center.y - 300,
                                 });
                                 gsap.set(item[1], {
-                                    x: center.x - "10vw",
-                                    y: center.y - "20vw"
+                                    x: center.x + 200,
+                                    y: center.y - 100,
                                 });
                                 gsap.set(item[2], {
                                     x: center.x,
-                                    y: center.y + "15vw"
+                                    y: center.y + 100,
                                 });
                             } else {
                                 gsap.set(el, {
