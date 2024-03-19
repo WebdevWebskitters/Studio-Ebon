@@ -819,18 +819,15 @@ function pageScript() {
         });
 
         // Orbit Animation
-        if (isMob) {
-
-
-            let circle = document?.querySelector('.crcle_anim');
-            let circleOuter = document?.querySelector('.orbt_wrp');
-            let sectionAnim = document?.querySelectorAll('.mthd_idea_box');
-            let orbitAnim = document?.querySelectorAll('.ech_orbt_section');
-
-            let circleHeight = circleOuter?.offsetHeight;
-            let halfWidth = circleOuter?.offsetWidth / 2;
-            let halfCircleWidth = circle?.offsetWidth / 2
-
+        let circle = document?.querySelector('.crcle_anim');
+        let circleOuter = document?.querySelector('.orbt_wrp');
+        let sectionAnim = document?.querySelectorAll('.mthd_idea_box');
+        let orbitAnim = document?.querySelectorAll('.ech_orbt_section');
+        let circleHeight = circleOuter?.offsetHeight;
+        let halfWidth = circleOuter?.offsetWidth / 2;
+        let halfCircleWidth = circle?.offsetWidth / 2
+        
+        if (!isMob) {
             let circleAnimation = gsap.to(circle, {
                 translateX: `${halfWidth - halfCircleWidth}px`,
                 translateY: () => isDekstop ? `${circle?.offsetHeight / 3}px` : `${circle?.offsetHeight / 2}px`,
@@ -1359,8 +1356,8 @@ function pageScript() {
         // Sticky Left
         if(!isMob){
             let stickyBox = document.querySelector('.dtls_lft_box');
-            let stickyAnim = gsap.set(stickyBox, {
-                yPercent: 35,
+            let stickyAnim = gsap.to(stickyBox, {
+                yPercent: 25,
                 ease: 'none',
                 scroller: isDekstop ? pageContainer : window,
             });
