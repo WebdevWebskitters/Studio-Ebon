@@ -218,7 +218,7 @@ function pageScript() {
             if ($(".bnr_hdng_wrp").length) {
                 $(".bnr_hdng_wrp").each(function () {
                     let ele = $(this);
-                    gsap.set([ele.find('.hdng_anim'), ele.find('.hdng_info_txt')], {
+                    gsap.set([ele?.find('.hdng_anim'), ele?.find('.hdng_info_txt')], {
                         translateY: "100%",
                         transformStyle: "preserve-3d",
                     });
@@ -241,7 +241,7 @@ function pageScript() {
             if ($(".inner_bnnr").length) {
                 $(".inner_bnnr").each(function () {
                     let ele = $(this);
-                    gsap.set([ele.find('.hdng_anim'), ele.find('.hdng_info_txt')], {
+                    gsap.set([ele?.find('.hdng_anim'), ele?.find('.hdng_info_txt')], {
                         translateY: "100%",
                         transformStyle: "preserve-3d",
                     });
@@ -1325,7 +1325,7 @@ function pageScript() {
                         opacity: 1
                     });
                     imgWrapper.addEventListener("click", (e) => {
-                        var pos = isMob ?  { x: 0, y: 0 } : { x: e.clientX, y: e.clientY };
+                        var pos = !isMob ? { x: e.clientX, y: e.clientY } : { x: 0, y: 0 };
                         callImg(i, pos);
                         i++;
                         if (i >= totalLn) {
@@ -1339,7 +1339,7 @@ function pageScript() {
         // Sticky Left
         if(!isMob){
             let stickyBox = document.querySelector('.dtls_lft_box');
-            let stickyAnim = gsap.to(stickyBox, {
+            let stickyAnim = gsap.set(stickyBox, {
                 yPercent: 35,
                 ease: 'none',
                 scroller: isDekstop ? pageContainer : window,
