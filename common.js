@@ -741,7 +741,7 @@ function pageScript() {
             })
         });
 
-        // Audio Text Sync
+        //Audio Text Sync
         const target = document?.querySelectorAll(".play_text>div"),
             audio = document?.querySelector("audio"),
             btn = document?.querySelector(".play_cursor"), audioPlayBox = document.querySelector('.aud_txt_box');
@@ -755,7 +755,17 @@ function pageScript() {
                     duration: 0.5
                 }
             }),
-                tl_main = gsap.timeline();
+                tl_main = gsap.timeline({
+                    onComplete: stop
+                });
+
+            function stop() {
+                audio.pause();
+                audio.currentTime = 0;
+                tl_main.progress(1);
+                tl_main.pause();
+                btn.classList.remove('playing');
+            }
             target.forEach(function (el) {
                 gsap.set(el, {
                     xPercent: -100,
@@ -785,16 +795,17 @@ function pageScript() {
                 .pause();
 
             audioPlayBox?.addEventListener("click", function () {
-                if (!tl_main.isActive()) {
-                    audio.play();
-                    tl_main.restart();
-                    // btn.innerHTML = "now playing";
-                    btn.classList.add('playing');
-                } else {
+                if (tl_main.progress() < 0.98) {
+                    if (!tl_main.isActive()) {
+                        audio.play();
+                        tl_main.play();
+                        btn.classList.add('playing');
+                    }
+                }
+                else {
                     audio.currentTime = 0;
                     audio.pause();
                     tl_main.pause();
-                    // btn.innerHTML = "play";
                     btn.classList.remove('playing');
                 }
             });
@@ -804,7 +815,6 @@ function pageScript() {
                 audio.currentTime = 0;
                 tl_main.pause();
                 tl_main.progress(0);
-                //btn.innerHTML = "play";
             });
         }
         let goToLinks = gsap.utils.toArray('.hw_lnk');
