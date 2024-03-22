@@ -1276,16 +1276,16 @@ function pageScript() {
                                 });
 
                                 gsap.set(item[0], {
-                                    x: center.x - 400,
-                                    y: center.y - 100,
+                                    x:() => (window.innerWidth < 1200)? center.x - 400 :  center.x - 100,
+                                    y: () => (window.innerWidth < 1200)? center.y - 400 :  center.y - 10,
                                 });
                                 gsap.set(item[1], {
-                                    x: center.x + 100,
-                                    y: center.y - 30,
+                                    x:() => (window.innerWidth < 1200)? center.x + 100 :  center.x + 40,
+                                    y: () => (window.innerWidth < 1200)? center.y - 30 :  center.y - 5,
                                 });
                                 gsap.set(item[2], {
-                                    x: center.x,
-                                    y: center.y + 200,
+                                    x:center.x + 40,
+                                    y: () => (window.innerWidth < 1200)? center.y + 200 :  center.y,
                                 });
                             } else {
                                 gsap.set(el, {
