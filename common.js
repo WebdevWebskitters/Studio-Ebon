@@ -1277,7 +1277,7 @@ function pageScript() {
 
                                 gsap.set(item[0], {
                                     x:() => (window.innerWidth > 1200)? center.x - 400 :  center.x - 100,
-                                    y: () => (window.innerWidth > 1200)? center.y - 400 :  center.y - 10,
+                                    y: () => (window.innerWidth > 1200)? center.y - 100 :  center.y - 10,
                                 });
                                 gsap.set(item[1], {
                                     x:() => (window.innerWidth > 1200)? center.x + 100 :  center.x + 40,
