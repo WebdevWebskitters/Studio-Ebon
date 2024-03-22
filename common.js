@@ -719,6 +719,9 @@ function pageScript() {
             document.querySelector(".mob_ply")?.remove();
             document.querySelector(".play_cursor_mob")?.remove();
         }
+        if (!desktop) {
+            document.querySelector(".ply_dsktop")?.remove();
+        }
         if (isMob) {
             document.querySelector(".dsktp_ply")?.remove();
             document.querySelector(".ply_dsktop")?.remove();
