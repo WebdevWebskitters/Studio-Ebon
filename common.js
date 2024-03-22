@@ -1385,6 +1385,13 @@ function pageScript() {
         document.querySelector(".ham_bttn")?.addEventListener("click", () => {
             document.querySelector("body").classList.toggle("menu-open");
         })
+        // Set Vh value in html according to screen height
+        function winHeightVh (){
+            vhVal = window.innerHeight / 100;
+            document.querySelector("html").style.setProperty('--vh', `${vhVal}`);
+        }
+        winHeightVh();
+        window.addEventListener('resize',winHeightVh,false);
         //end ready
 
         //// page loader
