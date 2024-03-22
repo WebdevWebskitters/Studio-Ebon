@@ -719,7 +719,7 @@ function pageScript() {
             document.querySelector(".mob_ply")?.remove();
             document.querySelector(".play_cursor_mob")?.remove();
         }
-        if (!desktop) {
+        if (!isDesktop) {
             document.querySelector(".ply_dsktop")?.remove();
         }
         if (isMob) {
