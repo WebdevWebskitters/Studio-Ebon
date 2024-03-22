@@ -1388,7 +1388,7 @@ function pageScript() {
         // Set Vh value in html according to screen height
         function winHeightVh (){
             let vhVal = window.innerHeight / 100;
-            document.querySelector("html").style.setProperty('--vh', `${vhVal}`);
+            document.querySelector("html").style.setProperty('--vh', `${vhVal}px`);
         }
         winHeightVh();
         window.addEventListener('resize',winHeightVh,false);
